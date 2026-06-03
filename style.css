@@ -89,6 +89,37 @@ nav.scrolled {
   box-shadow: 0 2px 16px rgba(0,0,0,0.08);
 }
 
+.nav-logo-img {
+  height: 45px;
+  border-radius: 8px;
+  background: #000;
+  padding: 3px;
+  display: block;
+  object-fit: contain;
+}
+.ft-logo-img {
+  height: 55px;
+  border-radius: 8px;
+  background: #000;
+  padding: 4px;
+  display: block;
+  object-fit: contain;
+}
+.ft-logo {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
+  gap: .75rem;
+}
+.page-hero-logo {
+  height: 60px;
+  border-radius: 8px;
+  background: #000;
+  padding: 4px;
+  display: block;
+  margin: 0 auto 1.2rem;
+  object-fit: contain;
+}
 .nav-logo {
   display: flex;
   align-items: center;
