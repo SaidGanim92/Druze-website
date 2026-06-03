@@ -88,15 +88,17 @@
   </div>
   <div class="hero-content">
     <div class="badge stag" data-ar="★ &nbsp;مبادرتان · روح واحدة · رسالة واحدة" data-en="★ &nbsp;Two Initiatives · One Spirit · One Mission">★ &nbsp;مبادرتان · روح واحدة · رسالة واحدة</div>
-    <h1 class="hero-title stag d1" data-ar="صوت يصل&lt;br&gt;ويد تمتد" data-en="A Voice That Reaches&lt;br&gt;A Hand That Extends">صوت يصل<br>ويد تمتد</h1>
-    <a href="#campaign-gallery" class="float-card fc-right" onclick="event.preventDefault();document.getElementById('campaign-gallery').scrollIntoView({behavior:'smooth',block:'start'})" aria-label="شاهد الحملة">
-      <img src="00001druze spirit.jpg" alt="متطوعون في نيويورك">
-      <span data-ar="Druze Spirit — حملة نيويورك ↓" data-en="Druze Spirit — New York Campaign ↓">Druze Spirit — حملة نيويورك ↓</span>
-    </a>
-    <a href="#vod-gallery" class="float-card fc-left" style="animation-delay:.9s" onclick="event.preventDefault();document.getElementById('vod-gallery').scrollIntoView({behavior:'smooth',block:'start'})" aria-label="شاهد الصور">
-      <img src="00004voiceofdruze.jpg" alt="يوم الفرح للأطفال">
-      <span data-ar="فريق الصوت الدرزي — يوم الفرح ↓" data-en="Voice of Druze — Day of Joy ↓">فريق الصوت الدرزي — يوم الفرح ↓</span>
-    </a>
+    <div class="hero-headline">
+      <a href="#vod-gallery" class="float-card fc-left" style="animation-delay:.9s" onclick="event.preventDefault();document.getElementById('vod-gallery').scrollIntoView({behavior:'smooth',block:'start'})" aria-label="شاهد الصور">
+        <img src="00004voiceofdruze.jpg" alt="يوم الفرح للأطفال">
+        <span data-ar="فريق الصوت الدرزي — يوم الفرح ↓" data-en="Voice of Druze — Day of Joy ↓">فريق الصوت الدرزي — يوم الفرح ↓</span>
+      </a>
+      <h1 class="hero-title stag d1" data-ar="صوت يصل&lt;br&gt;ويد تمتد" data-en="A Voice That Reaches&lt;br&gt;A Hand That Extends">صوت يصل<br>ويد تمتد</h1>
+      <a href="#campaign-gallery" class="float-card fc-right" onclick="event.preventDefault();document.getElementById('campaign-gallery').scrollIntoView({behavior:'smooth',block:'start'})" aria-label="شاهد الحملة">
+        <img src="00001druze spirit.jpg" alt="متطوعون في نيويورك">
+        <span data-ar="Druze Spirit — حملة نيويورك ↓" data-en="Druze Spirit — New York Campaign ↓">Druze Spirit — حملة نيويورك ↓</span>
+      </a>
+    </div>
     <p class="hero-sub stag d2" data-ar="Druze Spirit &amp;amp; فريق الصوت الدرزي · Voice Of Druze" data-en="Druze Spirit &amp;amp; Voice Of Druze">Druze Spirit &amp; فريق الصوت الدرزي · Voice Of Druze</p>
     <p class="hero-p stag d3" data-ar="صوت واحد يجمع بين الإعلام والعمل الإنساني من أجل السويداء وأبناء الطائفة الدرزية في كل مكان" data-en="One voice uniting media and humanitarian work for Sweida and the Druze community everywhere">صوت واحد يجمع بين الإعلام والعمل الإنساني من أجل السويداء وأبناء الطائفة الدرزية في كل مكان</p>
     <p class="hero-p2 stag d4">
@@ -295,11 +297,25 @@
 </footer>
 
 <style>
+/* Hero headline laid out as 3 columns: left card | centred title | right card.
+   The cards live in their own columns so they can never overlap the title. */
+.hero-content { max-width: 1060px; }
+.hero-headline {
+  display: grid;
+  grid-template-columns: 180px minmax(0, 1fr) 180px;
+  align-items: center;
+  gap: clamp(1.4rem, 4vw, 3.5rem);
+  max-width: 1060px;
+  margin: 0 auto 1.4rem;
+  direction: ltr; /* keep left card physically left, right card right */
+}
+.hero-headline .hero-title { margin-bottom: 0; }
+/* Keep the wide text blocks readable even though hero-content is now wider. */
+.hero-sub, .hero-btns, .tagline { max-width: 700px; margin-left: auto; margin-right: auto; }
+
 .float-card {
-  position: absolute;
-  top: 132px;
-  transform: translateY(-50%);
-  width: 128px;
+  width: 180px;
+  justify-self: center;
   background: #fff;
   border-radius: 18px;
   box-shadow: 0 6px 24px rgba(0,0,0,.13), 0 1px 4px rgba(0,0,0,.07);
@@ -309,18 +325,14 @@
   animation: fc-float 3.2s ease-in-out infinite;
   transition: box-shadow .25s, transform .25s;
 }
-/* Flank the hero title on the same line — one card just right of the
-   centred text, one just left of it (hero-content is position:relative). */
-.float-card.fc-right { left: calc(50% + 168px); right: auto; }
-.float-card.fc-left  { right: calc(50% + 168px); left: auto; }
 .float-card:hover {
   box-shadow: 0 12px 36px rgba(27,79,160,.22), 0 2px 8px rgba(0,0,0,.1);
   animation-play-state: paused;
-  transform: translateY(calc(-50% - 4px));
+  transform: translateY(-4px);
 }
 .float-card img {
   width: 100%;
-  height: 88px;
+  height: 110px;
   object-fit: cover;
   display: block;
 }
@@ -336,35 +348,23 @@
   direction: rtl;
 }
 @keyframes fc-float {
-  0%, 100% { transform: translateY(-50%); }
-  50%       { transform: translateY(calc(-50% - 9px)); }
-}
-@keyframes fc-float-mobile {
   0%, 100% { transform: translateY(0); }
   50%       { transform: translateY(-8px); }
 }
 @media (max-width: 960px) {
-  /* On mobile the cards drop into normal flow directly beneath the title,
-     side by side, with no gap above them. */
-  .hero-title { margin-bottom: 0; }
-  .float-card,
-  .float-card.fc-right,
-  .float-card.fc-left {
-    position: static;
-    display: inline-block;
-    vertical-align: top;
-    width: 130px;
-    left: auto;
-    right: auto;
-    margin: 0 .3rem .6rem;
-    animation-name: fc-float-mobile;
-    transform: none;
+  /* Mobile: title on its own row at the top, the two cards side by side below. */
+  .hero-headline {
+    grid-template-columns: repeat(2, minmax(0, 160px));
+    justify-content: center;
+    gap: .9rem;
   }
-  .float-card:hover { transform: translateY(-4px); }
+  .hero-headline .hero-title { grid-column: 1 / -1; grid-row: 1; margin-bottom: .4rem; }
+  .float-card.fc-left  { grid-column: 1; grid-row: 2; }
+  .float-card.fc-right { grid-column: 2; grid-row: 2; }
+  .float-card { width: 100%; }
 }
 @media (max-width: 360px) {
-  .float-card { width: 108px; }
-  .float-card img { height: 70px; }
+  .float-card img { height: 80px; }
 }
 
 .gallery-grid {
