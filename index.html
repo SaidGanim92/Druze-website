@@ -55,14 +55,15 @@
 
 <!-- MEMORIAL STRIP -->
 <style>
-  .siege-strip{display:flex;align-items:center;gap:1rem;max-width:880px;min-height:70px;margin:1.2rem auto 0;padding:.7rem 1.3rem;background:#fff;border:1px solid var(--border);border-right:4px solid #c0392b;border-radius:10px;box-shadow:var(--shadow-sm)}
+  /* margin-top clears the 68px position:fixed nav so the strip isn't hidden behind it */
+  .siege-strip{display:flex;align-items:center;gap:1rem;max-width:880px;min-height:64px;margin:calc(68px + 1.1rem) auto 0;padding:.7rem 1.3rem;background:#fff;border:1px solid var(--border);border-right:4px solid #c0392b;border-radius:10px;box-shadow:var(--shadow-sm)}
   .siege-strip__day{display:inline-flex;align-items:center;gap:.4rem;flex-shrink:0;font-size:1.05rem;font-weight:800;color:#c0392b;line-height:1}
   .siege-strip__day .heart{font-size:.95rem}
   .siege-strip__day .label{font-size:.7rem;font-weight:700;letter-spacing:.08em;color:var(--muted);text-transform:uppercase}
   .siege-strip__text{flex:1;text-align:center;font-size:.92rem;font-weight:600;color:#1a1a1a;direction:rtl;unicode-bidi:plaintext}
   .siege-strip__tag{flex-shrink:0;font-size:.78rem;font-weight:700;color:#c0392b;direction:ltr;unicode-bidi:plaintext}
   @media(max-width:560px){
-    .siege-strip{flex-wrap:wrap;justify-content:center;gap:.4rem .9rem;margin:.9rem 1rem 0;min-height:0}
+    .siege-strip{flex-wrap:wrap;justify-content:center;gap:.4rem .9rem;margin:calc(68px + .7rem) 1rem 0;min-height:0;padding:.8rem 1rem}
     .siege-strip__text{flex:1 1 100%;order:3;font-size:.85rem}
   }
 </style>
