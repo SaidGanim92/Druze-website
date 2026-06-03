@@ -66,6 +66,9 @@
     .siege-strip{flex-wrap:wrap;justify-content:center;gap:.4rem .9rem;margin:calc(68px + .7rem) 1rem 0;min-height:0;padding:.8rem 1rem}
     .siege-strip__text{flex:1 1 100%;order:3;font-size:.85rem}
   }
+  /* Strip already clears the fixed nav, so the hero no longer needs a big top
+     pad — tighten the gap between the strip and the hero to ~20px. */
+  #hero{padding-top:20px}
 </style>
 <section class="siege-strip" aria-label="تذكير — السويداء ما زالت محاصرة" role="region">
   <span class="siege-strip__day"><span class="heart" aria-hidden="true">🖤</span><span class="label" data-ar="اليوم" data-en="DAY">اليوم</span><span id="siege-day">…</span></span>
