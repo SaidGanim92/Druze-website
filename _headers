@@ -1,27 +1,38 @@
+# ──────────────────────────────────────────────────────────────────────────
+# HTTP security headers.
+#
+# NOTE: This file is honored ONLY by Netlify / Cloudflare Pages. The site is
+# currently hosted on GitHub Pages (CNAME: druzespirit.org), which does NOT
+# read `_headers` and cannot serve custom response headers. These headers are
+# therefore NOT active in production today. The browser-enforced protection
+# that IS active comes from the <meta http-equiv="Content-Security-Policy">
+# and <meta name="referrer"> tags in each HTML file.
+#
+# To make the headers below take effect, move hosting to Cloudflare Pages or
+# Netlify (or put Cloudflare in front of GitHub Pages). See SECURITY.md.
+# ──────────────────────────────────────────────────────────────────────────
+
 /*
-  # מניעת Clickjacking
+  # Clickjacking protection (only enforceable via a real header, not <meta>)
   X-Frame-Options: DENY
 
-  # מניעת MIME sniffing
+  # Block MIME-type sniffing
   X-Content-Type-Options: nosniff
 
-  # הגנת XSS
+  # Legacy XSS filter (modern browsers rely on CSP instead)
   X-XSS-Protection: 1; mode=block
 
-  # מדיניות Referrer
+  # Referrer policy
   Referrer-Policy: strict-origin-when-cross-origin
 
-  # מניעת גישה למצלמה/מיקרופון/GPS
+  # Disable powerful features the site never uses
   Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), magnetometer=(), accelerometer=()
 
-  # Content Security Policy — הכי חשוב
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://unpkg.com https://fonts.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://formspree.io; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self' https://formspree.io;
+  # Content Security Policy (header form also adds frame-ancestors, which <meta> cannot)
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://formspree.io; frame-src 'none'; frame-ancestors 'none'; object-src 'none'; base-uri 'self'; form-action 'self' https://formspree.io;
 
-  # HSTS — כפה HTTPS תמיד
+  # Force HTTPS for one year, including subdomains
   Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
 
-  # מניעת גישה לקבצים רגישים
+  # Restrict legacy cross-domain policy files
   X-Permitted-Cross-Domain-Policies: none
-
-  # הסתר מידע על השרת
-  Server: .
