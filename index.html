@@ -53,6 +53,32 @@
 
 <main id="main-content" tabindex="-1">
 
+<!-- MEMORIAL BANNER -->
+<style>
+  .siege-banner{max-width:680px;margin:1.6rem auto 0;padding:2.4rem 1.6rem 2rem;background:#fff;border:1px solid var(--border);border-radius:16px;box-shadow:var(--shadow);text-align:center;position:relative;overflow:hidden}
+  .siege-banner::before{content:"";position:absolute;inset:0 0 auto 0;height:4px;background:linear-gradient(90deg,#1a1a1a,#c0392b,#1a1a1a)}
+  .siege-ribbon{display:inline-flex;align-items:center;justify-content:center;gap:.4rem;background:#1a1a1a;color:#fff;font-size:1.05rem;line-height:1;padding:.5rem 1.4rem;border-radius:999px;margin-bottom:1.4rem;box-shadow:0 2px 10px rgba(0,0,0,.25)}
+  .siege-ribbon span{font-size:1.2rem}
+  .siege-day-label{font-size:.85rem;font-weight:700;letter-spacing:.12em;color:var(--muted);text-transform:uppercase;margin-bottom:.2rem}
+  .siege-day-num{font-size:clamp(3.2rem,14vw,5.5rem);font-weight:900;line-height:1;color:#c0392b;letter-spacing:-.02em}
+  .siege-title{font-size:clamp(1.3rem,5vw,2rem);font-weight:900;letter-spacing:.04em;color:#1a1a1a;margin:.9rem 0 .5rem}
+  .siege-sub{font-size:clamp(.95rem,3.4vw,1.15rem);font-weight:500;color:#1a1a1a;margin-bottom:1.3rem;direction:rtl}
+  .siege-tags{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:.5rem .7rem}
+  .siege-tags span{display:inline-block;font-size:.8rem;font-weight:700;color:#c0392b;background:rgba(192,57,43,.08);border:1px solid rgba(192,57,43,.2);border-radius:999px;padding:.32rem .8rem;direction:ltr;unicode-bidi:plaintext}
+  @media(max-width:480px){.siege-banner{margin:1rem 1rem 0;padding:2rem 1.1rem 1.6rem}}
+</style>
+<section class="siege-banner" aria-label="بانر تذكاري — السويداء" role="region">
+  <div class="siege-ribbon"><span aria-hidden="true">🖤</span><em style="font-style:normal" data-ar="في القلب دائماً" data-en="Always in our hearts">في القلب دائماً</em></div>
+  <div class="siege-day-label" data-ar="اليوم" data-en="DAY">اليوم</div>
+  <div class="siege-day-num"><span id="siege-day">…</span></div>
+  <div class="siege-title">SWEIDA STILL BESIEGED</div>
+  <div class="siege-sub" data-ar="كم يوماً آخر يجب أن يمرّ؟" data-en="How many more days must pass?">كم يوماً آخر يجب أن يمرّ؟</div>
+  <div class="siege-tags">
+    <span dir="rtl">#السويداء_مدينة_منكوبة</span>
+    <span>#JusticeForSweida</span>
+  </div>
+</section>
+
 <!-- HERO -->
 <section id="hero">
   <div class="hero-bg"></div>
@@ -67,18 +93,17 @@
     <span class="fs" style="top:92%;right:35%;color:#D42B2B;--d:6s;--delay:1.2s;--fs:.9rem">★</span>
     <span class="fs" style="top:30%;right:75%;color:#F5B800;--d:8.5s;--delay:.3s;--fs:.7rem">★</span>
   </div>
-  <a href="#campaign-gallery" class="float-card" onclick="event.preventDefault();document.getElementById('campaign-gallery').scrollIntoView({behavior:'smooth',block:'start'})" aria-label="شاهد الحملة">
-    <img src="00001druze spirit.jpg" alt="متطوعون في نيويورك">
-    <span data-ar="Druze Spirit — حملة نيويورك ↓" data-en="Druze Spirit — New York Campaign ↓">Druze Spirit — حملة نيويورك ↓</span>
-  </a>
-  <a href="#vod-gallery" class="float-card" style="left:4%;right:auto;animation-delay:.9s" onclick="event.preventDefault();document.getElementById('vod-gallery').scrollIntoView({behavior:'smooth',block:'start'})" aria-label="شاهد الصور">
-    <img src="00004voiceofdruze.jpg" alt="يوم الفرح للأطفال">
-    <span data-ar="فريق الصوت الدرزي — يوم الفرح ↓" data-en="Voice of Druze — Day of Joy ↓">فريق الصوت الدرزي — يوم الفرح ↓</span>
-  </a>
-
   <div class="hero-content">
     <div class="badge stag" data-ar="★ &nbsp;مبادرتان · روح واحدة · رسالة واحدة" data-en="★ &nbsp;Two Initiatives · One Spirit · One Mission">★ &nbsp;مبادرتان · روح واحدة · رسالة واحدة</div>
     <h1 class="hero-title stag d1" data-ar="صوت يصل&lt;br&gt;ويد تمتد" data-en="A Voice That Reaches&lt;br&gt;A Hand That Extends">صوت يصل<br>ويد تمتد</h1>
+    <a href="#campaign-gallery" class="float-card fc-right" onclick="event.preventDefault();document.getElementById('campaign-gallery').scrollIntoView({behavior:'smooth',block:'start'})" aria-label="شاهد الحملة">
+      <img src="00001druze spirit.jpg" alt="متطوعون في نيويورك">
+      <span data-ar="Druze Spirit — حملة نيويورك ↓" data-en="Druze Spirit — New York Campaign ↓">Druze Spirit — حملة نيويورك ↓</span>
+    </a>
+    <a href="#vod-gallery" class="float-card fc-left" style="animation-delay:.9s" onclick="event.preventDefault();document.getElementById('vod-gallery').scrollIntoView({behavior:'smooth',block:'start'})" aria-label="شاهد الصور">
+      <img src="00004voiceofdruze.jpg" alt="يوم الفرح للأطفال">
+      <span data-ar="فريق الصوت الدرزي — يوم الفرح ↓" data-en="Voice of Druze — Day of Joy ↓">فريق الصوت الدرزي — يوم الفرح ↓</span>
+    </a>
     <p class="hero-sub stag d2" data-ar="Druze Spirit &amp;amp; فريق الصوت الدرزي · Voice Of Druze" data-en="Druze Spirit &amp;amp; Voice Of Druze">Druze Spirit &amp; فريق الصوت الدرزي · Voice Of Druze</p>
     <p class="hero-p stag d3" data-ar="صوت واحد يجمع بين الإعلام والعمل الإنساني من أجل السويداء وأبناء الطائفة الدرزية في كل مكان" data-en="One voice uniting media and humanitarian work for Sweida and the Druze community everywhere">صوت واحد يجمع بين الإعلام والعمل الإنساني من أجل السويداء وأبناء الطائفة الدرزية في كل مكان</p>
     <p class="hero-p2 stag d4">
@@ -279,8 +304,7 @@
 <style>
 .float-card {
   position: absolute;
-  top: 44%;
-  right: 4%;
+  top: 132px;
   transform: translateY(-50%);
   width: 128px;
   background: #fff;
@@ -292,6 +316,10 @@
   animation: fc-float 3.2s ease-in-out infinite;
   transition: box-shadow .25s, transform .25s;
 }
+/* Flank the hero title on the same line — one card just right of the
+   centred text, one just left of it (hero-content is position:relative). */
+.float-card.fc-right { left: calc(50% + 168px); right: auto; }
+.float-card.fc-left  { right: calc(50% + 168px); left: auto; }
 .float-card:hover {
   box-shadow: 0 12px 36px rgba(27,79,160,.22), 0 2px 8px rgba(0,0,0,.1);
   animation-play-state: paused;
@@ -323,14 +351,19 @@
   50%       { transform: translateY(-8px); }
 }
 @media (max-width: 960px) {
-  #hero { flex-wrap: wrap; align-content: center; }
-  .hero-content { flex: 0 0 100%; order: 1; }
-  .float-card {
+  /* On mobile the cards drop into normal flow directly beneath the title,
+     side by side, with no gap above them. */
+  .hero-title { margin-bottom: 0; }
+  .float-card,
+  .float-card.fc-right,
+  .float-card.fc-left {
     position: static;
-    flex: 0 0 auto;
+    display: inline-block;
+    vertical-align: top;
     width: 130px;
-    order: 2;
-    margin: 1.2rem .4rem 0;
+    left: auto;
+    right: auto;
+    margin: 0 .3rem .6rem;
     animation-name: fc-float-mobile;
     transform: none;
   }
@@ -402,6 +435,15 @@ ham.addEventListener('click', () => {
   mob.setAttribute('aria-hidden', !open);
 });
 document.addEventListener('click', e => { if (!ham.contains(e.target) && !mob.contains(e.target) && e.target.id !== 'lang-toggle') { ham.classList.remove('open'); mob.classList.remove('open'); ham.setAttribute('aria-expanded','false'); mob.setAttribute('aria-hidden','true'); } });
+
+// Siege day counter — auto-updates daily
+(function(){
+  const siegeStart = new Date('2025-07-13');
+  const today = new Date();
+  const dayNumber = Math.floor((today - siegeStart) / (1000 * 60 * 60 * 24)) + 1;
+  const el = document.getElementById('siege-day');
+  if (el) el.textContent = dayNumber;
+})();
 
 // Nav scroll shadow
 const navEl = document.querySelector('nav');
