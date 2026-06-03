@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Druze Spirit — الذراع الإعلامية</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.page-hero.ds-hero { background: var(--bg3); }
+.page-hero.ds-hero .bg-glow { background: radial-gradient(ellipse 70% 60% at 50% 0%, rgba(90,171,220,.14) 0, transparent 70%); }
+.page-title.ds { background: linear-gradient(140deg, var(--text) 20%, var(--ds-blue) 55%, var(--text) 90%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.ds-header-row { display: flex; align-items: center; gap: .7rem; margin-bottom: .5rem; }
+.pillar-card { background: #ffffff; border: 1px solid var(--border); border-radius: var(--r); padding: 2rem; transition: transform 200ms cubic-bezier(0.23,1,0.32,1), box-shadow 200ms cubic-bezier(0.23,1,0.32,1), border-color 200ms cubic-bezier(0.23,1,0.32,1), background 200ms cubic-bezier(0.23,1,0.32,1); position: relative; overflow: hidden; }
+.pillar-card::before { content: ''; position: absolute; top: 0; inset-inline: 0; height: 3px; background: linear-gradient(90deg, transparent, var(--ds-blue), transparent); }
+.pillar-card:hover { transform: translateY(-4px); background: var(--hover); border-color: rgba(45,111,163,.2); box-shadow: 0 8px 28px rgba(0,0,0,.12); }
+.pillar-num { font-size: 2.5rem; font-weight: 900; color: rgba(45,111,163,.12); line-height: 1; margin-bottom: .5rem; }
+.pillar-title { font-size: 1.1rem; font-weight: 800; color: var(--ds-blue); margin-bottom: .5rem; }
+.pillar-desc { font-size: .92rem; color: var(--muted); line-height: 1.75; }
+.values-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; margin-top: 2rem; }
+.val-item { background: #ffffff; border: 1px solid var(--border); border-radius: var(--r); padding: 1.4rem; text-align: center; transition: transform 200ms cubic-bezier(0.23,1,0.32,1), box-shadow 200ms cubic-bezier(0.23,1,0.32,1), border-color 200ms cubic-bezier(0.23,1,0.32,1), background 200ms cubic-bezier(0.23,1,0.32,1); }
+.val-item:hover { border-color: rgba(90,171,220,.2); transform: translateY(-3px); }
+.val-icon { font-size: 1.8rem; margin-bottom: .5rem; display: block; }
+.val-title { font-size: .93rem; font-weight: 700; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo"><span class="ds">Druze Spirit</span><span class="sep">&amp;</span><span class="vod">Voice of Druze</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html" data-ar="الرئيسية" data-en="Home">الرئيسية</a></li>
+    <li><a href="druze-spirit.html" class="active">Druze Spirit</a></li>
+    <li><a href="voice-of-druze.html" data-ar="الصوت الدرزي" data-en="Druze Voice">الصوت الدرزي</a></li>
+    <li><a href="activities.html" data-ar="نشاطاتنا" data-en="Our Activities">نشاطاتنا</a></li>
+    <li><a href="follow-us.html" data-ar="تابعونا" data-en="Follow Us">تابعونا</a></li>
+    <li><a href="contact.html" data-ar="تواصل معنا" data-en="Contact Us">تواصل معنا</a></li>
+    <li><a href="contact.html" class="cta" data-ar="ادعم المبادرات" data-en="Support Our Mission">ادعم المبادرات</a></li>
+  </ul>
+  <div class="nav-right">
+    <button id="lang-toggle" aria-label="Switch language">EN</button>
+    <button class="hamburger" id="ham" aria-label="القائمة"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mob">
+  <a href="index.html" data-ar="الرئيسية" data-en="Home">الرئيسية</a>
+  <a href="druze-spirit.html" class="active">Druze Spirit</a>
+  <a href="voice-of-druze.html" data-ar="فريق الصوت الدرزي" data-en="Voice of Druze Team">فريق الصوت الدرزي</a>
+  <a href="activities.html" data-ar="نشاطاتنا" data-en="Our Activities">نشاطاتنا</a>
+  <a href="follow-us.html" data-ar="تابعونا" data-en="Follow Us">تابعونا</a>
+  <a href="contact.html" data-ar="تواصل معنا" data-en="Contact Us">تواصل معنا</a>
+  <a href="contact.html" data-ar="ادعم المبادرات" data-en="Support Our Mission">ادعم المبادرات</a>
+</div>
+
+<!-- PAGE HERO -->
+<div class="page-hero ds-hero">
+  <div class="bg-glow"></div>
+  <div class="page-hero-content">
+    <div class="tag stag" style="margin:0 auto .9rem;color:var(--ds-blue);border-color:rgba(90,171,220,.2)" data-ar="الذراع الإعلامية" data-en="Media Arm">الذراع الإعلامية</div>
+    <h1 class="page-title ds stag d1">Druze Spirit</h1>
+    <p class="page-subtitle stag d2" data-ar="صوت إعلامي درزي إلى العالم — مبادرة توعوية تهدف إلى إيصال صوت أبناء الطائفة الدرزية إلى العالم بكل شفافية ومهنية." data-en="A Druze media voice to the world — an awareness initiative aiming to carry the voice of the Druze community to the world with full transparency and professionalism.">صوت إعلامي درزي إلى العالم — مبادرة توعوية تهدف إلى إيصال صوت أبناء الطائفة الدرزية إلى العالم بكل شفافية ومهنية.</p>
+    <div style="margin-top:1.8rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap" class="stag d3">
+      <a href="https://www.instagram.com/druze.spirit" target="_blank" rel="noopener" class="btn btn-p">Instagram @druze.spirit</a>
+      <a href="https://www.facebook.com/share/1Rdz8QaKjj/" target="_blank" rel="noopener" class="btn btn-o">Facebook</a>
+    </div>
+  </div>
+</div>
+
+<!-- WHAT IS DS -->
+<section style="background:var(--bg)">
+  <div class="container">
+    <div class="tag stag" data-ar="ما هو Druze Spirit؟" data-en="What is Druze Spirit?">ما هو Druze Spirit؟</div>
+    <h2 class="section-title stag d1" data-ar="صوت إعلامي &lt;span&gt;درزي&lt;/span&gt; إلى العالم" data-en="A &lt;span&gt;Druze&lt;/span&gt; Media Voice to the World">صوت إعلامي <span>درزي</span> إلى العالم</h2>
+    <p class="section-desc stag d2" data-ar="Druze Spirit هي مبادرة إعلامية وتوعوية أسسها أبناء الطائفة الدرزية من منطلق المسؤولية والانتماء، بهدف إيصال الحقيقة ورفع الوعي حول قضايا أهلنا في السويداء والطائفة الدرزية في كل مكان." data-en="Druze Spirit is a media and awareness initiative founded by members of the Druze community out of a sense of responsibility and belonging, aiming to convey the truth and raise awareness about the issues facing our people in Sweida and the Druze community everywhere.">Druze Spirit هي مبادرة إعلامية وتوعوية أسسها أبناء الطائفة الدرزية من منطلق المسؤولية والانتماء، بهدف إيصال الحقيقة ورفع الوعي حول قضايا أهلنا في السويداء والطائفة الدرزية في كل مكان.</p>
+    <div class="grid3">
+      <div class="feat-card stag d1">
+        <span class="feat-icon">📢</span>
+        <div class="feat-title" data-ar="نشر الوعي" data-en="Raising Awareness">نشر الوعي</div>
+        <div class="feat-desc" data-ar="توعية المجتمع المحلي والدولي بقضايا الطائفة الدرزية وأهلنا في السويداء" data-en="Educating local and international communities about the issues facing the Druze community and our people in Sweida">توعية المجتمع المحلي والدولي بقضايا الطائفة الدرزية وأهلنا في السويداء</div>
+      </div>
+      <div class="feat-card stag d2">
+        <span class="feat-icon">🌍</span>
+        <div class="feat-title" data-ar="إيصال الصوت للعالم" data-en="Reaching the World">إيصال الصوت للعالم</div>
+        <div class="feat-desc" data-ar="نقل رسالة أهلنا إلى المجتمع الدولي والرأي العام العالمي بكل الوسائل المتاحة" data-en="Carrying our people's message to the international community and global public opinion through all available means">نقل رسالة أهلنا إلى المجتمع الدولي والرأي العام العالمي بكل الوسائل المتاحة</div>
+      </div>
+      <div class="feat-card stag d3">
+        <span class="feat-icon">📱</span>
+        <div class="feat-title" data-ar="حملات إعلامية" data-en="Media Campaigns">حملات إعلامية</div>
+        <div class="feat-desc" data-ar="إطلاق حملات إعلامية مدروسة وهادفة عبر منصات التواصل الاجتماعي والإعلام الرقمي" data-en="Launching well-planned and purposeful media campaigns across social media and digital media platforms">إطلاق حملات إعلامية مدروسة وهادفة عبر منصات التواصل الاجتماعي والإعلام الرقمي</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- PILLARS -->
+<section style="background:var(--bg3)">
+  <div class="container">
+    <div class="tag stag" style="color:var(--ds-blue);border-color:rgba(90,171,220,.2)" data-ar="ركائزنا الإعلامية" data-en="Our Media Pillars">ركائزنا الإعلامية</div>
+    <h2 class="section-title stag d1" data-ar="على ماذا &lt;span&gt;نركّز&lt;/span&gt;؟" data-en="What Do We &lt;span&gt;Focus&lt;/span&gt; On?">على ماذا <span>نركّز</span>؟</h2>
+    <p class="section-desc stag d2" data-ar="عملنا الإعلامي يقوم على ثلاث ركائز أساسية تحدد كيف نصل بالرسالة إلى أكبر جمهور ممكن." data-en="Our media work rests on three core pillars that define how we reach the widest possible audience.">عملنا الإعلامي يقوم على ثلاث ركائز أساسية تحدد كيف نصل بالرسالة إلى أكبر جمهور ممكن.</p>
+    <div class="grid3">
+      <div class="pillar-card stag d1">
+        <div class="pillar-num">01</div>
+        <div class="pillar-title" data-ar="الحقيقة أولًا" data-en="Truth First">الحقيقة أولًا</div>
+        <p class="pillar-desc" data-ar="نلتزم بنقل الحقيقة كما هي، دون تضخيم أو تشويه. مصداقيتنا هي أثمن ما نملك." data-en="We are committed to conveying the truth as it is, without exaggeration or distortion. Our credibility is our most precious asset.">نلتزم بنقل الحقيقة كما هي، دون تضخيم أو تشويه. مصداقيتنا هي أثمن ما نملك.</p>
+      </div>
+      <div class="pillar-card stag d2">
+        <div class="pillar-num">02</div>
+        <div class="pillar-title" data-ar="الوصول للعالم" data-en="Reaching the World">الوصول للعالم</div>
+        <p class="pillar-desc" data-ar="نعمل على إيصال قضية أهلنا إلى الرأي العام الدولي عبر منصات متعددة وبلغات مختلفة." data-en="We work to bring our people's cause to international public opinion through multiple platforms and in different languages.">نعمل على إيصال قضية أهلنا إلى الرأي العام الدولي عبر منصات متعددة وبلغات مختلفة.</p>
+      </div>
+      <div class="pillar-card stag d3">
+        <div class="pillar-num">03</div>
+        <div class="pillar-title" data-ar="التوثيق والذاكرة" data-en="Documentation & Memory">التوثيق والذاكرة</div>
+        <p class="pillar-desc" data-ar="توثيق ما يجري من أحداث وشهادات لحفظ الذاكرة الجمعية لأبناء الطائفة الدرزية." data-en="Documenting ongoing events and testimonies to preserve the collective memory of the Druze community.">توثيق ما يجري من أحداث وشهادات لحفظ الذاكرة الجمعية لأبناء الطائفة الدرزية.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- VALUES -->
+<section style="background:var(--bg)">
+  <div class="container">
+    <div class="tag stag" data-ar="قيمنا" data-en="Our Values">قيمنا</div>
+    <h2 class="section-title stag d1" data-ar="ما &lt;span&gt;يميّزنا&lt;/span&gt;" data-en="What &lt;span&gt;Defines Us&lt;/span&gt;">ما <span>يميّزنا</span></h2>
+    <div class="values-grid">
+      <div class="val-item stag d1"><span class="val-icon">🔍</span><div class="val-title" data-ar="الشفافية" data-en="Transparency">الشفافية</div></div>
+      <div class="val-item stag d2"><span class="val-icon">⚖️</span><div class="val-title" data-ar="الموضوعية" data-en="Objectivity">الموضوعية</div></div>
+      <div class="val-item stag d3"><span class="val-icon">🤝</span><div class="val-title" data-ar="المسؤولية" data-en="Responsibility">المسؤولية</div></div>
+      <div class="val-item stag d4"><span class="val-icon">💙</span><div class="val-title" data-ar="الانتماء" data-en="Belonging">الانتماء</div></div>
+      <div class="val-item stag d1"><span class="val-icon">🌟</span><div class="val-title" data-ar="الجودة" data-en="Quality">الجودة</div></div>
+    </div>
+    <div class="glow-line"></div>
+    <div class="notice stag" data-ar="تابع Druze Spirit على &lt;a href='https://www.instagram.com/druze.spirit' target='_blank' rel='noopener' style='color:var(--ds-blue)'&gt;Instagram @druze.spirit&lt;/a&gt; وعلى &lt;a href='https://www.facebook.com/share/1Rdz8QaKjj/' target='_blank' rel='noopener' style='color:var(--ds-blue)'&gt;Facebook&lt;/a&gt; للاطلاع على آخر المستجدات. للتعاون: &lt;a href='mailto:druzespiritintl@gmail.com' style='color:var(--ds-blue)'&gt;druzespiritintl@gmail.com&lt;/a&gt;" data-en="Follow Druze Spirit on &lt;a href='https://www.instagram.com/druze.spirit' target='_blank' rel='noopener' style='color:var(--ds-blue)'&gt;Instagram @druze.spirit&lt;/a&gt; and &lt;a href='https://www.facebook.com/share/1Rdz8QaKjj/' target='_blank' rel='noopener' style='color:var(--ds-blue)'&gt;Facebook&lt;/a&gt; for the latest updates. For collaboration: &lt;a href='mailto:druzespiritintl@gmail.com' style='color:var(--ds-blue)'&gt;druzespiritintl@gmail.com&lt;/a&gt;">
+      تابع Druze Spirit على
+      <a href="https://www.instagram.com/druze.spirit" target="_blank" rel="noopener" style="color:var(--ds-blue)">Instagram @druze.spirit</a>
+      وعلى
+      <a href="https://www.facebook.com/share/1Rdz8QaKjj/" target="_blank" rel="noopener" style="color:var(--ds-blue)">Facebook</a>
+      للاطلاع على آخر المستجدات والحملات الإعلامية.
+      للتعاون الإعلامي:
+      <a href="mailto:druzespiritintl@gmail.com" style="color:var(--ds-blue)">druzespiritintl@gmail.com</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="index.html" class="ft-logo"><span class="ds">Druze Spirit</span><span class="sep">&amp;</span><span class="vod">Voice Of Druze</span></a>
+  <p class="ft-desc" data-ar="صوت إعلامي ويد إنسانية من أجل السويداء وأبناء الطائفة الدرزية في كل مكان." data-en="A media voice and humanitarian hand for Sweida and the Druze community everywhere.">صوت إعلامي ويد إنسانية من أجل السويداء وأبناء الطائفة الدرزية في كل مكان.</p>
+  <div class="ft-stars" aria-hidden="true"><span style="color:#1B8A3C">★</span><span style="color:#D42B2B">★</span><span style="color:#F5B800">★</span><span style="color:#1B4FA0">★</span><span style="color:#fff">★</span></div>
+  <div class="ft-links">
+    <a href="index.html" data-ar="الرئيسية" data-en="Home">الرئيسية</a>
+    <a href="druze-spirit.html">Druze Spirit</a>
+    <a href="voice-of-druze.html">Voice Of Druze</a>
+    <a href="activities.html" data-ar="نشاطاتنا" data-en="Our Activities">نشاطاتنا</a>
+    <a href="follow-us.html" data-ar="تابعونا" data-en="Follow Us">تابعونا</a>
+    <a href="contact.html" data-ar="تواصل معنا" data-en="Contact Us">تواصل معنا</a>
+    <a href="mailto:druzespiritintl@gmail.com">druzespiritintl@gmail.com</a>
+  </div>
+  <div class="ft-copy" data-ar="© جميع الحقوق محفوظة — Druze Spirit &amp;amp; فريق الصوت الدرزي · Voice Of Druze" data-en="© All rights reserved — Druze Spirit &amp;amp; Voice Of Druze">© جميع الحقوق محفوظة — Druze Spirit &amp; فريق الصوت الدرزي · Voice Of Druze</div>
+</footer>
+
+<script src="shared.js"></script>
+<script>
+const ham = document.getElementById('ham'), mob = document.getElementById('mob');
+ham.addEventListener('click', () => { ham.classList.toggle('open'); mob.classList.toggle('open'); });
+document.addEventListener('click', e => { if (!ham.contains(e.target) && !mob.contains(e.target) && e.target.id !== 'lang-toggle') { ham.classList.remove('open'); mob.classList.remove('open'); } });
+const navEl = document.querySelector('nav');
+window.addEventListener('scroll', () => { navEl.classList.toggle('scrolled', window.scrollY > 20); }, { passive: true });
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); io.unobserve(e.target); } });
+}, { threshold: 0.1, rootMargin: '0px 0px -48px 0px' });
+document.querySelectorAll('.stag').forEach(el => io.observe(el));
+</script>
+</body>
+</html>

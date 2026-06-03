@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تواصل معنا | Druze Spirit & Voice of Druze</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.page-hero.con-hero { background: var(--bg3); }
+.page-hero.con-hero .bg-glow { background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(90,171,220,.1) 0, transparent 65%); }
+.page-title.con { background: linear-gradient(140deg, var(--text) 20%, var(--ds-blue) 55%, var(--text) 90%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.msg-type-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 1rem; margin-bottom: 2.5rem; }
+.msg-type { background: #ffffff; border: 1px solid var(--border); border-radius: var(--r); padding: 1.2rem; text-align: center; cursor: pointer; transition: transform 200ms cubic-bezier(0.23,1,0.32,1), box-shadow 200ms cubic-bezier(0.23,1,0.32,1), border-color 200ms cubic-bezier(0.23,1,0.32,1), background 200ms cubic-bezier(0.23,1,0.32,1); }
+.msg-type:hover { border-color: rgba(90,171,220,.2); background: rgba(45,111,163,.03); transform: translateY(-2px); }
+.msg-type-icon { font-size: 1.8rem; margin-bottom: .4rem; display: block; }
+.msg-type-label { font-size: .88rem; font-weight: 700; }
+.msg-type-desc { font-size: .75rem; color: var(--muted); margin-top: .2rem; }
+
+/* Enhanced success message */
+.f-success {
+  display: none;
+  margin-top: 1.2rem;
+  padding: 1.6rem 1.4rem;
+  background: linear-gradient(135deg, rgba(27,138,60,.12), rgba(27,138,60,.06));
+  border: 1px solid rgba(27,138,60,.3);
+  border-radius: var(--r);
+  text-align: center;
+  animation: success-in 300ms var(--ease-out) both;
+}
+.f-success-icon { font-size: 2.6rem; display: block; margin-bottom: .6rem; animation: pop-in 400ms var(--ease-bounce) both; }
+.f-success-title { font-size: 1.1rem; font-weight: 800; color: var(--vod-green); margin-bottom: .3rem; }
+.f-success-sub { font-size: .88rem; color: var(--muted); }
+@keyframes pop-in {
+  from { transform: scale(0); opacity: 0; }
+  to   { transform: scale(1); opacity: 1; }
+}
+@keyframes success-in {
+  from { opacity: 0; transform: scale(0.97) translateY(-6px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo"><span class="ds">Druze Spirit</span><span class="sep">&amp;</span><span class="vod">Voice of Druze</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html" data-ar="الرئيسية" data-en="Home">الرئيسية</a></li>
+    <li><a href="druze-spirit.html">Druze Spirit</a></li>
+    <li><a href="voice-of-druze.html" data-ar="الصوت الدرزي" data-en="Druze Voice">الصوت الدرزي</a></li>
+    <li><a href="activities.html" data-ar="نشاطاتنا" data-en="Our Activities">نشاطاتنا</a></li>
+    <li><a href="follow-us.html" data-ar="تابعونا" data-en="Follow Us">تابعونا</a></li>
+    <li><a href="contact.html" class="active" data-ar="تواصل معنا" data-en="Contact Us">تواصل معنا</a></li>
+    <li><a href="contact.html" class="cta active" data-ar="ادعم المبادرات" data-en="Support Our Mission">ادعم المبادرات</a></li>
+  </ul>
+  <div class="nav-right">
+    <button id="lang-toggle" aria-label="Switch language">EN</button>
+    <button class="hamburger" id="ham" aria-label="القائمة"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mob">
+  <a href="index.html" data-ar="الرئيسية" data-en="Home">الرئيسية</a>
+  <a href="druze-spirit.html">Druze Spirit</a>
+  <a href="voice-of-druze.html" data-ar="فريق الصوت الدرزي" data-en="Voice of Druze Team">فريق الصوت الدرزي</a>
+  <a href="activities.html" data-ar="نشاطاتنا" data-en="Our Activities">نشاطاتنا</a>
+  <a href="follow-us.html" data-ar="تابعونا" data-en="Follow Us">تابعونا</a>
+  <a href="contact.html" class="active" data-ar="تواصل معنا" data-en="Contact Us">تواصل معنا</a>
+  <a href="contact.html" data-ar="ادعم المبادرات" data-en="Support Our Mission">ادعم المبادرات</a>
+</div>
+
+<!-- PAGE HERO -->
+<div class="page-hero con-hero">
+  <div class="bg-glow"></div>
+  <div class="page-hero-content">
+    <div class="tag stag" style="margin:0 auto .9rem" data-ar="تواصل معنا" data-en="Contact Us">تواصل معنا</div>
+    <h1 class="page-title con stag d1" data-ar="نحن هنا لنسمعك" data-en="We Are Here to Listen">نحن هنا لنسمعك</h1>
+    <p class="page-subtitle stag d2" data-ar="سواء كنت تريد التطوع، الدعم، التعاون الإعلامي، أو مجرد استفسار — تواصل معنا ونحن سنرد في أقرب وقت." data-en="Whether you want to volunteer, donate, collaborate on media, or simply ask a question — reach out and we'll respond as soon as possible.">سواء كنت تريد التطوع، الدعم، التعاون الإعلامي، أو مجرد استفسار — تواصل معنا ونحن سنرد في أقرب وقت.</p>
+  </div>
+</div>
+
+<!-- CONTACT TYPES -->
+<section style="background:var(--bg)">
+  <div class="container">
+    <div class="tag stag" data-ar="كيف يمكنك التواصل" data-en="How Can You Reach Us">كيف يمكنك التواصل</div>
+    <h2 class="section-title stag d1" data-ar="ما الذي &lt;span&gt;تحتاجه&lt;/span&gt;؟" data-en="What Do &lt;span&gt;You Need&lt;/span&gt;?">ما الذي <span>تحتاجه</span>؟</h2>
+    <div class="msg-type-cards">
+      <div class="msg-type stag d1">
+        <span class="msg-type-icon">🙋</span>
+        <div class="msg-type-label" data-ar="تطوع" data-en="Volunteer">تطوع</div>
+        <div class="msg-type-desc" data-ar="انضم إلى فريقنا" data-en="Join our team">انضم إلى فريقنا</div>
+      </div>
+      <div class="msg-type stag d2">
+        <span class="msg-type-icon">💰</span>
+        <div class="msg-type-label" data-ar="دعم" data-en="Support">دعم</div>
+        <div class="msg-type-desc" data-ar="ادعم المبادرات" data-en="Support the initiatives">ادعم المبادرات</div>
+      </div>
+      <div class="msg-type stag d3">
+        <span class="msg-type-icon">📰</span>
+        <div class="msg-type-label" data-ar="إعلام" data-en="Media">إعلام</div>
+        <div class="msg-type-desc" data-ar="تعاون إعلامي" data-en="Media collaboration">تعاون إعلامي</div>
+      </div>
+      <div class="msg-type stag d4">
+        <span class="msg-type-icon">🤝</span>
+        <div class="msg-type-label" data-ar="تعاون" data-en="Partnership">تعاون</div>
+        <div class="msg-type-desc" data-ar="شراكات وتعاون" data-en="Partnerships">شراكات وتعاون</div>
+      </div>
+      <div class="msg-type stag d5">
+        <span class="msg-type-icon">❓</span>
+        <div class="msg-type-label" data-ar="استفسار" data-en="Inquiry">استفسار</div>
+        <div class="msg-type-desc" data-ar="أسئلة عامة" data-en="General questions">أسئلة عامة</div>
+      </div>
+    </div>
+
+    <!-- CONTACT GRID -->
+    <div class="contact-wrap">
+      <div class="c-info stag d1">
+        <div class="email-box">
+          <span class="email-icon">📧</span>
+          <div>
+            <div class="email-label" data-ar="البريد الإلكتروني الرسمي" data-en="Official Email">البريد الإلكتروني الرسمي</div>
+            <a href="mailto:druzespiritintl@gmail.com" class="email-link">druzespiritintl@gmail.com</a>
+          </div>
+        </div>
+
+        <div class="social-links-box">
+          <div class="slb-title" data-ar="تابعونا على وسائل التواصل" data-en="Follow Us on Social Media">تابعونا على وسائل التواصل</div>
+          <a href="https://www.instagram.com/druze.spirit" target="_blank" rel="noopener" class="sl-item">📷 @druze.spirit — Druze Spirit</a>
+          <a href="https://www.instagram.com/voice_of_druze" target="_blank" rel="noopener" class="sl-item vod-l">📷 @voice_of_druze — Voice Of Druze</a>
+          <a href="https://www.facebook.com/share/1Rdz8QaKjj/" target="_blank" rel="noopener" class="sl-item">📘 Facebook — Druze Spirit</a>
+          <a href="https://www.facebook.com/share/1Cu9dY7SBy/" target="_blank" rel="noopener" class="sl-item vod-l">📘 Facebook — Voice Of Druze</a>
+        </div>
+
+        <div class="card" style="background:linear-gradient(135deg,rgba(27,79,160,.1),rgba(90,171,220,.06))">
+          <div style="font-size:1rem;font-weight:700;color:var(--ds-blue);margin-bottom:.6rem" data-ar="⏱️ وقت الاستجابة" data-en="⏱️ Response Time">⏱️ وقت الاستجابة</div>
+          <div style="font-size:.88rem;color:var(--muted);line-height:1.75" data-ar="نحرص على الرد على جميع الرسائل خلال 24-48 ساعة. في حالات الطوارئ الإنسانية يُرجى التواصل مباشرة عبر البريد الإلكتروني." data-en="We aim to respond to all messages within 24-48 hours. For humanitarian emergencies, please contact us directly via email.">نحرص على الرد على جميع الرسائل خلال 24-48 ساعة. في حالات الطوارئ الإنسانية يُرجى التواصل مباشرة عبر البريد الإلكتروني.</div>
+        </div>
+      </div>
+
+      <form class="c-form stag d2"
+            action="https://formspree.io/f/YOUR_FORM_ID"
+            method="POST"
+            id="contact-form">
+        <div class="form-row">
+          <div class="fg">
+            <label for="fn" data-ar="الاسم الكامل &lt;span class=&quot;req&quot;&gt;*&lt;/span&gt;" data-en="Full Name &lt;span class=&quot;req&quot;&gt;*&lt;/span&gt;">الاسم الكامل <span class="req">*</span></label>
+            <input type="text" id="fn" name="name"
+                   data-ph-ar="أدخل اسمك الكامل" data-ph-en="Enter your full name"
+                   placeholder="أدخل اسمك الكامل" required>
+          </div>
+          <div class="fg">
+            <label for="em" data-ar="البريد الإلكتروني &lt;span class=&quot;req&quot;&gt;*&lt;/span&gt;" data-en="Email Address &lt;span class=&quot;req&quot;&gt;*&lt;/span&gt;">البريد الإلكتروني <span class="req">*</span></label>
+            <input type="email" id="em" name="email"
+                   data-ph-ar="example@email.com" data-ph-en="example@email.com"
+                   placeholder="example@email.com" required dir="ltr" style="text-align:right">
+          </div>
+        </div>
+        <div class="fg">
+          <label for="ph" data-ar="رقم الهاتف" data-en="Phone Number">رقم الهاتف</label>
+          <input type="tel" id="ph" name="phone"
+                 data-ph-ar="+XXX XXXXXXXXX" data-ph-en="+XXX XXXXXXXXX"
+                 placeholder="+XXX XXXXXXXXX" dir="ltr" style="text-align:right">
+        </div>
+        <div class="fg">
+          <label for="tp" data-ar="نوع الرسالة &lt;span class=&quot;req&quot;&gt;*&lt;/span&gt;" data-en="Message Type &lt;span class=&quot;req&quot;&gt;*&lt;/span&gt;">نوع الرسالة <span class="req">*</span></label>
+          <select id="tp" name="type" required>
+            <option value="" disabled selected data-ar="اختر نوع الرسالة" data-en="Select message type">اختر نوع الرسالة</option>
+            <option value="volunteer" data-ar="تطوع" data-en="Volunteer">تطوع</option>
+            <option value="support" data-ar="دعم" data-en="Support">دعم</option>
+            <option value="media" data-ar="إعلام" data-en="Media">إعلام</option>
+            <option value="collaboration" data-ar="تعاون" data-en="Collaboration">تعاون</option>
+            <option value="inquiry" data-ar="استفسار" data-en="Inquiry">استفسار</option>
+          </select>
+        </div>
+        <div class="fg">
+          <label for="msg" data-ar="نص الرسالة &lt;span class=&quot;req&quot;&gt;*&lt;/span&gt;" data-en="Message &lt;span class=&quot;req&quot;&gt;*&lt;/span&gt;">نص الرسالة <span class="req">*</span></label>
+          <textarea id="msg" name="message"
+                    data-ph-ar="اكتب رسالتك هنا..." data-ph-en="Write your message here..."
+                    placeholder="اكتب رسالتك هنا..." required></textarea>
+        </div>
+        <!-- Formspree hidden email target -->
+        <input type="hidden" name="_replyto" value="druzespiritintl@gmail.com">
+        <button type="submit" class="f-submit" id="fsub" data-ar="إرسال الرسالة" data-en="Send Message">إرسال الرسالة</button>
+
+        <!-- Beautiful success message -->
+        <div class="f-success" id="fsuc">
+          <span class="f-success-icon">✅</span>
+          <div class="f-success-title" data-ar="تم الإرسال بنجاح!" data-en="Message Sent!">تم الإرسال بنجاح!</div>
+          <div class="f-success-sub" data-ar="شكرًا لتواصلك معنا. سنرد عليك خلال 24-48 ساعة." data-en="Thank you for reaching out. We'll reply within 24-48 hours.">شكرًا لتواصلك معنا. سنرد عليك خلال 24-48 ساعة.</div>
+        </div>
+
+        <!-- Error message -->
+        <div class="f-error" id="ferr" style="display:none;margin-top:1rem;padding:.9rem 1rem;background:rgba(212,43,43,.1);border:1px solid rgba(212,43,43,.25);border-radius:var(--r-sm);color:#e06060;font-size:.88rem;text-align:center">
+          <span data-ar="حدث خطأ في الإرسال. يرجى المحاولة مرة أخرى أو التواصل عبر البريد الإلكتروني." data-en="An error occurred. Please try again or contact us via email.">حدث خطأ في الإرسال. يرجى المحاولة مرة أخرى أو التواصل عبر البريد الإلكتروني.</span>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- TRANSPARENCY -->
+<section style="background:var(--bg3)">
+  <div class="container" style="text-align:center">
+    <div class="tag stag" style="margin:0 auto .8rem" data-ar="الشفافية والمسؤولية" data-en="Transparency & Accountability">الشفافية والمسؤولية</div>
+    <h2 class="section-title stag d1" data-ar="نعمل بـ&lt;span&gt;شفافية&lt;/span&gt; وبـ&lt;span&gt;مسؤولية&lt;/span&gt;" data-en="We Work with &lt;span&gt;Transparency&lt;/span&gt; and &lt;span&gt;Accountability&lt;/span&gt;">نعمل بـ<span>شفافية</span> وبـ<span>مسؤولية</span></h2>
+    <div class="tr-items">
+      <div class="tr-item stag d1">
+        <span class="tr-icon">🛡️</span>
+        <div class="tr-title" data-ar="عمل واضح" data-en="Clear Action">عمل واضح</div>
+        <div class="tr-desc" data-ar="كل ما نقوم به يتسم بالوضوح والشفافية التامة" data-en="Everything we do is marked by full clarity and transparency">كل ما نقوم به يتسم بالوضوح والشفافية التامة</div>
+      </div>
+      <div class="tr-item stag d2">
+        <span class="tr-icon">👤</span>
+        <div class="tr-title" data-ar="كرامة الناس أولًا" data-en="People's Dignity First">كرامة الناس أولًا</div>
+        <div class="tr-desc" data-ar="نضع كرامة الإنسان في مقدمة كل قراراتنا وأعمالنا" data-en="We place human dignity at the forefront of all our decisions">نضع كرامة الإنسان في مقدمة كل قراراتنا وأعمالنا</div>
+      </div>
+      <div class="tr-item stag d3">
+        <span class="tr-icon">⭐</span>
+        <div class="tr-title" data-ar="أثر حقيقي" data-en="Real Impact">أثر حقيقي</div>
+        <div class="tr-desc" data-ar="نعمل لإحداث أثر حقيقي وملموس في حياة الناس" data-en="We work to create a real and tangible impact in people's lives">نعمل لإحداث أثر حقيقي وملموس في حياة الناس</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="index.html" class="ft-logo"><span class="ds">Druze Spirit</span><span class="sep">&amp;</span><span class="vod">Voice Of Druze</span></a>
+  <p class="ft-desc" data-ar="صوت إعلامي ويد إنسانية من أجل السويداء وأبناء الطائفة الدرزية في كل مكان." data-en="A media voice and humanitarian hand for Sweida and the Druze community everywhere.">صوت إعلامي ويد إنسانية من أجل السويداء وأبناء الطائفة الدرزية في كل مكان.</p>
+  <div class="ft-stars" aria-hidden="true"><span style="color:#1B8A3C">★</span><span style="color:#D42B2B">★</span><span style="color:#F5B800">★</span><span style="color:#1B4FA0">★</span><span style="color:#fff">★</span></div>
+  <div class="ft-links">
+    <a href="index.html" data-ar="الرئيسية" data-en="Home">الرئيسية</a>
+    <a href="druze-spirit.html">Druze Spirit</a>
+    <a href="voice-of-druze.html">Voice Of Druze</a>
+    <a href="activities.html" data-ar="نشاطاتنا" data-en="Our Activities">نشاطاتنا</a>
+    <a href="follow-us.html" data-ar="تابعونا" data-en="Follow Us">تابعونا</a>
+    <a href="contact.html" data-ar="تواصل معنا" data-en="Contact Us">تواصل معنا</a>
+    <a href="mailto:druzespiritintl@gmail.com">druzespiritintl@gmail.com</a>
+  </div>
+  <div class="ft-copy" data-ar="© جميع الحقوق محفوظة — Druze Spirit &amp;amp; فريق الصوت الدرزي · Voice Of Druze" data-en="© All rights reserved — Druze Spirit &amp;amp; Voice Of Druze">© جميع الحقوق محفوظة — Druze Spirit &amp; فريق الصوت الدرزي · Voice Of Druze</div>
+</footer>
+
+<script src="shared.js"></script>
+<script>
+// Hamburger
+const ham = document.getElementById('ham'), mob = document.getElementById('mob');
+ham.addEventListener('click', () => { ham.classList.toggle('open'); mob.classList.toggle('open'); });
+document.addEventListener('click', e => { if (!ham.contains(e.target) && !mob.contains(e.target) && e.target.id !== 'lang-toggle') { ham.classList.remove('open'); mob.classList.remove('open'); } });
+
+// Nav scroll shadow
+const navEl = document.querySelector('nav');
+window.addEventListener('scroll', () => { navEl.classList.toggle('scrolled', window.scrollY > 20); }, { passive: true });
+
+// Scroll-in reveal
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); io.unobserve(e.target); } });
+}, { threshold: 0.1, rootMargin: '0px 0px -48px 0px' });
+document.querySelectorAll('.stag').forEach(el => io.observe(el));
+
+// Formspree contact form
+document.getElementById('contact-form').addEventListener('submit', async function(e) {
+  e.preventDefault();
+  const form = this;
+  const btn  = document.getElementById('fsub');
+  const suc  = document.getElementById('fsuc');
+  const err  = document.getElementById('ferr');
+  const lang = document.documentElement.lang || 'ar';
+
+  suc.style.display = 'none';
+  err.style.display = 'none';
+  btn.textContent = lang === 'ar' ? 'جاري الإرسال...' : 'Sending...';
+  btn.disabled = true;
+  btn.style.opacity = '.65';
+
+  try {
+    const res = await fetch(form.action, {
+      method: 'POST',
+      headers: { 'Accept': 'application/json' },
+      body: new FormData(form)
+    });
+
+    if (res.ok) {
+      suc.style.display = 'block';
+      form.reset();
+      // Re-apply language to newly reset form
+      document.querySelectorAll('#contact-form [data-ar]').forEach(el => {
+        const val = lang === 'ar' ? el.getAttribute('data-ar') : (el.getAttribute('data-en') || el.getAttribute('data-ar'));
+        if (val) el.innerHTML = val;
+      });
+      document.querySelectorAll('#contact-form [data-ph-ar]').forEach(el => {
+        el.placeholder = lang === 'ar' ? el.getAttribute('data-ph-ar') : (el.getAttribute('data-ph-en') || el.getAttribute('data-ph-ar'));
+      });
+      setTimeout(() => { suc.style.display = 'none'; }, 8000);
+    } else {
+      throw new Error('Server error');
+    }
+  } catch (_) {
+    err.style.display = 'block';
+    setTimeout(() => { err.style.display = 'none'; }, 6000);
+  } finally {
+    const label = lang === 'ar' ? 'إرسال الرسالة' : 'Send Message';
+    btn.textContent = label;
+    btn.disabled = false;
+    btn.style.opacity = '1';
+  }
+});
+</script>
+</body>
+</html>

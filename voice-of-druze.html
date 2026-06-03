@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>فريق الصوت الدرزي — الذراع الميدانية</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.page-hero.vod-hero { background: var(--bg3); }
+.page-hero.vod-hero .bg-glow { background: radial-gradient(ellipse 70% 60% at 50% 0%, rgba(27,138,60,.12) 0, transparent 70%); }
+.page-title.vod { background: linear-gradient(140deg, var(--text) 15%, var(--vod-green) 50%, var(--vod-yellow) 80%, var(--text) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+.pillar-card-v { background: #ffffff; border: 1px solid var(--border); border-radius: var(--r); padding: 2rem; transition: transform 200ms cubic-bezier(0.23,1,0.32,1), box-shadow 200ms cubic-bezier(0.23,1,0.32,1), border-color 200ms cubic-bezier(0.23,1,0.32,1), background 200ms cubic-bezier(0.23,1,0.32,1); position: relative; overflow: hidden; }
+.pillar-card-v::before { content: ''; position: absolute; top: 0; inset-inline: 0; height: 3px; background: linear-gradient(90deg, transparent, var(--vod-green), transparent); }
+.pillar-card-v:hover { transform: translateY(-4px); background: var(--hover); border-color: rgba(42,122,75,.2); box-shadow: 0 8px 28px rgba(0,0,0,.12); }
+.pillar-num-v { font-size: 2.5rem; font-weight: 900; color: rgba(42,122,75,.12); line-height: 1; margin-bottom: .5rem; }
+.pillar-title-v { font-size: 1.1rem; font-weight: 800; color: var(--vod-green); margin-bottom: .5rem; }
+.pillar-desc-v { font-size: .92rem; color: var(--muted); line-height: 1.75; }
+.flag-strip { display: flex; gap: 0; height: 5px; border-radius: 3px; overflow: hidden; margin: 1.5rem 0; }
+.flag-strip span { flex: 1; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="index.html" class="nav-logo"><span class="ds">Druze Spirit</span><span class="sep">&amp;</span><span class="vod">Voice of Druze</span></a>
+  <ul class="nav-links">
+    <li><a href="index.html" data-ar="الرئيسية" data-en="Home">الرئيسية</a></li>
+    <li><a href="druze-spirit.html">Druze Spirit</a></li>
+    <li><a href="voice-of-druze.html" class="active" data-ar="الصوت الدرزي" data-en="Druze Voice">الصوت الدرزي</a></li>
+    <li><a href="activities.html" data-ar="نشاطاتنا" data-en="Our Activities">نشاطاتنا</a></li>
+    <li><a href="follow-us.html" data-ar="تابعونا" data-en="Follow Us">تابعونا</a></li>
+    <li><a href="contact.html" data-ar="تواصل معنا" data-en="Contact Us">تواصل معنا</a></li>
+    <li><a href="contact.html" class="cta" data-ar="ادعم المبادرات" data-en="Support Our Mission">ادعم المبادرات</a></li>
+  </ul>
+  <div class="nav-right">
+    <button id="lang-toggle" aria-label="Switch language">EN</button>
+    <button class="hamburger" id="ham" aria-label="القائمة"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mob">
+  <a href="index.html" data-ar="الرئيسية" data-en="Home">الرئيسية</a>
+  <a href="druze-spirit.html">Druze Spirit</a>
+  <a href="voice-of-druze.html" class="active" data-ar="فريق الصوت الدرزي" data-en="Voice of Druze Team">فريق الصوت الدرزي</a>
+  <a href="activities.html" data-ar="نشاطاتنا" data-en="Our Activities">نشاطاتنا</a>
+  <a href="follow-us.html" data-ar="تابعونا" data-en="Follow Us">تابعونا</a>
+  <a href="contact.html" data-ar="تواصل معنا" data-en="Contact Us">تواصل معنا</a>
+  <a href="contact.html" data-ar="ادعم المبادرات" data-en="Support Our Mission">ادعم المبادرات</a>
+</div>
+
+<!-- PAGE HERO -->
+<div class="page-hero vod-hero">
+  <div class="bg-glow"></div>
+  <div class="page-hero-content">
+    <div class="tag stag" style="margin:0 auto .9rem;color:var(--vod-green);border-color:rgba(27,138,60,.2)" data-ar="الذراع الميدانية" data-en="Field Arm">الذراع الميدانية</div>
+    <div class="vod-dots stag d1" style="justify-content:center;margin-bottom:.8rem">
+      <div class="vd" style="background:var(--vod-green)"></div>
+      <div class="vd" style="background:var(--vod-red)"></div>
+      <div class="vd" style="background:var(--vod-yellow)"></div>
+      <div class="vd" style="background:var(--vod-blue)"></div>
+    </div>
+    <h1 class="page-title vod stag d2" data-ar="فريق الصوت الدرزي&lt;br&gt;&lt;small style='font-size:.55em;font-weight:700'&gt;Voice Of Druze&lt;/small&gt;" data-en="Voice Of Druze Team&lt;br&gt;&lt;small style='font-size:.55em;font-weight:700'&gt;فريق الصوت الدرزي&lt;/small&gt;">فريق الصوت الدرزي<br><small style="font-size:.55em;font-weight:700">Voice Of Druze</small></h1>
+    <p class="page-subtitle stag d3" data-ar="فريق تطوعي إنساني يعمل على الأرض مباشرة لخدمة أهلنا في السويداء من خلال المساعدات الإنسانية والأنشطة المجتمعية." data-en="A volunteer humanitarian team working directly on the ground to serve our people in Sweida through humanitarian aid and community activities.">فريق تطوعي إنساني يعمل على الأرض مباشرة لخدمة أهلنا في السويداء من خلال المساعدات الإنسانية والأنشطة المجتمعية.</p>
+    <div style="margin-top:1.8rem;display:flex;gap:1rem;justify-content:center;flex-wrap:wrap" class="stag d4">
+      <a href="https://www.instagram.com/voice_of_druze" target="_blank" rel="noopener" class="btn btn-g">Instagram @voice_of_druze</a>
+      <a href="https://www.facebook.com/share/1Cu9dY7SBy/" target="_blank" rel="noopener" class="btn btn-o">Facebook</a>
+    </div>
+  </div>
+</div>
+
+<!-- WHAT IS VOD -->
+<section style="background:var(--bg)">
+  <div class="container">
+    <div class="tag stag" style="color:var(--vod-green);border-color:rgba(27,138,60,.2)" data-ar="من نحن" data-en="About Us">من نحن</div>
+    <h2 class="section-title stag d1" data-ar="يد تعمل على &lt;span class='g'&gt;الأرض&lt;/span&gt; من أجل الناس" data-en="A Hand Working on the &lt;span class='g'&gt;Ground&lt;/span&gt; for People">يد تعمل على <span class="g">الأرض</span> من أجل الناس</h2>
+    <p class="section-desc stag d2" data-ar="فريق الصوت الدرزي (Voice Of Druze) هو فريق تطوعي إنساني أسسه شباب درزي متطوع، يعمل بلا كلل لتخفيف معاناة أهلنا في السويداء وتقديم يد العون لمن يحتاجها." data-en="Voice Of Druze is a volunteer humanitarian team founded by dedicated Druze youth, working tirelessly to alleviate the suffering of our people in Sweida and offer a helping hand to those in need.">فريق الصوت الدرزي (Voice Of Druze) هو فريق تطوعي إنساني أسسه شباب درزي متطوع، يعمل بلا كلل لتخفيف معاناة أهلنا في السويداء وتقديم يد العون لمن يحتاجها.</p>
+    <div class="grid4">
+      <div class="vod-card gc stag d1">
+        <span class="vod-ci">🤝</span>
+        <div class="vod-ct" data-ar="مساعدات إنسانية" data-en="Humanitarian Aid">مساعدات إنسانية</div>
+        <div class="vod-cd" data-ar="تقديم المساعدات المادية والعينية للعائلات المحتاجة في السويداء" data-en="Providing material and in-kind assistance to families in need in Sweida">تقديم المساعدات المادية والعينية للعائلات المحتاجة في السويداء</div>
+      </div>
+      <div class="vod-card rc stag d2">
+        <span class="vod-ci">🎈</span>
+        <div class="vod-ct" data-ar="نشاطات للأطفال" data-en="Children's Activities">نشاطات للأطفال</div>
+        <div class="vod-cd" data-ar="فعاليات وأنشطة تعيد الفرح والبسمة للأطفال في ظروف صعبة" data-en="Events and activities that restore joy and smiles to children in difficult circumstances">فعاليات وأنشطة تعيد الفرح والبسمة للأطفال في ظروف صعبة</div>
+      </div>
+      <div class="vod-card bc stag d3">
+        <span class="vod-ci">🏘️</span>
+        <div class="vod-ct" data-ar="مبادرات مجتمعية" data-en="Community Initiatives">مبادرات مجتمعية</div>
+        <div class="vod-cd" data-ar="مشاريع تنموية وخدمية تدعم المجتمع المحلي وتقوي الروابط الاجتماعية" data-en="Development and service projects that support the local community and strengthen social bonds">مشاريع تنموية وخدمية تدعم المجتمع المحلي وتقوي الروابط الاجتماعية</div>
+      </div>
+      <div class="vod-card yc stag d4">
+        <span class="vod-ci">💛</span>
+        <div class="vod-ct" data-ar="تطوع وانتماء" data-en="Volunteering & Belonging">تطوع وانتماء</div>
+        <div class="vod-cd" data-ar="منح أبناء الطائفة فرصة التعبير عن انتمائهم من خلال العمل التطوعي" data-en="Giving community members the opportunity to express their belonging through volunteer work">منح أبناء الطائفة فرصة التعبير عن انتمائهم من خلال العمل التطوعي</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- HOW WE WORK -->
+<section style="background:var(--bg3)">
+  <div class="container">
+    <div class="tag stag" style="color:var(--vod-green);border-color:rgba(27,138,60,.2)" data-ar="كيف نعمل" data-en="How We Work">كيف نعمل</div>
+    <h2 class="section-title stag d1" data-ar="منهجيّتنا &lt;span class='g'&gt;الميدانية&lt;/span&gt;" data-en="Our &lt;span class='g'&gt;Field&lt;/span&gt; Methodology">منهجيّتنا <span class="g">الميدانية</span></h2>
+    <p class="section-desc stag d2" data-ar="نعمل بمنهجية واضحة تضمن وصول المساعدة إلى من يحتاجها فعلاً، بأقصى درجات الشفافية والكرامة." data-en="We operate with a clear methodology to ensure aid reaches those who truly need it, with the highest standards of transparency and dignity.">نعمل بمنهجية واضحة تضمن وصول المساعدة إلى من يحتاجها فعلاً، بأقصى درجات الشفافية والكرامة.</p>
+    <div class="grid3">
+      <div class="pillar-card-v stag d1">
+        <div class="pillar-num-v">01</div>
+        <div class="pillar-title-v" data-ar="التواصل المباشر" data-en="Direct Contact">التواصل المباشر</div>
+        <p class="pillar-desc-v" data-ar="نتواصل مباشرة مع أهلنا في السويداء لفهم احتياجاتهم الفعلية وتحديد الأولويات." data-en="We communicate directly with our people in Sweida to understand their actual needs and set priorities.">نتواصل مباشرة مع أهلنا في السويداء لفهم احتياجاتهم الفعلية وتحديد الأولويات.</p>
+      </div>
+      <div class="pillar-card-v stag d2">
+        <div class="pillar-num-v">02</div>
+        <div class="pillar-title-v" data-ar="التوزيع العادل" data-en="Fair Distribution">التوزيع العادل</div>
+        <p class="pillar-desc-v" data-ar="نحرص على توزيع المساعدات بشكل عادل ومنظّم يحفظ كرامة المستفيدين." data-en="We ensure that aid is distributed fairly and in an organized manner that preserves the dignity of beneficiaries.">نحرص على توزيع المساعدات بشكل عادل ومنظّم يحفظ كرامة المستفيدين.</p>
+      </div>
+      <div class="pillar-card-v stag d3">
+        <div class="pillar-num-v">03</div>
+        <div class="pillar-title-v" data-ar="التقارير والمتابعة" data-en="Reporting & Follow-up">التقارير والمتابعة</div>
+        <p class="pillar-desc-v" data-ar="نوثّق كل نشاط ونشارك تقاريره مع داعمينا لضمان الشفافية الكاملة." data-en="We document every activity and share its reports with our supporters to ensure complete transparency.">نوثّق كل نشاط ونشارك تقاريره مع داعمينا لضمان الشفافية الكاملة.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- JOIN US -->
+<section style="background:var(--bg)">
+  <div class="container" style="text-align:center">
+    <div class="tag stag" style="margin:0 auto .8rem;color:var(--vod-green);border-color:rgba(27,138,60,.2)" data-ar="انضم إلينا" data-en="Join Us">انضم إلينا</div>
+    <h2 class="section-title stag d1" data-ar="كن جزءًا من &lt;span class='g'&gt;الفريق&lt;/span&gt;" data-en="Be Part of &lt;span class='g'&gt;the Team&lt;/span&gt;">كن جزءًا من <span class="g">الفريق</span></h2>
+    <p class="section-desc stag d2" style="margin:0 auto 2rem" data-ar="الانتماء الحقيقي يظهر وقت الشدة. انضم إلى فريق الصوت الدرزي وساهم في إحداث فرق حقيقي في حياة أهلنا." data-en="True belonging shows in times of hardship. Join Voice Of Druze and contribute to making a real difference in the lives of our people.">الانتماء الحقيقي يظهر وقت الشدة. انضم إلى فريق الصوت الدرزي وساهم في إحداث فرق حقيقي في حياة أهلنا.</p>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap" class="stag d3">
+      <a href="contact.html" class="btn btn-g" data-ar="تطوّع معنا" data-en="Volunteer with Us">تطوّع معنا</a>
+      <a href="contact.html" class="btn btn-o" data-ar="تواصل معنا" data-en="Contact Us">تواصل معنا</a>
+    </div>
+    <div class="glow-line g" style="margin-top:3rem"></div>
+    <div class="notice stag" data-ar="تابع فريق الصوت الدرزي على &lt;a href='https://www.instagram.com/voice_of_druze' target='_blank' rel='noopener' style='color:var(--vod-green)'&gt;Instagram @voice_of_druze&lt;/a&gt; وعلى &lt;a href='https://www.facebook.com/share/1Cu9dY7SBy/' target='_blank' rel='noopener' style='color:var(--vod-green)'&gt;Facebook&lt;/a&gt;. للتواصل: &lt;a href='mailto:druzespiritintl@gmail.com' style='color:var(--vod-green)'&gt;druzespiritintl@gmail.com&lt;/a&gt;" data-en="Follow Voice Of Druze on &lt;a href='https://www.instagram.com/voice_of_druze' target='_blank' rel='noopener' style='color:var(--vod-green)'&gt;Instagram @voice_of_druze&lt;/a&gt; and on &lt;a href='https://www.facebook.com/share/1Cu9dY7SBy/' target='_blank' rel='noopener' style='color:var(--vod-green)'&gt;Facebook&lt;/a&gt;. Contact: &lt;a href='mailto:druzespiritintl@gmail.com' style='color:var(--vod-green)'&gt;druzespiritintl@gmail.com&lt;/a&gt;">
+      تابع فريق الصوت الدرزي على
+      <a href="https://www.instagram.com/voice_of_druze" target="_blank" rel="noopener" style="color:var(--vod-green)">Instagram @voice_of_druze</a>
+      وعلى
+      <a href="https://www.facebook.com/share/1Cu9dY7SBy/" target="_blank" rel="noopener" style="color:var(--vod-green)">Facebook</a>.
+      للتواصل: <a href="mailto:druzespiritintl@gmail.com" style="color:var(--vod-green)">druzespiritintl@gmail.com</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="index.html" class="ft-logo"><span class="ds">Druze Spirit</span><span class="sep">&amp;</span><span class="vod">Voice Of Druze</span></a>
+  <p class="ft-desc" data-ar="صوت إعلامي ويد إنسانية من أجل السويداء وأبناء الطائفة الدرزية في كل مكان." data-en="A media voice and humanitarian hand for Sweida and the Druze community everywhere.">صوت إعلامي ويد إنسانية من أجل السويداء وأبناء الطائفة الدرزية في كل مكان.</p>
+  <div class="ft-stars" aria-hidden="true"><span style="color:#1B8A3C">★</span><span style="color:#D42B2B">★</span><span style="color:#F5B800">★</span><span style="color:#1B4FA0">★</span><span style="color:#fff">★</span></div>
+  <div class="ft-links">
+    <a href="index.html" data-ar="الرئيسية" data-en="Home">الرئيسية</a>
+    <a href="druze-spirit.html">Druze Spirit</a>
+    <a href="voice-of-druze.html">Voice Of Druze</a>
+    <a href="activities.html" data-ar="نشاطاتنا" data-en="Our Activities">نشاطاتنا</a>
+    <a href="follow-us.html" data-ar="تابعونا" data-en="Follow Us">تابعونا</a>
+    <a href="contact.html" data-ar="تواصل معنا" data-en="Contact Us">تواصل معنا</a>
+    <a href="mailto:druzespiritintl@gmail.com">druzespiritintl@gmail.com</a>
+  </div>
+  <div class="ft-copy" data-ar="© جميع الحقوق محفوظة — Druze Spirit &amp;amp; فريق الصوت الدرزي · Voice Of Druze" data-en="© All rights reserved — Druze Spirit &amp;amp; Voice Of Druze">© جميع الحقوق محفوظة — Druze Spirit &amp; فريق الصوت الدرزي · Voice Of Druze</div>
+</footer>
+
+<script src="shared.js"></script>
+<script>
+const ham = document.getElementById('ham'), mob = document.getElementById('mob');
+ham.addEventListener('click', () => { ham.classList.toggle('open'); mob.classList.toggle('open'); });
+document.addEventListener('click', e => { if (!ham.contains(e.target) && !mob.contains(e.target) && e.target.id !== 'lang-toggle') { ham.classList.remove('open'); mob.classList.remove('open'); } });
+const navEl = document.querySelector('nav');
+window.addEventListener('scroll', () => { navEl.classList.toggle('scrolled', window.scrollY > 20); }, { passive: true });
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); io.unobserve(e.target); } });
+}, { threshold: 0.1, rootMargin: '0px 0px -48px 0px' });
+document.querySelectorAll('.stag').forEach(el => io.observe(el));
+</script>
+</body>
+</html>
