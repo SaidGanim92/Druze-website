@@ -207,5 +207,14 @@ const io = new IntersectionObserver(entries => {
 }, { threshold: 0.1, rootMargin: '0px 0px -48px 0px' });
 document.querySelectorAll('.stag').forEach(el => io.observe(el));
 </script>
+
+<button id="accessibility-btn" onclick="document.getElementById('accessibility-menu').style.display = document.getElementById('accessibility-menu').style.display === 'none' ? 'block' : 'none'" aria-label="נגישות" style="position:fixed;bottom:20px;left:20px;width:50px;height:50px;border-radius:50%;background:#2d6fa3;color:white;font-size:22px;border:none;cursor:pointer;z-index:9999;box-shadow:0 2px 10px rgba(0,0,0,0.3)">♿</button>
+
+<div id="accessibility-menu" style="display:none;position:fixed;bottom:80px;left:20px;background:white;border:1px solid #ddd;border-radius:10px;padding:15px;z-index:9999;box-shadow:0 2px 20px rgba(0,0,0,0.2);min-width:200px">
+  <button onclick="document.documentElement.style.fontSize='120%'">הגדל טקסט</button><br><br>
+  <button onclick="document.documentElement.style.fontSize='80%'">הקטן טקסט</button><br><br>
+  <button onclick="document.body.style.filter='contrast(2) grayscale(1)'">ניגודיות גבוהה</button><br><br>
+  <button onclick="document.documentElement.style.fontSize='';document.body.style.filter=''">איפוס</button>
+</div>
 </body>
 </html>
