@@ -53,30 +53,23 @@
 
 <main id="main-content" tabindex="-1">
 
-<!-- MEMORIAL BANNER -->
+<!-- MEMORIAL STRIP -->
 <style>
-  .siege-banner{max-width:680px;margin:1.6rem auto 0;padding:2.4rem 1.6rem 2rem;background:#fff;border:1px solid var(--border);border-radius:16px;box-shadow:var(--shadow);text-align:center;position:relative;overflow:hidden}
-  .siege-banner::before{content:"";position:absolute;inset:0 0 auto 0;height:4px;background:linear-gradient(90deg,#1a1a1a,#c0392b,#1a1a1a)}
-  .siege-ribbon{display:inline-flex;align-items:center;justify-content:center;gap:.4rem;background:#1a1a1a;color:#fff;font-size:1.05rem;line-height:1;padding:.5rem 1.4rem;border-radius:999px;margin-bottom:1.4rem;box-shadow:0 2px 10px rgba(0,0,0,.25)}
-  .siege-ribbon span{font-size:1.2rem}
-  .siege-day-label{font-size:.85rem;font-weight:700;letter-spacing:.12em;color:var(--muted);text-transform:uppercase;margin-bottom:.2rem}
-  .siege-day-num{font-size:clamp(3.2rem,14vw,5.5rem);font-weight:900;line-height:1;color:#c0392b;letter-spacing:-.02em}
-  .siege-title{font-size:clamp(1.3rem,5vw,2rem);font-weight:900;letter-spacing:.04em;color:#1a1a1a;margin:.9rem 0 .5rem}
-  .siege-sub{font-size:clamp(.95rem,3.4vw,1.15rem);font-weight:500;color:#1a1a1a;margin-bottom:1.3rem;direction:rtl}
-  .siege-tags{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:.5rem .7rem}
-  .siege-tags span{display:inline-block;font-size:.8rem;font-weight:700;color:#c0392b;background:rgba(192,57,43,.08);border:1px solid rgba(192,57,43,.2);border-radius:999px;padding:.32rem .8rem;direction:ltr;unicode-bidi:plaintext}
-  @media(max-width:480px){.siege-banner{margin:1rem 1rem 0;padding:2rem 1.1rem 1.6rem}}
+  .siege-strip{display:flex;align-items:center;gap:1rem;max-width:880px;min-height:70px;margin:1.2rem auto 0;padding:.7rem 1.3rem;background:#fff;border:1px solid var(--border);border-right:4px solid #c0392b;border-radius:10px;box-shadow:var(--shadow-sm)}
+  .siege-strip__day{display:inline-flex;align-items:center;gap:.4rem;flex-shrink:0;font-size:1.05rem;font-weight:800;color:#c0392b;line-height:1}
+  .siege-strip__day .heart{font-size:.95rem}
+  .siege-strip__day .label{font-size:.7rem;font-weight:700;letter-spacing:.08em;color:var(--muted);text-transform:uppercase}
+  .siege-strip__text{flex:1;text-align:center;font-size:.92rem;font-weight:600;color:#1a1a1a;direction:rtl;unicode-bidi:plaintext}
+  .siege-strip__tag{flex-shrink:0;font-size:.78rem;font-weight:700;color:#c0392b;direction:ltr;unicode-bidi:plaintext}
+  @media(max-width:560px){
+    .siege-strip{flex-wrap:wrap;justify-content:center;gap:.4rem .9rem;margin:.9rem 1rem 0;min-height:0}
+    .siege-strip__text{flex:1 1 100%;order:3;font-size:.85rem}
+  }
 </style>
-<section class="siege-banner" aria-label="بانر تذكاري — السويداء" role="region">
-  <div class="siege-ribbon"><span aria-hidden="true">🖤</span><em style="font-style:normal" data-ar="في القلب دائماً" data-en="Always in our hearts">في القلب دائماً</em></div>
-  <div class="siege-day-label" data-ar="اليوم" data-en="DAY">اليوم</div>
-  <div class="siege-day-num"><span id="siege-day">…</span></div>
-  <div class="siege-title">SWEIDA STILL BESIEGED</div>
-  <div class="siege-sub" data-ar="كم يوماً آخر يجب أن يمرّ؟" data-en="How many more days must pass?">كم يوماً آخر يجب أن يمرّ؟</div>
-  <div class="siege-tags">
-    <span dir="rtl">#السويداء_مدينة_منكوبة</span>
-    <span>#JusticeForSweida</span>
-  </div>
+<section class="siege-strip" aria-label="تذكير — السويداء ما زالت محاصرة" role="region">
+  <span class="siege-strip__day"><span class="heart" aria-hidden="true">🖤</span><span class="label" data-ar="اليوم" data-en="DAY">اليوم</span><span id="siege-day">…</span></span>
+  <span class="siege-strip__text" data-ar="السويداء ما زالت محاصرة · Sweida still besieged" data-en="Sweida is still besieged · السويداء ما زالت محاصرة">السويداء ما زالت محاصرة · Sweida still besieged</span>
+  <span class="siege-strip__tag">#JusticeForSweida</span>
 </section>
 
 <!-- HERO -->
