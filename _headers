@@ -1,6 +1,27 @@
 /*
+  # מניעת Clickjacking
   X-Frame-Options: DENY
+
+  # מניעת MIME sniffing
   X-Content-Type-Options: nosniff
+
+  # הגנת XSS
   X-XSS-Protection: 1; mode=block
+
+  # מדיניות Referrer
   Referrer-Policy: strict-origin-when-cross-origin
-  Permissions-Policy: camera=(), microphone=(), geolocation=()
+
+  # מניעת גישה למצלמה/מיקרופון/GPS
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), payment=(), usb=(), magnetometer=(), accelerometer=()
+
+  # Content Security Policy — הכי חשוב
+  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://unpkg.com https://fonts.googleapis.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://formspree.io; frame-src 'none'; object-src 'none'; base-uri 'self'; form-action 'self' https://formspree.io;
+
+  # HSTS — כפה HTTPS תמיד
+  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
+
+  # מניעת גישה לקבצים רגישים
+  X-Permitted-Cross-Domain-Policies: none
+
+  # הסתר מידע על השרת
+  Server: .
