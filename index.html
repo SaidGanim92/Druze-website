@@ -307,19 +307,30 @@
 .hero-headline {
   display: grid;
   grid-template-columns: 180px minmax(0, 1fr) 180px;
-  align-items: center;
+  align-items: stretch; /* both cards stretch to identical height */
   gap: clamp(1.4rem, 4vw, 3.5rem);
   max-width: 1060px;
   margin: 0 auto 1.4rem;
   direction: ltr; /* keep left card physically left, right card right */
 }
-.hero-headline .hero-title { margin-bottom: 0; }
+/* Title: smaller clamp so the long English string fits without overflowing,
+   with breathing line-height; works for both AR and EN. */
+.hero-headline .hero-title {
+  margin-bottom: 0;
+  align-self: center;
+  font-size: clamp(1.75rem, 4.2vw, 3.2rem);
+  line-height: 1.25;
+  max-width: 100%;
+  overflow-wrap: break-word;
+}
 /* Keep the wide text blocks readable even though hero-content is now wider. */
 .hero-sub, .hero-btns, .tagline { max-width: 700px; margin-left: auto; margin-right: auto; }
 
 .float-card {
   width: 180px;
   justify-self: center;
+  display: flex;
+  flex-direction: column;
   background: #fff;
   border-radius: 18px;
   box-shadow: 0 6px 24px rgba(0,0,0,.13), 0 1px 4px rgba(0,0,0,.07);
@@ -339,9 +350,13 @@
   height: 110px;
   object-fit: cover;
   display: block;
+  flex-shrink: 0;
 }
 .float-card span {
-  display: block;
+  flex: 1; /* fills the remaining height so both cards stay equal */
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-align: center;
   padding: .5rem .45rem .55rem;
   font-family: Tajawal, sans-serif;
