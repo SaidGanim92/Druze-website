@@ -96,11 +96,188 @@
     els.forEach(function (el) { obs.observe(el); });
   }
 
+  /* ── ACCESSIBILITY WIDGET ─────────────────────────── */
+  function initA11yWidget() {
+    var KEY  = 'a11y-prefs';
+    var html = document.documentElement;
+
+    var OPTIONS = [
+      { id: 'text-larger',     cls: 'a11y-large',    ar: 'تكبير الخط',    en: 'Larger Text',     icon: 'A+' },
+      { id: 'text-smaller',    cls: 'a11y-small',    ar: 'تصغير الخط',    en: 'Smaller Text',    icon: 'A-' },
+      { id: 'high-contrast',   cls: 'a11y-contrast', ar: 'تباين عالٍ',    en: 'High Contrast',   icon: '◑'  },
+      { id: 'highlight-links', cls: 'a11y-links',    ar: 'إبراز الروابط', en: 'Highlight Links', icon: '🔗' },
+      { id: 'stop-animations', cls: 'a11y-no-anim',  ar: 'إيقاف الحركة', en: 'Stop Animations', icon: '⏸' }
+    ];
+
+    var active = {};
+    try { active = JSON.parse(localStorage.getItem(KEY) || '{}'); } catch (e) {}
+
+    /* --- build DOM --- */
+    var wrap = document.createElement('div');
+    wrap.id = 'a11y-widget';
+
+    var toggleBtn = document.createElement('button');
+    toggleBtn.id = 'a11y-toggle';
+    toggleBtn.setAttribute('aria-label', 'إعدادات الوصول');
+    toggleBtn.setAttribute('aria-expanded', 'false');
+    toggleBtn.setAttribute('aria-controls', 'a11y-panel');
+    toggleBtn.setAttribute('aria-haspopup', 'dialog');
+    toggleBtn.textContent = '♿';
+
+    var panel = document.createElement('div');
+    panel.id = 'a11y-panel';
+    panel.setAttribute('role', 'dialog');
+    panel.setAttribute('aria-labelledby', 'a11y-panel-title');
+    panel.setAttribute('aria-hidden', 'true');
+
+    var titleDiv = document.createElement('div');
+    titleDiv.id = 'a11y-panel-title';
+    titleDiv.className = 'a11y-title';
+    titleDiv.setAttribute('data-ar', 'إعدادات الوصول');
+    titleDiv.setAttribute('data-en', 'Accessibility');
+    titleDiv.textContent = 'إعدادات الوصول';
+    panel.appendChild(titleDiv);
+
+    OPTIONS.forEach(function (opt) {
+      var btn = document.createElement('button');
+      btn.className = 'a11y-opt';
+      btn.setAttribute('data-id', opt.id);
+      btn.setAttribute('aria-pressed', active[opt.id] ? 'true' : 'false');
+      var iconSpan  = document.createElement('span');
+      iconSpan.className = 'a11y-icon';
+      iconSpan.setAttribute('aria-hidden', 'true');
+      iconSpan.textContent = opt.icon;
+      var labelSpan = document.createElement('span');
+      labelSpan.className = 'a11y-label';
+      labelSpan.setAttribute('data-ar', opt.ar);
+      labelSpan.setAttribute('data-en', opt.en);
+      labelSpan.textContent = opt.ar;
+      btn.appendChild(iconSpan);
+      btn.appendChild(labelSpan);
+      panel.appendChild(btn);
+    });
+
+    var sep = document.createElement('div');
+    sep.className = 'a11y-sep';
+    panel.appendChild(sep);
+
+    var resetBtn = document.createElement('button');
+    resetBtn.className = 'a11y-opt a11y-reset';
+    resetBtn.setAttribute('data-id', 'reset');
+    var rIcon = document.createElement('span');
+    rIcon.className = 'a11y-icon';
+    rIcon.setAttribute('aria-hidden', 'true');
+    rIcon.textContent = '↺';
+    var rLabel = document.createElement('span');
+    rLabel.className = 'a11y-label';
+    rLabel.setAttribute('data-ar', 'إعادة الضبط');
+    rLabel.setAttribute('data-en', 'Reset All');
+    rLabel.textContent = 'إعادة الضبط';
+    resetBtn.appendChild(rIcon);
+    resetBtn.appendChild(rLabel);
+    panel.appendChild(resetBtn);
+
+    wrap.appendChild(toggleBtn);
+    wrap.appendChild(panel);
+    document.body.appendChild(wrap);
+
+    /* --- helpers --- */
+    function getOpt(id) {
+      for (var i = 0; i < OPTIONS.length; i++) {
+        if (OPTIONS[i].id === id) return OPTIONS[i];
+      }
+      return null;
+    }
+
+    function refreshBtns() {
+      panel.querySelectorAll('.a11y-opt[data-id]').forEach(function (b) {
+        var id = b.getAttribute('data-id');
+        if (id !== 'reset') b.setAttribute('aria-pressed', active[id] ? 'true' : 'false');
+      });
+    }
+
+    function applyOpt(id, state) {
+      var opt = getOpt(id);
+      if (!opt) return;
+      if (id === 'text-larger'  && state) { html.classList.remove('a11y-small');   active['text-smaller']  = false; }
+      if (id === 'text-smaller' && state) { html.classList.remove('a11y-large');   active['text-larger']   = false; }
+      if (state) html.classList.add(opt.cls); else html.classList.remove(opt.cls);
+      active[id] = state;
+      try { localStorage.setItem(KEY, JSON.stringify(active)); } catch (e) {}
+      refreshBtns();
+    }
+
+    function resetAll() {
+      OPTIONS.forEach(function (opt) { html.classList.remove(opt.cls); });
+      active = {};
+      try { localStorage.removeItem(KEY); } catch (e) {}
+      refreshBtns();
+    }
+
+    function openPanel() {
+      panel.setAttribute('aria-hidden', 'false');
+      toggleBtn.setAttribute('aria-expanded', 'true');
+      var first = panel.querySelector('.a11y-opt');
+      if (first) first.focus();
+    }
+
+    function closePanel() {
+      panel.setAttribute('aria-hidden', 'true');
+      toggleBtn.setAttribute('aria-expanded', 'false');
+    }
+
+    /* --- restore saved prefs --- */
+    OPTIONS.forEach(function (opt) {
+      if (active[opt.id]) html.classList.add(opt.cls);
+    });
+
+    /* --- events --- */
+    toggleBtn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      panel.getAttribute('aria-hidden') === 'true' ? openPanel() : closePanel();
+    });
+
+    panel.addEventListener('click', function (e) {
+      var btn = e.target.closest('.a11y-opt');
+      if (!btn) return;
+      var id = btn.getAttribute('data-id');
+      if (id === 'reset') {
+        resetAll();
+      } else {
+        applyOpt(id, btn.getAttribute('aria-pressed') !== 'true');
+      }
+    });
+
+    document.addEventListener('click', function (e) {
+      if (!wrap.contains(e.target)) closePanel();
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && panel.getAttribute('aria-hidden') === 'false') {
+        closePanel();
+        toggleBtn.focus();
+      }
+    });
+
+    /* --- sync with language toggle --- */
+    (new MutationObserver(function (muts) {
+      muts.forEach(function (m) {
+        if (m.attributeName !== 'lang') return;
+        var lang = html.lang;
+        toggleBtn.setAttribute('aria-label', lang === 'ar' ? 'إعدادات الوصول' : 'Accessibility Settings');
+        panel.querySelectorAll('[data-ar]').forEach(function (el) {
+          el.textContent = lang === 'ar' ? el.getAttribute('data-ar') : (el.getAttribute('data-en') || el.getAttribute('data-ar'));
+        });
+      });
+    })).observe(html, { attributes: true, attributeFilter: ['lang'] });
+  }
+
   /* ── INIT ─────────────────────────────────────────── */
   document.addEventListener('DOMContentLoaded', function () {
     initBackToTop();
     initLang();
     initCounters();
+    initA11yWidget();
   });
 
 })();

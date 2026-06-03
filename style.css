@@ -1287,3 +1287,216 @@ html[dir='ltr'] .fg textarea { direction: ltr; text-align: left; }
   box-shadow: 0 0 0 3px rgba(45,111,163,0.25);
 }
 
+/* ══════════════════════════════════════════════════
+   ACCESSIBILITY WIDGET
+   ══════════════════════════════════════════════════ */
+
+#a11y-widget {
+  position: fixed;
+  bottom: 2rem;
+  left: 1.5rem;
+  z-index: 9998;
+  font-family: 'Tajawal', sans-serif;
+}
+
+#a11y-toggle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: var(--ds-blue);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 1.35rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 18px rgba(45,111,163,.38);
+  transition: transform var(--dur-base) var(--ease-out),
+              box-shadow var(--dur-base) var(--ease-out),
+              background var(--dur-base) var(--ease-out);
+  position: relative;
+  z-index: 1;
+}
+@media (hover: hover) and (pointer: fine) {
+  #a11y-toggle:hover {
+    background: var(--ds-dark);
+    transform: scale(1.09);
+    box-shadow: 0 6px 24px rgba(45,111,163,.48);
+  }
+}
+#a11y-toggle:active { transform: scale(0.92) !important; }
+#a11y-toggle:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 3px;
+  box-shadow: 0 0 0 6px var(--ds-blue);
+}
+
+#a11y-panel {
+  position: absolute;
+  bottom: calc(100% + 10px);
+  left: 0;
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--r);
+  box-shadow: var(--shadow-lg);
+  padding: .65rem .55rem;
+  min-width: 196px;
+  opacity: 0;
+  transform: translateY(10px) scale(0.96);
+  pointer-events: none;
+  transition: opacity 180ms var(--ease-out),
+              transform 180ms var(--ease-out);
+}
+#a11y-panel[aria-hidden="false"] {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.a11y-title {
+  font-size: .7rem;
+  font-weight: 800;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: .07em;
+  padding: .15rem .5rem .55rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: .4rem;
+  direction: rtl;
+  text-align: right;
+}
+
+.a11y-opt {
+  display: flex;
+  align-items: center;
+  gap: .55rem;
+  width: 100%;
+  padding: .46rem .6rem;
+  border: 1px solid transparent;
+  border-radius: var(--r-sm);
+  background: none;
+  cursor: pointer;
+  font-family: 'Tajawal', sans-serif;
+  font-size: .88rem;
+  color: var(--text);
+  direction: rtl;
+  text-align: right;
+  transition: background var(--dur-fast) var(--ease-out),
+              border-color var(--dur-fast) var(--ease-out),
+              color var(--dur-fast) var(--ease-out);
+}
+@media (hover: hover) and (pointer: fine) {
+  .a11y-opt:hover {
+    background: rgba(45,111,163,.07);
+    color: var(--ds-blue);
+    border-color: rgba(45,111,163,.14);
+  }
+}
+.a11y-opt[aria-pressed="true"] {
+  background: rgba(45,111,163,.11);
+  color: var(--ds-blue);
+  border-color: rgba(45,111,163,.22);
+  font-weight: 700;
+}
+.a11y-opt:focus-visible {
+  outline: 2px solid var(--ds-blue);
+  outline-offset: 1px;
+}
+
+.a11y-icon {
+  font-size: .95rem;
+  min-width: 1.4rem;
+  text-align: center;
+  flex-shrink: 0;
+}
+.a11y-label { flex: 1; }
+
+.a11y-sep {
+  height: 1px;
+  background: var(--border);
+  margin: .35rem .5rem;
+}
+
+.a11y-reset { color: var(--vod-red) !important; margin-top: .05rem; }
+@media (hover: hover) and (pointer: fine) {
+  .a11y-reset:hover {
+    background: rgba(192,57,43,.08) !important;
+    color: var(--vod-red) !important;
+    border-color: rgba(192,57,43,.2) !important;
+  }
+}
+
+/* ── A11Y STATE CLASSES ────────────────────────────── */
+
+html.a11y-large { font-size: 19px; }
+html.a11y-small { font-size: 13px; }
+
+/* High contrast */
+html.a11y-contrast body   { background: #000 !important; color: #fff !important; }
+html.a11y-contrast nav    { background: #111 !important; border-bottom-color: #444 !important; }
+html.a11y-contrast .mobile-menu { background: #111 !important; border-color: #444 !important; }
+html.a11y-contrast footer { background: #000 !important; border-top: 1px solid #555 !important; }
+html.a11y-contrast .card,
+html.a11y-contrast .arm-card,
+html.a11y-contrast .feat-card,
+html.a11y-contrast .vod-card,
+html.a11y-contrast .pillar-card,
+html.a11y-contrast .pillar-card-v,
+html.a11y-contrast .help-card,
+html.a11y-contrast .act-card,
+html.a11y-contrast .act-full-card,
+html.a11y-contrast .mbox,
+html.a11y-contrast .tr-item,
+html.a11y-contrast .brand-section,
+html.a11y-contrast .soc-card,
+html.a11y-contrast .c-form,
+html.a11y-contrast .email-box,
+html.a11y-contrast .social-links-box,
+html.a11y-contrast .stat-counter,
+html.a11y-contrast #a11y-panel { background: #111 !important; border-color: #555 !important; }
+html.a11y-contrast * { color: #fff !important; box-shadow: none !important; }
+html.a11y-contrast a { color: #ffe066 !important; }
+html.a11y-contrast .btn-p,
+html.a11y-contrast .btn-g,
+html.a11y-contrast .f-submit,
+html.a11y-contrast #a11y-toggle { background: #0055b3 !important; color: #fff !important; }
+html.a11y-contrast .btn-o { border-color: #fff !important; }
+html.a11y-contrast .nav-links .cta { background: #006630 !important; }
+html.a11y-contrast .hero-title,
+html.a11y-contrast .page-title {
+  background: none !important;
+  -webkit-background-clip: unset !important;
+  background-clip: unset !important;
+  -webkit-text-fill-color: #fff !important;
+  color: #fff !important;
+}
+html.a11y-contrast .fg input,
+html.a11y-contrast .fg select,
+html.a11y-contrast .fg textarea {
+  background: #222 !important;
+  color: #fff !important;
+  border-color: #666 !important;
+}
+
+/* Highlight links */
+html.a11y-links a:not(#a11y-toggle):not(.skip-link) {
+  text-decoration: underline !important;
+  text-decoration-thickness: 2px !important;
+  text-underline-offset: 3px !important;
+  outline: 1px dashed currentColor !important;
+  outline-offset: 2px !important;
+}
+
+/* Stop animations */
+html.a11y-no-anim *,
+html.a11y-no-anim *::before,
+html.a11y-no-anim *::after {
+  animation-duration: 0.001ms !important;
+  animation-delay: 0ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.001ms !important;
+  transition-delay: 0ms !important;
+}
+html.a11y-no-anim .stag { opacity: 1 !important; transform: none !important; }
+html.a11y-no-anim .fs   { opacity: .08 !important; }
