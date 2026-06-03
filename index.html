@@ -312,7 +312,28 @@
   0%, 100% { transform: translateY(-50%); }
   50%       { transform: translateY(calc(-50% - 9px)); }
 }
-@media (max-width: 960px) { .float-card { display: none; } }
+@keyframes fc-float-mobile {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-8px); }
+}
+@media (max-width: 960px) {
+  #hero { flex-wrap: wrap; align-content: center; }
+  .hero-content { flex: 0 0 100%; order: 1; }
+  .float-card {
+    position: static;
+    flex: 0 0 auto;
+    width: 130px;
+    order: 2;
+    margin: 1.2rem .4rem 0;
+    animation-name: fc-float-mobile;
+    transform: none;
+  }
+  .float-card:hover { transform: translateY(-4px); }
+}
+@media (max-width: 360px) {
+  .float-card { width: 108px; }
+  .float-card img { height: 70px; }
+}
 
 .gallery-grid {
   display: grid;
