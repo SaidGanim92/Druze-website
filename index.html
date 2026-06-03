@@ -15,12 +15,13 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<a href="#main-content" class="skip-link">تخطى إلى المحتوى الرئيسي</a>
 
 <!-- NAV -->
-<nav>
+<nav role="navigation" aria-label="التنقل الرئيسي">
   <a href="index.html" class="nav-logo"><span class="ds">Druze Spirit</span><span class="sep">&amp;</span><span class="vod">Voice of Druze</span></a>
   <ul class="nav-links">
-    <li><a href="index.html" class="active" data-ar="الرئيسية" data-en="Home">الرئيسية</a></li>
+    <li><a href="index.html" class="active" data-ar="الرئيسية" data-en="Home" aria-current="page">الرئيسية</a></li>
     <li><a href="druze-spirit.html">Druze Spirit</a></li>
     <li><a href="voice-of-druze.html" data-ar="الصوت الدرزي" data-en="Druze Voice">الصوت الدرزي</a></li>
     <li><a href="activities.html" data-ar="نشاطاتنا" data-en="Our Activities">نشاطاتنا</a></li>
@@ -30,11 +31,11 @@
   </ul>
   <div class="nav-right">
     <button id="lang-toggle" aria-label="Switch language">EN</button>
-    <button class="hamburger" id="ham" aria-label="القائمة"><span></span><span></span><span></span></button>
+    <button class="hamburger" id="ham" aria-label="القائمة" aria-expanded="false" aria-controls="mob"><span></span><span></span><span></span></button>
   </div>
 </nav>
-<div class="mobile-menu" id="mob">
-  <a href="index.html" class="active" data-ar="الرئيسية" data-en="Home">الرئيسية</a>
+<div class="mobile-menu" id="mob" role="navigation" aria-label="القائمة المتنقلة" aria-hidden="true">
+  <a href="index.html" class="active" data-ar="الرئيسية" data-en="Home" aria-current="page">الرئيسية</a>
   <a href="druze-spirit.html">Druze Spirit</a>
   <a href="voice-of-druze.html" data-ar="فريق الصوت الدرزي" data-en="Voice of Druze Team">فريق الصوت الدرزي</a>
   <a href="activities.html" data-ar="نشاطاتنا" data-en="Our Activities">نشاطاتنا</a>
@@ -42,6 +43,8 @@
   <a href="contact.html" data-ar="تواصل معنا" data-en="Contact Us">تواصل معنا</a>
   <a href="contact.html" data-ar="ادعم المبادرات" data-en="Support Our Mission">ادعم المبادرات</a>
 </div>
+
+<main id="main-content" tabindex="-1">
 
 <!-- HERO -->
 <section id="hero">
@@ -187,8 +190,10 @@
   </div>
 </section>
 
+</main>
+
 <!-- FOOTER -->
-<footer>
+<footer role="contentinfo">
   <a href="index.html" class="ft-logo"><span class="ds">Druze Spirit</span><span class="sep">&amp;</span><span class="vod">Voice Of Druze</span></a>
   <p class="ft-desc" data-ar="صوت إعلامي ويد إنسانية من أجل السويداء وأبناء الطائفة الدرزية في كل مكان." data-en="A media voice and humanitarian hand for Sweida and the Druze community everywhere.">صوت إعلامي ويد إنسانية من أجل السويداء وأبناء الطائفة الدرزية في كل مكان.</p>
   <div class="ft-stars" aria-hidden="true"><span style="color:#1B8A3C">★</span><span style="color:#D42B2B">★</span><span style="color:#F5B800">★</span><span style="color:#1B4FA0">★</span><span style="color:#fff">★</span></div>
@@ -208,8 +213,13 @@
 <script>
 // Hamburger
 const ham = document.getElementById('ham'), mob = document.getElementById('mob');
-ham.addEventListener('click', () => { ham.classList.toggle('open'); mob.classList.toggle('open'); });
-document.addEventListener('click', e => { if (!ham.contains(e.target) && !mob.contains(e.target) && e.target.id !== 'lang-toggle') { ham.classList.remove('open'); mob.classList.remove('open'); } });
+ham.addEventListener('click', () => {
+  const open = ham.classList.toggle('open');
+  mob.classList.toggle('open', open);
+  ham.setAttribute('aria-expanded', open);
+  mob.setAttribute('aria-hidden', !open);
+});
+document.addEventListener('click', e => { if (!ham.contains(e.target) && !mob.contains(e.target) && e.target.id !== 'lang-toggle') { ham.classList.remove('open'); mob.classList.remove('open'); ham.setAttribute('aria-expanded','false'); mob.setAttribute('aria-hidden','true'); } });
 
 // Nav scroll shadow
 const navEl = document.querySelector('nav');

@@ -49,9 +49,10 @@
 </style>
 </head>
 <body>
+<a href="#main-content" class="skip-link">تخطى إلى المحتوى الرئيسي</a>
 
 <!-- NAV -->
-<nav>
+<nav role="navigation" aria-label="التنقل الرئيسي">
   <a href="index.html" class="nav-logo"><span class="ds">Druze Spirit</span><span class="sep">&amp;</span><span class="vod">Voice of Druze</span></a>
   <ul class="nav-links">
     <li><a href="index.html" data-ar="الرئيسية" data-en="Home">الرئيسية</a></li>
@@ -59,23 +60,25 @@
     <li><a href="voice-of-druze.html" data-ar="الصوت الدرزي" data-en="Druze Voice">الصوت الدرزي</a></li>
     <li><a href="activities.html" data-ar="نشاطاتنا" data-en="Our Activities">نشاطاتنا</a></li>
     <li><a href="follow-us.html" data-ar="تابعونا" data-en="Follow Us">تابعونا</a></li>
-    <li><a href="contact.html" class="active" data-ar="تواصل معنا" data-en="Contact Us">تواصل معنا</a></li>
-    <li><a href="contact.html" class="cta active" data-ar="ادعم المبادرات" data-en="Support Our Mission">ادعم المبادرات</a></li>
+    <li><a href="contact.html" class="active" data-ar="تواصل معنا" data-en="Contact Us" aria-current="page">تواصل معنا</a></li>
+    <li><a href="contact.html" class="cta active" data-ar="ادعم المبادرات" data-en="Support Our Mission" aria-current="page">ادعم المبادرات</a></li>
   </ul>
   <div class="nav-right">
     <button id="lang-toggle" aria-label="Switch language">EN</button>
-    <button class="hamburger" id="ham" aria-label="القائمة"><span></span><span></span><span></span></button>
+    <button class="hamburger" id="ham" aria-label="القائمة" aria-expanded="false" aria-controls="mob"><span></span><span></span><span></span></button>
   </div>
 </nav>
-<div class="mobile-menu" id="mob">
+<div class="mobile-menu" id="mob" role="navigation" aria-label="القائمة المتنقلة" aria-hidden="true">
   <a href="index.html" data-ar="الرئيسية" data-en="Home">الرئيسية</a>
   <a href="druze-spirit.html">Druze Spirit</a>
   <a href="voice-of-druze.html" data-ar="فريق الصوت الدرزي" data-en="Voice of Druze Team">فريق الصوت الدرزي</a>
   <a href="activities.html" data-ar="نشاطاتنا" data-en="Our Activities">نشاطاتنا</a>
   <a href="follow-us.html" data-ar="تابعونا" data-en="Follow Us">تابعونا</a>
-  <a href="contact.html" class="active" data-ar="تواصل معنا" data-en="Contact Us">تواصل معنا</a>
+  <a href="contact.html" class="active" data-ar="تواصل معنا" data-en="Contact Us" aria-current="page">تواصل معنا</a>
   <a href="contact.html" data-ar="ادعم المبادرات" data-en="Support Our Mission">ادعم المبادرات</a>
 </div>
+
+<main id="main-content" tabindex="-1">
 
 <!-- PAGE HERO -->
 <div class="page-hero con-hero">
@@ -148,30 +151,30 @@
       <form class="c-form stag d2"
             action="https://formspree.io/f/meewjned"
             method="POST"
-            id="contact-form">
+            id="contact-form" aria-describedby="ferr">
         <div class="form-row">
           <div class="fg">
             <label for="fn" data-ar="الاسم الكامل &lt;span class=&quot;req&quot;&gt;*&lt;/span&gt;" data-en="Full Name &lt;span class=&quot;req&quot;&gt;*&lt;/span&gt;">الاسم الكامل <span class="req">*</span></label>
-            <input type="text" id="fn" name="name"
+            <input type="text" id="fn" name="name" aria-required="true"
                    data-ph-ar="أدخل اسمك الكامل" data-ph-en="Enter your full name"
                    placeholder="أدخل اسمك الكامل" required>
           </div>
           <div class="fg">
             <label for="em" data-ar="البريد الإلكتروني &lt;span class=&quot;req&quot;&gt;*&lt;/span&gt;" data-en="Email Address &lt;span class=&quot;req&quot;&gt;*&lt;/span&gt;">البريد الإلكتروني <span class="req">*</span></label>
-            <input type="email" id="em" name="email"
+            <input type="email" id="em" name="email" aria-required="true"
                    data-ph-ar="example@email.com" data-ph-en="example@email.com"
                    placeholder="example@email.com" required dir="ltr" style="text-align:right">
           </div>
         </div>
         <div class="fg">
           <label for="ph" data-ar="رقم الهاتف" data-en="Phone Number">رقم الهاتف</label>
-          <input type="tel" id="ph" name="phone"
+          <input type="tel" id="ph" name="phone" aria-describedby="ph-hint"
                  data-ph-ar="+XXX XXXXXXXXX" data-ph-en="+XXX XXXXXXXXX"
                  placeholder="+XXX XXXXXXXXX" dir="ltr" style="text-align:right">
         </div>
         <div class="fg">
           <label for="tp" data-ar="نوع الرسالة &lt;span class=&quot;req&quot;&gt;*&lt;/span&gt;" data-en="Message Type &lt;span class=&quot;req&quot;&gt;*&lt;/span&gt;">نوع الرسالة <span class="req">*</span></label>
-          <select id="tp" name="type" required>
+          <select id="tp" name="type" required aria-required="true">
             <option value="" disabled selected data-ar="اختر نوع الرسالة" data-en="Select message type">اختر نوع الرسالة</option>
             <option value="volunteer" data-ar="تطوع" data-en="Volunteer">تطوع</option>
             <option value="support" data-ar="دعم" data-en="Support">دعم</option>
@@ -182,7 +185,7 @@
         </div>
         <div class="fg">
           <label for="msg" data-ar="نص الرسالة &lt;span class=&quot;req&quot;&gt;*&lt;/span&gt;" data-en="Message &lt;span class=&quot;req&quot;&gt;*&lt;/span&gt;">نص الرسالة <span class="req">*</span></label>
-          <textarea id="msg" name="message"
+          <textarea id="msg" name="message" aria-required="true"
                     data-ph-ar="اكتب رسالتك هنا..." data-ph-en="Write your message here..."
                     placeholder="اكتب رسالتك هنا..." required></textarea>
         </div>
@@ -191,14 +194,14 @@
         <button type="submit" class="f-submit" id="fsub" data-ar="إرسال الرسالة" data-en="Send Message">إرسال الرسالة</button>
 
         <!-- Beautiful success message -->
-        <div class="f-success" id="fsuc">
+        <div class="f-success" id="fsuc" role="status" aria-live="polite">
           <span class="f-success-icon">✅</span>
           <div class="f-success-title" data-ar="تم الإرسال بنجاح!" data-en="Message Sent!">تم الإرسال بنجاح!</div>
           <div class="f-success-sub" data-ar="شكرًا لتواصلك معنا. سنرد عليك خلال 24-48 ساعة." data-en="Thank you for reaching out. We'll reply within 24-48 hours.">شكرًا لتواصلك معنا. سنرد عليك خلال 24-48 ساعة.</div>
         </div>
 
         <!-- Error message -->
-        <div class="f-error" id="ferr" style="display:none;margin-top:1rem;padding:.9rem 1rem;background:rgba(212,43,43,.1);border:1px solid rgba(212,43,43,.25);border-radius:var(--r-sm);color:#e06060;font-size:.88rem;text-align:center">
+        <div class="f-error" id="ferr" role="alert" aria-live="assertive" style="display:none;margin-top:1rem;padding:.9rem 1rem;background:rgba(212,43,43,.1);border:1px solid rgba(212,43,43,.25);border-radius:var(--r-sm);color:#e06060;font-size:.88rem;text-align:center">
           <span data-ar="حدث خطأ في الإرسال. يرجى المحاولة مرة أخرى أو التواصل عبر البريد الإلكتروني." data-en="An error occurred. Please try again or contact us via email.">حدث خطأ في الإرسال. يرجى المحاولة مرة أخرى أو التواصل عبر البريد الإلكتروني.</span>
         </div>
       </form>
@@ -233,8 +236,10 @@
   </div>
 </section>
 
+</main>
+
 <!-- FOOTER -->
-<footer>
+<footer role="contentinfo">
   <a href="index.html" class="ft-logo"><span class="ds">Druze Spirit</span><span class="sep">&amp;</span><span class="vod">Voice Of Druze</span></a>
   <p class="ft-desc" data-ar="صوت إعلامي ويد إنسانية من أجل السويداء وأبناء الطائفة الدرزية في كل مكان." data-en="A media voice and humanitarian hand for Sweida and the Druze community everywhere.">صوت إعلامي ويد إنسانية من أجل السويداء وأبناء الطائفة الدرزية في كل مكان.</p>
   <div class="ft-stars" aria-hidden="true"><span style="color:#1B8A3C">★</span><span style="color:#D42B2B">★</span><span style="color:#F5B800">★</span><span style="color:#1B4FA0">★</span><span style="color:#fff">★</span></div>
@@ -254,8 +259,13 @@
 <script>
 // Hamburger
 const ham = document.getElementById('ham'), mob = document.getElementById('mob');
-ham.addEventListener('click', () => { ham.classList.toggle('open'); mob.classList.toggle('open'); });
-document.addEventListener('click', e => { if (!ham.contains(e.target) && !mob.contains(e.target) && e.target.id !== 'lang-toggle') { ham.classList.remove('open'); mob.classList.remove('open'); } });
+ham.addEventListener('click', () => {
+  const open = ham.classList.toggle('open');
+  mob.classList.toggle('open', open);
+  ham.setAttribute('aria-expanded', open);
+  mob.setAttribute('aria-hidden', !open);
+});
+document.addEventListener('click', e => { if (!ham.contains(e.target) && !mob.contains(e.target) && e.target.id !== 'lang-toggle') { ham.classList.remove('open'); mob.classList.remove('open'); ham.setAttribute('aria-expanded','false'); mob.setAttribute('aria-hidden','true'); } });
 
 // Nav scroll shadow
 const navEl = document.querySelector('nav');

@@ -650,7 +650,7 @@ section { padding: 80px 1.5rem; }
   align-items: center;
   gap: .35rem;
 }
-.mlabel.y { color: var(--vod-yellow); }
+.mlabel.y { color: #7a5900; }
 .mtext { font-size: 1rem; line-height: 1.8; color: var(--text); }
 
 .why-list { list-style: none; margin-top: 1.5rem; display: flex; flex-direction: column; gap: .75rem; }
@@ -1039,7 +1039,7 @@ footer {
 }
 .ft-links a:hover { color: #5aabdc; }
 .ft-copy {
-  color: rgba(255,255,255,.2);
+  color: rgba(255,255,255,.55);
   font-size: .78rem;
   border-top: 1px solid #333;
   padding-top: 1.4rem;
@@ -1217,3 +1217,73 @@ html[dir='ltr'] .fg textarea { direction: ltr; text-align: left; }
   .hero-btns .btn { width: 100%; max-width: 280px; text-align: center; }
   nav { padding: 0 1.2rem; }
 }
+
+/* ══════════════════════════════════════════════════
+   ACCESSIBILITY — WCAG 2.1 AA
+   ══════════════════════════════════════════════════ */
+
+/* Skip to main content */
+.skip-link {
+  position: absolute;
+  top: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--ds-blue);
+  color: #fff;
+  padding: .55rem 1.4rem;
+  border-radius: 0 0 var(--r-sm) var(--r-sm);
+  font-weight: 700;
+  font-size: .93rem;
+  text-decoration: none;
+  z-index: 10000;
+  transition: top 180ms var(--ease-out);
+  white-space: nowrap;
+}
+.skip-link:focus {
+  top: 0;
+  outline: 3px solid #fff;
+  outline-offset: 2px;
+}
+
+/* Focus-visible styles for keyboard navigation */
+:focus-visible {
+  outline: 3px solid var(--ds-blue);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+.btn:focus-visible,
+.f-submit:focus-visible {
+  outline: 3px solid #fff;
+  outline-offset: 2px;
+  box-shadow: 0 0 0 5px var(--ds-blue) !important;
+}
+.soc-card:focus-visible {
+  outline: 3px solid var(--ds-blue);
+  outline-offset: 3px;
+  border-radius: var(--r);
+}
+.nav-links a:focus-visible,
+.mobile-menu a:focus-visible,
+.ft-links a:focus-visible,
+.sl-item:focus-visible,
+.email-link:focus-visible,
+.nav-logo:focus-visible,
+.ft-logo:focus-visible {
+  outline: 3px solid var(--ds-blue);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+#lang-toggle:focus-visible,
+.hamburger:focus-visible {
+  outline: 3px solid var(--ds-blue);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+.fg input:focus-visible,
+.fg select:focus-visible,
+.fg textarea:focus-visible {
+  outline: none;
+  border-color: var(--ds-blue);
+  box-shadow: 0 0 0 3px rgba(45,111,163,0.25);
+}
+

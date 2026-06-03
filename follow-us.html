@@ -30,33 +30,36 @@
 </style>
 </head>
 <body>
+<a href="#main-content" class="skip-link">تخطى إلى المحتوى الرئيسي</a>
 
 <!-- NAV -->
-<nav>
+<nav role="navigation" aria-label="التنقل الرئيسي">
   <a href="index.html" class="nav-logo"><span class="ds">Druze Spirit</span><span class="sep">&amp;</span><span class="vod">Voice of Druze</span></a>
   <ul class="nav-links">
     <li><a href="index.html" data-ar="الرئيسية" data-en="Home">الرئيسية</a></li>
     <li><a href="druze-spirit.html">Druze Spirit</a></li>
     <li><a href="voice-of-druze.html" data-ar="الصوت الدرزي" data-en="Druze Voice">الصوت الدرزي</a></li>
     <li><a href="activities.html" data-ar="نشاطاتنا" data-en="Our Activities">نشاطاتنا</a></li>
-    <li><a href="follow-us.html" class="active" data-ar="تابعونا" data-en="Follow Us">تابعونا</a></li>
+    <li><a href="follow-us.html" class="active" data-ar="تابعونا" data-en="Follow Us" aria-current="page">تابعونا</a></li>
     <li><a href="contact.html" data-ar="تواصل معنا" data-en="Contact Us">تواصل معنا</a></li>
     <li><a href="contact.html" class="cta" data-ar="ادعم المبادرات" data-en="Support Our Mission">ادعم المبادرات</a></li>
   </ul>
   <div class="nav-right">
     <button id="lang-toggle" aria-label="Switch language">EN</button>
-    <button class="hamburger" id="ham" aria-label="القائمة"><span></span><span></span><span></span></button>
+    <button class="hamburger" id="ham" aria-label="القائمة" aria-expanded="false" aria-controls="mob"><span></span><span></span><span></span></button>
   </div>
 </nav>
-<div class="mobile-menu" id="mob">
+<div class="mobile-menu" id="mob" role="navigation" aria-label="القائمة المتنقلة" aria-hidden="true">
   <a href="index.html" data-ar="الرئيسية" data-en="Home">الرئيسية</a>
   <a href="druze-spirit.html">Druze Spirit</a>
   <a href="voice-of-druze.html" data-ar="فريق الصوت الدرزي" data-en="Voice of Druze Team">فريق الصوت الدرزي</a>
   <a href="activities.html" data-ar="نشاطاتنا" data-en="Our Activities">نشاطاتنا</a>
-  <a href="follow-us.html" class="active" data-ar="تابعونا" data-en="Follow Us">تابعونا</a>
+  <a href="follow-us.html" class="active" data-ar="تابعونا" data-en="Follow Us" aria-current="page">تابعونا</a>
   <a href="contact.html" data-ar="تواصل معنا" data-en="Contact Us">تواصل معنا</a>
   <a href="contact.html" data-ar="ادعم المبادرات" data-en="Support Our Mission">ادعم المبادرات</a>
 </div>
+
+<main id="main-content" tabindex="-1">
 
 <!-- PAGE HERO -->
 <div class="page-hero fol-hero">
@@ -87,7 +90,7 @@
       <div class="soc-pair">
         <a href="https://www.instagram.com/druze.spirit" target="_blank" rel="noopener" class="soc-card ids">
           <div class="plat-icon ig">
-            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
           </div>
           <div class="soc-brand ds">Druze Spirit</div>
           <div class="soc-handle">@druze.spirit</div>
@@ -95,7 +98,7 @@
         </a>
         <a href="https://www.facebook.com/share/1Cu9dY7SBy/" target="_blank" rel="noopener" class="soc-card fds">
           <div class="plat-icon fb">
-            <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
           </div>
           <div class="soc-brand ds">Druze Spirit</div>
           <div class="soc-handle" data-ar="صفحتنا الرسمية" data-en="Official Page">صفحتنا الرسمية</div>
@@ -116,7 +119,7 @@
       <div class="soc-pair">
         <a href="https://www.instagram.com/voice_of_druze" target="_blank" rel="noopener" class="soc-card ivd">
           <div class="plat-icon ig">
-            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
           </div>
           <div class="soc-brand vod">Voice Of Druze</div>
           <div class="soc-handle">@voice_of_druze</div>
@@ -124,7 +127,7 @@
         </a>
         <a href="https://www.facebook.com/share/1Rdz8QaKjj/" target="_blank" rel="noopener" class="soc-card fvd">
           <div class="plat-icon fb">
-            <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+            <svg aria-hidden="true" focusable="false" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
           </div>
           <div class="soc-brand vod">Voice Of Druze</div>
           <div class="soc-handle" data-ar="صفحتنا الرسمية" data-en="Official Page">صفحتنا الرسمية</div>
@@ -163,8 +166,10 @@
   </div>
 </section>
 
+</main>
+
 <!-- FOOTER -->
-<footer>
+<footer role="contentinfo">
   <a href="index.html" class="ft-logo"><span class="ds">Druze Spirit</span><span class="sep">&amp;</span><span class="vod">Voice Of Druze</span></a>
   <p class="ft-desc" data-ar="صوت إعلامي ويد إنسانية من أجل السويداء وأبناء الطائفة الدرزية في كل مكان." data-en="A media voice and humanitarian hand for Sweida and the Druze community everywhere.">صوت إعلامي ويد إنسانية من أجل السويداء وأبناء الطائفة الدرزية في كل مكان.</p>
   <div class="ft-stars" aria-hidden="true"><span style="color:#1B8A3C">★</span><span style="color:#D42B2B">★</span><span style="color:#F5B800">★</span><span style="color:#1B4FA0">★</span><span style="color:#fff">★</span></div>
@@ -183,8 +188,13 @@
 <script src="shared.js"></script>
 <script>
 const ham = document.getElementById('ham'), mob = document.getElementById('mob');
-ham.addEventListener('click', () => { ham.classList.toggle('open'); mob.classList.toggle('open'); });
-document.addEventListener('click', e => { if (!ham.contains(e.target) && !mob.contains(e.target) && e.target.id !== 'lang-toggle') { ham.classList.remove('open'); mob.classList.remove('open'); } });
+ham.addEventListener('click', () => {
+  const open = ham.classList.toggle('open');
+  mob.classList.toggle('open', open);
+  ham.setAttribute('aria-expanded', open);
+  mob.setAttribute('aria-hidden', !open);
+});
+document.addEventListener('click', e => { if (!ham.contains(e.target) && !mob.contains(e.target) && e.target.id !== 'lang-toggle') { ham.classList.remove('open'); mob.classList.remove('open'); ham.setAttribute('aria-expanded','false'); mob.setAttribute('aria-hidden','true'); } });
 const navEl = document.querySelector('nav');
 window.addEventListener('scroll', () => { navEl.classList.toggle('scrolled', window.scrollY > 20); }, { passive: true });
 const io = new IntersectionObserver(entries => {
