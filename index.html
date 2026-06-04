@@ -18,6 +18,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>الرئيسية | Druze Spirit & Voice of Druze</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800;900&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap">
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -59,7 +62,7 @@
   .siege-strip{display:flex;align-items:center;gap:1rem;max-width:880px;min-height:64px;margin:calc(68px + 1.1rem) auto 0;padding:.7rem 1.3rem;background:#fff;border:1px solid var(--border);border-right:4px solid #c0392b;border-radius:10px;box-shadow:var(--shadow-sm)}
   .siege-strip__day{display:inline-flex;align-items:center;gap:.4rem;flex-shrink:0;font-size:1.05rem;font-weight:800;color:#c0392b;line-height:1}
   .siege-strip__day .heart{font-size:.95rem}
-  .siege-strip__day .label{font-size:.7rem;font-weight:700;letter-spacing:.08em;color:var(--muted)}
+  .siege-strip__day .label{font-size:.7rem;font-weight:700;letter-spacing:0;color:var(--muted)}
   .siege-strip__text{flex:1;text-align:center;font-size:.92rem;font-weight:600;color:#1a1a1a;direction:rtl;unicode-bidi:plaintext}
   .siege-strip__tag{flex-shrink:0;font-size:.78rem;font-weight:700;color:#c0392b;direction:ltr;unicode-bidi:plaintext}
   @media(max-width:560px){
@@ -278,7 +281,7 @@
   <img id="lightbox-img" src="" alt="" decoding="async" style="max-width:90vw;max-height:88vh;border-radius:12px;box-shadow:0 8px 60px rgba(0,0,0,.7);object-fit:contain">
   <button onclick="navLightbox(1)" aria-label="التالي" style="position:absolute;left:20px;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.15);border:none;color:#fff;font-size:2rem;width:52px;height:52px;border-radius:50%;cursor:pointer;transition:.2s">‹</button>
   <button onclick="closeLightbox()" aria-label="إغلاق" style="position:absolute;top:18px;left:22px;background:rgba(255,255,255,.15);border:none;color:#fff;font-size:1.5rem;width:44px;height:44px;border-radius:50%;cursor:pointer;line-height:1">✕</button>
-  <div id="lb-counter" style="position:absolute;bottom:22px;left:50%;transform:translateX(-50%);color:rgba(255,255,255,.7);font-size:.9rem;font-family:Tajawal,sans-serif"></div>
+  <div id="lb-counter" style="position:absolute;bottom:22px;left:50%;transform:translateX(-50%);color:rgba(255,255,255,.7);font-size:.9rem;font-family:var(--font-body)"></div>
 </div>
 
 </main>
@@ -359,7 +362,7 @@
   justify-content: center;
   text-align: center;
   padding: .5rem .45rem .55rem;
-  font-family: Tajawal, sans-serif;
+  font-family: var(--font-body);
   font-size: .74rem;
   font-weight: 700;
   color: #1a2240;
@@ -508,7 +511,7 @@ document.addEventListener('keydown', e => {
 
 <button id="accessibility-btn" onclick="document.getElementById('accessibility-menu').style.display = document.getElementById('accessibility-menu').style.display === 'none' ? 'block' : 'none'" aria-label="إعدادات الوصول" style="position:fixed;bottom:20px;left:20px;width:50px;height:50px;border-radius:50%;background:#2d6fa3;color:white;font-size:22px;border:none;cursor:pointer;z-index:9999;box-shadow:0 2px 10px rgba(0,0,0,0.3)">♿</button>
 
-<div id="accessibility-menu" style="display:none;position:fixed;bottom:80px;left:20px;background:white;border:1px solid #ddd;border-radius:10px;padding:15px;z-index:9999;box-shadow:0 2px 20px rgba(0,0,0,0.2);min-width:210px;direction:rtl;font-family:Tajawal,sans-serif">
+<div id="accessibility-menu" style="display:none;position:fixed;bottom:80px;left:20px;background:white;border:1px solid #ddd;border-radius:10px;padding:15px;z-index:9999;box-shadow:0 2px 20px rgba(0,0,0,0.2);min-width:210px;direction:rtl;font-family:var(--font-body)">
   <button style="display:block;width:100%;text-align:right;margin-bottom:8px;padding:6px 10px;border:none;background:none;cursor:pointer;font-size:14px" onclick="document.documentElement.style.fontSize='120%'">تكبير الخط — A+</button>
   <button style="display:block;width:100%;text-align:right;margin-bottom:8px;padding:6px 10px;border:none;background:none;cursor:pointer;font-size:14px" onclick="document.documentElement.style.fontSize='80%'">تصغير الخط — A-</button>
   <button style="display:block;width:100%;text-align:right;margin-bottom:8px;padding:6px 10px;border:none;background:none;cursor:pointer;font-size:14px" onclick="document.body.style.filter='contrast(2) grayscale(1)'">تباين عالٍ — ◑</button>

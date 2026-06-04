@@ -1,4 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800;900&display=swap');
+/* Fonts loaded via <link> + preconnect in each page <head>:
+   Cairo (headings) + IBM Plex Sans Arabic (body) */
 
 /* ══════════════════════════════════════════════════
    DESIGN TOKENS — Light European Humanitarian Theme
@@ -25,6 +26,27 @@
   --r:    12px;
   --r-sm:  8px;
 
+  /* ── Typography ─────────────────────────────────
+     Pairing: Cairo (headings) + IBM Plex Sans Arabic (body)
+     Scale: Major-Third (1.25) modular scale            */
+  --font-head: 'Cairo', sans-serif;
+  --font-body: 'IBM Plex Sans Arabic', sans-serif;
+
+  --fs-2xs:  0.64rem;   /* micro tags / badges        */
+  --fs-xs:   0.8rem;    /* captions / small labels    */
+  --fs-sm:   0.875rem;  /* secondary / dense text     */
+  --fs-base: 1rem;      /* body                       */
+  --fs-lg:   1.25rem;   /* lead / sub-heading         */
+  --fs-xl:   1.563rem;  /* h4 / card title large      */
+  --fs-2xl:  1.953rem;  /* h3 / section title         */
+  --fs-3xl:  2.441rem;  /* h2                         */
+
+  --lh-tight:   1.15;   /* hero / display             */
+  --lh-heading: 1.25;   /* headings                   */
+  --lh-snug:    1.4;    /* sub-heads / tight labels   */
+  --lh-body:    1.8;    /* Arabic body (generous)     */
+  --lh-relaxed: 1.85;   /* long-form paragraphs       */
+
   /* Shadows */
   --shadow-sm: 0 1px 4px rgba(0,0,0,0.06);
   --shadow:    0 2px 12px rgba(0,0,0,0.08);
@@ -50,12 +72,12 @@
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 body {
-  font-family: 'Tajawal', sans-serif;
+  font-family: var(--font-body);
   background: var(--bg);
   color: var(--text);
   direction: rtl;
   text-align: right;
-  line-height: 1.7;
+  line-height: var(--lh-body);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -63,6 +85,16 @@ body {
 ::-webkit-scrollbar { width: 5px; }
 ::-webkit-scrollbar-track { background: var(--bg2); }
 ::-webkit-scrollbar-thumb { background: #c5c5c5; border-radius: 3px; }
+
+/* ── Headings use the display font (Cairo) ──────────
+   Covers global classes here + per-page <style> classes */
+h1, h2, h3, h4, h5, h6,
+.page-title, .hero-title, .hero-sub, .section-title, .stat-number, .stat-val,
+.ft-logo, .brand-name, .arm-title, .feat-title, .vod-ct, .act-title,
+.help-title, .tr-title, .soc-brand, .slb-title, .pillar-title, .pillar-num,
+.val-title, .act-full-title, .msg-type-label, .f-success-title {
+  font-family: var(--font-head);
+}
 
 /* ══════════════════════════════════════════════════
    NAV
@@ -273,7 +305,7 @@ nav.scrolled {
 .page-title {
   font-size: clamp(2.2rem, 5vw, 3.8rem);
   font-weight: 900;
-  line-height: 1.15;
+  line-height: var(--lh-tight);
   margin-bottom: .8rem;
   color: var(--text);
 }
@@ -343,7 +375,7 @@ nav.scrolled {
 .hero-title {
   font-size: clamp(2.6rem, 7vw, 5rem);
   font-weight: 900;
-  line-height: 1.15;
+  line-height: var(--lh-tight);
   margin-bottom: .9rem;
   background: linear-gradient(140deg, var(--text) 20%, var(--ds-blue) 55%, var(--text) 90%);
   -webkit-background-clip: text;
@@ -388,7 +420,7 @@ nav.scrolled {
   display: inline-block;
   padding: .72rem 1.8rem;
   border-radius: 30px;
-  font-family: 'Tajawal', sans-serif;
+  font-family: var(--font-body);
   font-size: .93rem;
   font-weight: 700;
   text-decoration: none;
@@ -502,6 +534,7 @@ section { padding: 80px 1.5rem; }
 .section-title {
   font-size: clamp(1.7rem, 4vw, 2.4rem);
   font-weight: 800;
+  line-height: var(--lh-heading);
   margin-bottom: .7rem;
   color: var(--text);
   letter-spacing: -.01em;
@@ -952,7 +985,7 @@ section { padding: 80px 1.5rem; }
   border-radius: var(--r-sm);
   padding: .7rem 1rem;
   color: var(--text);
-  font-family: 'Tajawal', sans-serif;
+  font-family: var(--font-body);
   font-size: .93rem;
   outline: none;
   direction: rtl;
@@ -978,7 +1011,7 @@ section { padding: 80px 1.5rem; }
   border: none;
   border-radius: var(--r-sm);
   padding: .85rem;
-  font-family: 'Tajawal', sans-serif;
+  font-family: var(--font-body);
   font-size: 1rem;
   font-weight: 700;
   cursor: pointer;
@@ -1140,7 +1173,7 @@ footer {
   border: 1px solid var(--border);
   border-radius: 20px;
   color: var(--muted);
-  font-family: 'Tajawal', sans-serif;
+  font-family: var(--font-body);
   font-size: .76rem;
   font-weight: 700;
   padding: .28rem .78rem;
@@ -1338,7 +1371,7 @@ html[dir='ltr'] .fg textarea { direction: ltr; text-align: left; }
   bottom: 2rem;
   left: 1.5rem;
   z-index: 9998;
-  font-family: 'Tajawal', sans-serif;
+  font-family: var(--font-body);
 }
 
 #a11y-toggle {
@@ -1419,7 +1452,7 @@ html[dir='ltr'] .fg textarea { direction: ltr; text-align: left; }
   border-radius: var(--r-sm);
   background: none;
   cursor: pointer;
-  font-family: 'Tajawal', sans-serif;
+  font-family: var(--font-body);
   font-size: .88rem;
   color: var(--text);
   direction: rtl;
