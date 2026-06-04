@@ -185,10 +185,12 @@ nav.scrolled{ background:rgba(8,11,24,.92) !important; box-shadow:0 2px 22px rgb
 
 /* ── RESPONSIVE — single side spine on mobile ─────── */
 @media (max-width:720px){
-  .timeline{ margin-top:30px; }
-  .timeline::before{ left:20px; }
-  .tl-item{ width:100%; left:0 !important; padding:12px 0 12px 50px; transform:translateX(28px); }
-  .tl-dot{ left:11px !important; right:auto !important; top:22px; }
+  /* follow the document direction so the spine sits on the start side:
+     RTL (ar/he) -> right, LTR (en) -> left */
+  .timeline{ margin-top:30px; direction:inherit; }
+  .timeline::before{ left:auto; right:auto; inset-inline-start:20px; transform:none; }
+  .tl-item{ width:100%; left:0 !important; padding-block:12px; padding-inline-start:50px; padding-inline-end:0; transform:translateX(28px); }
+  .tl-dot{ left:auto !important; right:auto !important; inset-inline-start:11px !important; inset-inline-end:auto !important; top:22px; }
   .tl-item:nth-child(odd) .tl-card,
   .tl-item:nth-child(even) .tl-card{ text-align:start; }
 }
@@ -257,7 +259,7 @@ nav.scrolled{ background:rgba(8,11,24,.92) !important; box-shadow:0 2px 22px rgb
 </section>
 
 <!-- TIMELINE -->
-<div class="timeline">
+<div class="timeline" id="timeline">
 
   <div class="tl-item">
     <span class="tl-dot" aria-hidden="true"></span>
