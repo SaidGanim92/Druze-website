@@ -37,6 +37,7 @@
     <li><a href="follow-us.html" data-ar="تابعونا" data-en="Follow Us">تابعونا</a></li>
     <li><a href="contact.html" data-ar="تواصل معنا" data-en="Contact Us">تواصل معنا</a></li>
     <li><a href="sweida-timeline.html" data-ar="السويداء — تسلسل الأحداث" data-en="Sweida — Timeline of Events">السويداء — تسلسل الأحداث</a></li>
+    <li><a href="druze-map.html" data-ar="خريطة الدروز" data-en="Druze Map">خريطة الدروز</a></li>
     <li><a href="contact.html" class="cta" data-ar="ادعم المبادرات" data-en="Support Our Mission">ادعم المبادرات</a></li>
   </ul>
   <div class="nav-right">
@@ -52,6 +53,7 @@
   <a href="follow-us.html" data-ar="تابعونا" data-en="Follow Us">تابعونا</a>
   <a href="contact.html" data-ar="تواصل معنا" data-en="Contact Us">تواصل معنا</a>
   <a href="sweida-timeline.html" data-ar="السويداء — تسلسل الأحداث" data-en="Sweida — Timeline of Events">السويداء — تسلسل الأحداث</a>
+  <a href="druze-map.html" data-ar="خريطة الدروز" data-en="Druze Map">خريطة الدروز</a>
   <a href="contact.html" data-ar="ادعم المبادرات" data-en="Support Our Mission">ادعم المبادرات</a>
 </div>
 
@@ -75,9 +77,9 @@
      pad — tighten the gap between the strip and the hero to ~20px. */
   #hero{padding-top:20px}
 </style>
-<section class="siege-strip" aria-label="تذكير — السويداء ما زالت محاصرة" role="region">
+<section class="siege-strip" aria-label="تذكير — السويداء ما زالت تحت الحصار" role="region">
   <span class="siege-strip__day"><span class="heart" aria-hidden="true">🖤</span><span class="label" data-ar="اليوم" data-en="Day">اليوم</span><span id="siege-day">…</span></span>
-  <span class="siege-strip__text" data-ar="السويداء ما زالت محاصرة · Sweida still besieged" data-en="Sweida is still under siege · السويداء ما زالت محاصرة">السويداء ما زالت محاصرة · Sweida still besieged</span>
+  <span class="siege-strip__text" data-ar="السويداء ما زالت تحت الحصار · Sweida is still under siege" data-en="Sweida is still under siege · السويداء ما زالت تحت الحصار">السويداء ما زالت تحت الحصار · Sweida is still under siege</span>
   <span class="siege-strip__tag">#JusticeForSweida</span>
 </section>
 
@@ -98,15 +100,23 @@
   <div class="hero-content">
     <div class="badge stag" data-ar="★ &nbsp;مبادرتان · روح واحدة · رسالة واحدة" data-en="★ &nbsp;Two Initiatives · One Spirit · One Mission">★ &nbsp;مبادرتان · روح واحدة · رسالة واحدة</div>
     <div class="hero-headline">
-      <a href="#vod-gallery" class="float-card fc-left" style="animation-delay:.9s" onclick="event.preventDefault();document.getElementById('vod-gallery').scrollIntoView({behavior:'smooth',block:'start'})" aria-label="شاهد الصور">
-        <img src="00004voiceofdruze.jpg" alt="يوم الفرح للأطفال" loading="eager" decoding="async">
-        <span data-ar="فريق الصوت الدرزي — يوم الفرح ↓" data-en="Voice of Druze — Day of Joy ↓">فريق الصوت الدرزي — يوم الفرح ↓</span>
-      </a>
       <h1 class="hero-title stag d1" data-ar="صوت يصل&lt;br&gt;ويد تمتد" data-en="A Voice That Reaches&lt;br&gt;A Hand That Extends">صوت يصل<br>ويد تمتد</h1>
-      <a href="#campaign-gallery" class="float-card fc-right" onclick="event.preventDefault();document.getElementById('campaign-gallery').scrollIntoView({behavior:'smooth',block:'start'})" aria-label="شاهد الحملة">
-        <img src="00001druze spirit.jpg" alt="متطوعون في نيويورك" loading="eager" decoding="async">
-        <span data-ar="Druze Spirit — حملة نيويورك ↓" data-en="Druze Spirit — New York Campaign ↓">Druze Spirit — حملة نيويورك ↓</span>
-      </a>
+      <div class="hero-cards stag d2">
+        <a href="#vod-gallery" class="init-card" onclick="event.preventDefault();document.getElementById('vod-gallery').scrollIntoView({behavior:'smooth',block:'start'})" aria-label="فريق الصوت الدرزي — يوم الفرح">
+          <img src="00004voiceofdruze.jpg" alt="يوم الفرح للأطفال" loading="eager" decoding="async">
+          <div class="init-card__overlay">
+            <h3 class="init-card__title" data-ar="فريق الصوت الدرزي — يوم الفرح" data-en="Voice of Druze — Day of Joy">فريق الصوت الدرزي — يوم الفرح</h3>
+            <span class="init-card__cta" data-ar="عرض ←" data-en="View →">عرض ←</span>
+          </div>
+        </a>
+        <a href="#campaign-gallery" class="init-card" onclick="event.preventDefault();document.getElementById('campaign-gallery').scrollIntoView({behavior:'smooth',block:'start'})" aria-label="Druze Spirit — حملة نيويورك">
+          <img src="00001druze spirit.jpg" alt="متطوعون في نيويورك" loading="eager" decoding="async">
+          <div class="init-card__overlay">
+            <h3 class="init-card__title" data-ar="Druze Spirit — حملة نيويورك" data-en="Druze Spirit — New York Campaign">Druze Spirit — حملة نيويورك</h3>
+            <span class="init-card__cta" data-ar="عرض ←" data-en="View →">عرض ←</span>
+          </div>
+        </a>
+      </div>
     </div>
     <p class="hero-sub stag d2" data-ar="Druze Spirit &amp;amp; فريق الصوت الدرزي · Voice Of Druze" data-en="Druze Spirit &amp;amp; Voice Of Druze">Druze Spirit &amp; فريق الصوت الدرزي · Voice Of Druze</p>
     <p class="hero-p stag d3" data-ar="صوت واحد يجمع بين الإعلام والعمل الإنساني من أجل السويداء وأبناء الطائفة الدرزية في كل مكان" data-en="One voice uniting media and humanitarian work for Sweida and the Druze community everywhere">صوت واحد يجمع بين الإعلام والعمل الإنساني من أجل السويداء وأبناء الطائفة الدرزية في كل مكان</p>
@@ -343,20 +353,13 @@
    The cards live in their own columns so they can never overlap the title. */
 .hero-content { max-width: 1060px; }
 .hero-headline {
-  display: grid;
-  grid-template-columns: 180px minmax(0, 1fr) 180px;
-  align-items: stretch; /* both cards stretch to identical height */
-  gap: clamp(1.4rem, 4vw, 3.5rem);
-  max-width: 1060px;
+  max-width: 760px;
   margin: 0 auto 1.4rem;
-  direction: ltr; /* keep left card physically left, right card right */
 }
-/* Title: smaller clamp so the long English string fits without overflowing,
-   with breathing line-height; works for both AR and EN. */
+/* Title sits above the two cards; clamp keeps the long EN string from overflowing. */
 .hero-headline .hero-title {
-  margin-bottom: 0;
-  align-self: center;
-  font-size: clamp(1.75rem, 4.2vw, 3.2rem);
+  margin: 0 auto;
+  font-size: clamp(1.9rem, 4.6vw, 3.4rem);
   line-height: 1.25;
   max-width: 100%;
   overflow-wrap: break-word;
@@ -364,64 +367,78 @@
 /* Keep the wide text blocks readable even though hero-content is now wider. */
 .hero-sub, .hero-btns, .tagline { max-width: 700px; margin-left: auto; margin-right: auto; }
 
-.float-card {
-  width: 180px;
-  justify-self: center;
-  display: flex;
-  flex-direction: column;
-  background: #fff;
+/* Two initiative cards: equal-height image cards with a gradient overlay. */
+.hero-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(1rem, 2.4vw, 1.5rem);
+  margin-top: 1.5rem;
+}
+.init-card {
+  position: relative;
+  display: block;
+  aspect-ratio: 16 / 10;          /* identical proportions + height for both */
   border-radius: 18px;
-  box-shadow: 0 6px 24px rgba(0,0,0,.13), 0 1px 4px rgba(0,0,0,.07);
-  overflow: hidden;
+  overflow: hidden;               /* clip the hover zoom */
   text-decoration: none;
+  box-shadow: 0 10px 30px rgba(0,0,0,.16), 0 2px 6px rgba(0,0,0,.08);
+  transition: transform .4s cubic-bezier(.22,.61,.36,1), box-shadow .4s ease;
   z-index: 4;
-  animation: fc-float 3.2s ease-in-out infinite;
-  transition: box-shadow .25s, transform .25s;
 }
-.float-card:hover {
-  box-shadow: 0 12px 36px rgba(27,79,160,.22), 0 2px 8px rgba(0,0,0,.1);
-  animation-play-state: paused;
-  transform: translateY(-4px);
-}
-.float-card img {
+.init-card img {
+  position: absolute;
+  inset: 0;
   width: 100%;
-  height: 110px;
+  height: 100%;
   object-fit: cover;
   display: block;
-  flex-shrink: 0;
+  transition: transform .45s cubic-bezier(.22,.61,.36,1);
 }
-.float-card span {
-  flex: 1; /* fills the remaining height so both cards stay equal */
+.init-card__overlay {
+  position: absolute;
+  inset: 0;
   display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start;
+  text-align: start;
+  gap: .35rem;
+  padding: clamp(.9rem, 2.2vw, 1.3rem);
+  background: linear-gradient(to top, rgba(10,16,38,.82) 0%, rgba(10,16,38,.42) 40%, rgba(10,16,38,0) 72%);
+}
+.init-card__title {
+  margin: 0;
+  color: #fff;
+  font-family: var(--font-head);
+  font-weight: 800;
+  font-size: clamp(.95rem, 1.9vw, 1.18rem);
+  line-height: 1.3;
+  text-shadow: 0 1px 6px rgba(0,0,0,.45);
+}
+.init-card__cta {
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: .5rem .45rem .55rem;
+  color: #fff;
   font-family: var(--font-body);
-  font-size: .74rem;
   font-weight: 700;
-  color: #1a2240;
-  line-height: 1.4;
-  direction: rtl;
+  font-size: .82rem;
+  opacity: .92;
+  text-shadow: 0 1px 5px rgba(0,0,0,.4);
+  transition: opacity .25s ease;
 }
-@keyframes fc-float {
-  0%, 100% { transform: translateY(0); }
-  50%       { transform: translateY(-8px); }
+.init-card:hover, .init-card:focus-visible {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 44px rgba(27,79,160,.28), 0 4px 12px rgba(0,0,0,.14);
 }
-@media (max-width: 960px) {
-  /* Mobile: title on its own row at the top, the two cards side by side below. */
-  .hero-headline {
-    grid-template-columns: repeat(2, minmax(0, 160px));
-    justify-content: center;
-    gap: .9rem;
-  }
-  .hero-headline .hero-title { grid-column: 1 / -1; grid-row: 1; margin-bottom: .4rem; }
-  .float-card.fc-left  { grid-column: 1; grid-row: 2; }
-  .float-card.fc-right { grid-column: 2; grid-row: 2; }
-  .float-card { width: 100%; }
+.init-card:hover img, .init-card:focus-visible img { transform: scale(1.05); }
+.init-card:hover .init-card__cta, .init-card:focus-visible .init-card__cta { opacity: 1; }
+
+@media (max-width: 700px) {
+  .hero-cards { grid-template-columns: 1fr; }   /* stack one below the other */
 }
-@media (max-width: 360px) {
-  .float-card img { height: 80px; }
+@media (prefers-reduced-motion: reduce) {
+  .init-card, .init-card img { transition: none; }
+  .init-card:hover img, .init-card:focus-visible img { transform: none; }
 }
 
 .gallery-grid {

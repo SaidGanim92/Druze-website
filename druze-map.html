@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<!-- Security Meta Tags -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://formspree.io https://cdn.jsdelivr.net; form-action 'self' https://formspree.io; base-uri 'self'; object-src 'none'; frame-src 'none'">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="X-Frame-Options" content="DENY">
+<meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NYTTGCMX9L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-NYTTGCMX9L');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>الدروز حول العالم — خريطة | Druze Around the World — Map</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800;900&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="style.css">
+<style>
+/* ════════════════════════════════════════════════════
+   DRUZE WORLD MAP — Cosmic dark theme (page-scoped)
+   Shares the visual DNA of sweida-timeline.html
+   ════════════════════════════════════════════════════ */
+body { background:#04050d; color:#e8ecf5; }
+
+/* ── Cosmic background layers ─────────────────────── */
+#cosmos{
+  position:fixed; inset:0; z-index:-3; pointer-events:none;
+  background:
+    radial-gradient(ellipse 55% 48% at 18% 14%, rgba(45,95,170,.22), transparent 60%),
+    radial-gradient(ellipse 48% 42% at 84% 26%, rgba(120,60,165,.18), transparent 60%),
+    radial-gradient(ellipse 70% 60% at 50% 104%, rgba(20,90,130,.20), transparent 62%),
+    linear-gradient(180deg, #04050d 0%, #070a1a 45%, #050712 78%, #04050d 100%);
+}
+#starfield{ position:fixed; inset:0; z-index:-2; display:block; pointer-events:none; }
+
+/* ── Nav — dark glass override for this page ──────── */
+nav{ background:rgba(8,11,24,.72) !important; border-bottom:1px solid rgba(255,255,255,.07); }
+nav.scrolled{ background:rgba(8,11,24,.92) !important; box-shadow:0 2px 22px rgba(0,0,0,.55); }
+.nav-links a{ color:#cdd5e6; }
+.nav-links a:hover{ color:#fff; }
+.nav-links a.active{ color:#9db8ff; }
+#lang-toggle{ color:#dbe2f2; border-color:rgba(255,255,255,.22); }
+#lang-toggle:hover{ background:rgba(255,255,255,.08); }
+.hamburger span{ background:#dbe2f2; }
+.mobile-menu{ background:rgba(8,11,24,.97); border-top:1px solid rgba(255,255,255,.07); }
+.mobile-menu a{ color:#cdd5e6; border-color:rgba(255,255,255,.06); }
+
+/* ── HERO ─────────────────────────────────────────── */
+.map-hero{
+  text-align:center; padding:128px 1.5rem 24px; position:relative;
+}
+.map-eyebrow{
+  display:inline-block; font-family:var(--font-head); font-weight:700;
+  font-size:.8rem; letter-spacing:.18em; color:#9db8ff;
+  padding:.4rem 1.1rem; border:1px solid rgba(157,184,255,.3);
+  border-radius:30px; background:rgba(90,140,255,.06); margin-bottom:1.4rem;
+}
+.map-hero h1{
+  font-family:var(--font-head); font-weight:900;
+  font-size:clamp(2.4rem, 8vw, 5.2rem); line-height:1.5; margin:0; padding-bottom:.12em;
+  background:linear-gradient(180deg, #ffffff 0%, #bcd0ff 70%, #7fa0ff 100%);
+  -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
+  filter:drop-shadow(0 0 34px rgba(120,165,255,.45));
+}
+.map-hero .sub{
+  max-width:620px; margin:1rem auto 0; color:#aeb9d4;
+  font-size:clamp(.98rem, 2.4vw, 1.18rem); line-height:1.9;
+}
+
+/* ── MAP ──────────────────────────────────────────── */
+.map-section{ padding:14px 1rem 6px; }
+.map-wrap{
+  position:relative; max-width:1040px; margin:0 auto;
+}
+#world-map{
+  width:100%; height:auto; display:block;
+  filter:drop-shadow(0 0 26px rgba(70,120,225,.18));
+}
+.map-graticule{ fill:none; stroke:rgba(125,165,255,.06); stroke-width:.4px; }
+.map-country{ fill:#1a2040; stroke:none; transition:fill .25s; }
+.map-border{ fill:none; stroke:rgba(125,165,255,.32); stroke-width:.5px; vector-effect:non-scaling-stroke; }
+.map-sphere{ fill:transparent; stroke:rgba(120,160,255,.10); stroke-width:.5px; }
+
+/* Druze location dots: pulsing glow */
+.dot{ cursor:pointer; }
+.dot .glow{
+  transform-box:fill-box; transform-origin:center;
+  filter:blur(3px); opacity:.55;
+  animation:druze-pulse 3.4s ease-in-out infinite;
+}
+.dot .core{
+  transform-box:fill-box; transform-origin:center;
+  stroke:rgba(255,255,255,.55); stroke-width:.5px;
+  animation:druze-core 3.4s ease-in-out infinite;
+}
+.dot:hover .core{ stroke:#fff; stroke-width:1px; }
+.dot:hover .glow{ opacity:.85; }
+@keyframes druze-pulse{
+  0%,100%{ transform:scale(1);    opacity:.45; }
+  50%    { transform:scale(1.45); opacity:.8;  }
+}
+@keyframes druze-core{
+  0%,100%{ transform:scale(1);    }
+  50%    { transform:scale(1.12); }
+}
+
+/* Tooltip */
+.map-tooltip{
+  position:absolute; top:0; left:0; pointer-events:none; opacity:0;
+  transform:translate(-50%, -118%); transition:opacity .16s ease;
+  background:rgba(10,14,30,.94); border:1px solid rgba(125,165,255,.3);
+  border-radius:12px; padding:.55rem .85rem; z-index:6; white-space:nowrap;
+  box-shadow:0 10px 30px rgba(0,0,0,.5); backdrop-filter:blur(6px);
+}
+.map-tooltip.show{ opacity:1; }
+.map-tooltip .tt-name{ font-family:var(--font-head); font-weight:800; color:#fff; font-size:.98rem; }
+.map-tooltip .tt-count{ display:block; margin-top:.15rem; color:#9db8ff; font-size:.86rem; font-weight:600; }
+.map-loading{
+  position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+  color:#7e8bb0; font-size:1rem; font-family:var(--font-body);
+}
+.map-loading.hide{ display:none; }
+
+/* ── STATS BAR ────────────────────────────────────── */
+.map-stats{ padding:18px 1.5rem 64px; text-align:center; }
+.map-stats__bar{
+  display:inline-block; max-width:880px; margin:0 auto;
+  font-family:var(--font-head); font-weight:800;
+  font-size:clamp(1rem, 2.6vw, 1.45rem); line-height:1.7; color:#eaf0ff;
+  padding:1.05rem 1.8rem; border-radius:18px;
+  background:linear-gradient(180deg, rgba(28,40,80,.55), rgba(14,20,42,.55));
+  border:1px solid rgba(125,165,255,.22);
+  box-shadow:0 14px 40px rgba(15,30,80,.4), inset 0 0 30px rgba(70,120,225,.08);
+  text-shadow:0 0 20px rgba(120,165,255,.35);
+}
+
+@media (max-width:600px){
+  .map-hero{ padding-top:108px; }
+  .map-tooltip{ font-size:.85rem; }
+}
+@media (prefers-reduced-motion: reduce){
+  .dot .glow, .dot .core{ animation:none; }
+}
+</style>
+</head>
+<body>
+<a href="#main-content" class="skip-link">تخطى إلى المحتوى الرئيسي</a>
+
+<div id="cosmos"></div>
+<canvas id="starfield" aria-hidden="true"></canvas>
+
+<!-- NAV -->
+<nav role="navigation" aria-label="التنقل الرئيسي">
+  <a href="index.html" class="nav-logo"><img src="logo_druze_spirit.png" alt="Druze Spirit" class="nav-logo-img" loading="eager" decoding="async"><img src="logo_voice_of_druze.png" alt="Voice of Druze" class="nav-logo-img" loading="eager" decoding="async"></a>
+  <ul class="nav-links">
+    <li><a href="index.html" data-ar="الرئيسية" data-en="Home">الرئيسية</a></li>
+    <li><a href="druze-spirit.html">Druze Spirit</a></li>
+    <li><a href="voice-of-druze.html" data-ar="الصوت الدرزي" data-en="Druze Voice">الصوت الدرزي</a></li>
+    <li><a href="activities.html" data-ar="نشاطاتنا" data-en="Our Activities">نشاطاتنا</a></li>
+    <li><a href="follow-us.html" data-ar="تابعونا" data-en="Follow Us">تابعونا</a></li>
+    <li><a href="contact.html" data-ar="تواصل معنا" data-en="Contact Us">تواصل معنا</a></li>
+    <li><a href="sweida-timeline.html" data-ar="السويداء — تسلسل الأحداث" data-en="Sweida — Timeline of Events">السويداء — تسلسل الأحداث</a></li>
+    <li><a href="druze-map.html" class="active" aria-current="page" data-ar="خريطة الدروز" data-en="Druze Map">خريطة الدروز</a></li>
+    <li><a href="contact.html" class="cta" data-ar="ادعم المبادرات" data-en="Support Our Mission">ادعم المبادرات</a></li>
+  </ul>
+  <div class="nav-right">
+    <button id="lang-toggle" aria-label="Switch language">EN</button>
+    <button class="hamburger" id="ham" aria-label="القائمة" aria-expanded="false" aria-controls="mob"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mob" role="navigation" aria-label="القائمة المتنقلة" aria-hidden="true">
+  <a href="index.html" data-ar="الرئيسية" data-en="Home">الرئيسية</a>
+  <a href="druze-spirit.html">Druze Spirit</a>
+  <a href="voice-of-druze.html" data-ar="فريق الصوت الدرزي" data-en="Voice of Druze Team">فريق الصوت الدرزي</a>
+  <a href="activities.html" data-ar="نشاطاتنا" data-en="Our Activities">نشاطاتنا</a>
+  <a href="follow-us.html" data-ar="تابعونا" data-en="Follow Us">تابعونا</a>
+  <a href="contact.html" data-ar="تواصل معنا" data-en="Contact Us">تواصل معنا</a>
+  <a href="sweida-timeline.html" data-ar="السويداء — تسلسل الأحداث" data-en="Sweida — Timeline of Events">السويداء — تسلسل الأحداث</a>
+  <a href="druze-map.html" class="active" aria-current="page" data-ar="خريطة الدروز" data-en="Druze Map">خريطة الدروز</a>
+  <a href="contact.html" data-ar="ادعم المبادرات" data-en="Support Our Mission">ادعم المبادرات</a>
+</div>
+
+<main id="main-content" tabindex="-1">
+
+<!-- HERO -->
+<header class="map-hero">
+  <span class="map-eyebrow stag" data-ar="خريطة تفاعلية" data-en="Interactive Map">خريطة تفاعلية</span>
+  <h1 class="stag d1" data-ar="الدروز حول العالم" data-en="Druze Around the World">الدروز حول العالم</h1>
+  <p class="sub stag d2" data-ar="أكثر من مليون ونصف المليون درزي في أربع قارات" data-en="Over one million Druze across four continents">أكثر من مليون ونصف المليون درزي في أربع قارات</p>
+</header>
+
+<!-- MAP -->
+<section class="map-section">
+  <div class="map-wrap stag">
+    <svg id="world-map" viewBox="0 0 960 500" preserveAspectRatio="xMidYMid meet" role="img" aria-label="خريطة العالم تُظهر تجمعات الدروز · World map showing Druze communities"></svg>
+    <div class="map-tooltip" id="map-tooltip" role="status" aria-live="polite"></div>
+    <div class="map-loading" id="map-loading" data-ar="جارٍ تحميل الخريطة…" data-en="Loading map…">جارٍ تحميل الخريطة…</div>
+  </div>
+</section>
+
+<!-- STATS BAR -->
+<section class="map-stats">
+  <div class="map-stats__bar stag" data-ar="~١٫٥ مليون درزي في العالم · ٨ دول · ٣ قارات رئيسية" data-en="~1.5 Million Druze Worldwide · 8 Countries · 3 Continents">~١٫٥ مليون درزي في العالم · ٨ دول · ٣ قارات رئيسية</div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer role="contentinfo">
+  <a href="index.html" class="ft-logo"><img src="logo_druze_spirit.png" alt="Druze Spirit" class="ft-logo-img" loading="lazy" decoding="async"><img src="logo_voice_of_druze.png" alt="Voice of Druze" class="ft-logo-img" loading="lazy" decoding="async"></a>
+  <p class="ft-desc" data-ar="صوت إعلامي ويد إنسانية من أجل السويداء وأبناء الطائفة الدرزية في كل مكان." data-en="A media voice and a helping hand for Sweida and Druze communities everywhere.">صوت إعلامي ويد إنسانية من أجل السويداء وأبناء الطائفة الدرزية في كل مكان.</p>
+  <div class="ft-stars" aria-hidden="true"><span style="color:#1B8A3C">★</span><span style="color:#D42B2B">★</span><span style="color:#F5B800">★</span><span style="color:#1B4FA0">★</span><span style="color:#fff">★</span></div>
+  <div class="ft-links">
+    <a href="index.html" data-ar="الرئيسية" data-en="Home">الرئيسية</a>
+    <a href="druze-spirit.html">Druze Spirit</a>
+    <a href="voice-of-druze.html">Voice Of Druze</a>
+    <a href="activities.html" data-ar="نشاطاتنا" data-en="Our Activities">نشاطاتنا</a>
+    <a href="follow-us.html" data-ar="تابعونا" data-en="Follow Us">تابعونا</a>
+    <a href="contact.html" data-ar="تواصل معنا" data-en="Contact Us">تواصل معنا</a>
+    <a href="mailto:druzespiritintl@gmail.com">druzespiritintl@gmail.com</a>
+  </div>
+  <div class="ft-copy" data-ar="© جميع الحقوق محفوظة — Druze Spirit &amp;amp; فريق الصوت الدرزي · Voice Of Druze" data-en="© All rights reserved — Druze Spirit &amp;amp; Voice Of Druze">© جميع الحقوق محفوظة — Druze Spirit &amp; فريق الصوت الدرزي · Voice Of Druze</div>
+</footer>
+
+<script src="shared.js"></script>
+<script>
+/* ── Mobile menu + nav scroll state + .stag reveal (shared with site) ── */
+const ham = document.getElementById('ham'), mob = document.getElementById('mob');
+ham.addEventListener('click', () => {
+  const open = ham.classList.toggle('open');
+  mob.classList.toggle('open', open);
+  ham.setAttribute('aria-expanded', open);
+  mob.setAttribute('aria-hidden', !open);
+});
+document.addEventListener('click', e => { if (!ham.contains(e.target) && !mob.contains(e.target) && e.target.id !== 'lang-toggle') { ham.classList.remove('open'); mob.classList.remove('open'); ham.setAttribute('aria-expanded','false'); mob.setAttribute('aria-hidden','true'); } });
+const navEl = document.querySelector('nav');
+window.addEventListener('scroll', () => { navEl.classList.toggle('scrolled', window.scrollY > 20); }, { passive: true });
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); io.unobserve(e.target); } });
+}, { threshold: 0.1, rootMargin: '0px 0px -48px 0px' });
+document.querySelectorAll('.stag').forEach(el => io.observe(el));
+
+/* ── Cosmic starfield (canvas) — twinkle, scroll parallax, gentle shooting stars ── */
+(function(){
+  var c = document.getElementById('starfield');
+  if (!c || !c.getContext) return;
+  var ctx = c.getContext('2d');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var W, H, DPR, stars = [], shoots = [], scrollY = window.scrollY, t = 0;
+  function rand(a,b){ return a + Math.random()*(b-a); }
+  var palette = ['rgba(255,255,255,', 'rgba(184,210,255,', 'rgba(255,242,205,'];
+  function build(){
+    DPR = Math.min(window.devicePixelRatio || 1, 2);
+    W = c.width  = Math.floor(window.innerWidth  * DPR);
+    H = c.height = Math.floor(window.innerHeight * DPR);
+    c.style.width  = window.innerWidth  + 'px';
+    c.style.height = window.innerHeight + 'px';
+    var mobile = window.innerWidth < 720;
+    var count = Math.min(mobile ? 80 : 170,
+                Math.round((window.innerWidth * window.innerHeight) / (mobile ? 9500 : 6200)));
+    stars = [];
+    for (var i=0;i<count;i++){
+      stars.push({ x: Math.random()*W, y: Math.random()*H*1.8, r: rand(0.4,1.7)*DPR,
+        z: rand(0.15,1), tw: rand(0,Math.PI*2), ts: rand(0.5,2.0),
+        col: palette[Math.floor(Math.random()*palette.length)] });
+    }
+  }
+  function spawnShoot(){
+    shoots.push({ x: rand(W*0.15, W*0.95), y: rand(0, H*0.32),
+      vx: rand(-6,-3.2)*DPR, vy: rand(2.6,5.2)*DPR, life: 0, max: Math.round(rand(38,64)) });
+  }
+  function drawStatic(){
+    ctx.clearRect(0,0,W,H);
+    for (var i=0;i<stars.length;i++){ var s = stars[i];
+      ctx.beginPath(); ctx.fillStyle = s.col + (s.z*0.85).toFixed(3) + ')';
+      ctx.arc(s.x, s.y % H, s.r, 0, Math.PI*2); ctx.fill(); }
+  }
+  function frame(){
+    t++; ctx.clearRect(0,0,W,H); var sy = scrollY * DPR;
+    for (var i=0;i<stars.length;i++){ var s = stars[i]; var span = H*1.8;
+      var y = s.y - sy * s.z * 0.22; y = ((y % span) + span) % span;
+      var a = (0.32 + 0.46*Math.sin(t*0.018*s.ts + s.tw)) * s.z + 0.18; if (a < 0) a = 0;
+      ctx.beginPath(); ctx.fillStyle = s.col + a.toFixed(3) + ')';
+      ctx.arc(s.x, y, s.r, 0, Math.PI*2); ctx.fill(); }
+    for (var j=shoots.length-1;j>=0;j--){ var sh = shoots[j]; sh.life++;
+      sh.x += sh.vx; sh.y += sh.vy; var tx = sh.x - sh.vx*9, ty = sh.y - sh.vy*9;
+      var g = ctx.createLinearGradient(sh.x, sh.y, tx, ty); var fade = 1 - sh.life/sh.max;
+      g.addColorStop(0, 'rgba(255,255,255,' + (0.9*fade).toFixed(3) + ')');
+      g.addColorStop(1, 'rgba(255,255,255,0)');
+      ctx.strokeStyle = g; ctx.lineWidth = 1.5*DPR; ctx.lineCap = 'round';
+      ctx.beginPath(); ctx.moveTo(sh.x, sh.y); ctx.lineTo(tx, ty); ctx.stroke();
+      if (sh.life > sh.max) shoots.splice(j,1); }
+    if (Math.random() < 0.004 && shoots.length < 2) spawnShoot();
+    requestAnimationFrame(frame);
+  }
+  window.addEventListener('resize', function(){ build(); if (reduce) drawStatic(); });
+  window.addEventListener('scroll', function(){ scrollY = window.scrollY; }, { passive: true });
+  build(); if (reduce) drawStatic(); else requestAnimationFrame(frame);
+})();
+</script>
+
+<!-- D3 + TopoJSON for the world map -->
+<script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/topojson@3/dist/topojson.min.js"></script>
+<script>
+/* ── Druze world map (D3 + TopoJSON) ─────────────────────────── */
+(function(){
+  if (typeof d3 === 'undefined' || typeof topojson === 'undefined') return;
+
+  var WIDTH = 960, HEIGHT = 500;
+  // Five Druze-star colours
+  var STAR = ['#1B8A3C','#D42B2B','#F5B800','#1B4FA0','#ffffff'];
+
+  var LOCATIONS = [
+    { ar:'سوريا',            en:'Syria',     lat:32.8,  lng:36.6,  count:700000 },
+    { ar:'لبنان',            en:'Lebanon',   lat:33.9,  lng:35.5,  count:275000 },
+    { ar:'إسرائيل',          en:'Israel',    lat:32.5,  lng:35.2,  count:153000 },
+    { ar:'فنزويلا',          en:'Venezuela', lat:8.0,   lng:-66.0, count:60000  },
+    { ar:'الولايات المتحدة', en:'USA',       lat:38.0,  lng:-97.0, count:50000  },
+    { ar:'الأردن',           en:'Jordan',    lat:30.6,  lng:36.7,  count:20000  },
+    { ar:'كندا',             en:'Canada',    lat:56.0,  lng:-96.0, count:10000  },
+    { ar:'أستراليا',         en:'Australia', lat:-25.0, lng:133.0, count:5000   }
+  ];
+
+  var svg = d3.select('#world-map');
+  var tooltip = document.getElementById('map-tooltip');
+  var wrap = document.querySelector('.map-wrap');
+  var loadingEl = document.getElementById('map-loading');
+
+  var projection = d3.geoNaturalEarth1();
+  var path = d3.geoPath(projection);
+  var rScale = d3.scaleSqrt().domain([5000, 700000]).range([5, 30]);
+
+  function currentLang(){ return document.documentElement.lang === 'en' ? 'en' : 'ar'; }
+  function fmtCount(n){ return n.toLocaleString(currentLang() === 'ar' ? 'ar-EG' : 'en-US'); }
+
+  d3.json('https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json').then(function(world){
+    if (loadingEl) loadingEl.classList.add('hide');
+
+    projection.fitExtent([[10,10],[WIDTH-10, HEIGHT-10]], { type:'Sphere' });
+
+    // Sphere outline + graticule
+    svg.append('path').attr('class','map-sphere').attr('d', path({ type:'Sphere' }));
+    svg.append('path').attr('class','map-graticule').attr('d', path(d3.geoGraticule10()));
+
+    // Country land
+    var countries = topojson.feature(world, world.objects.countries).features;
+    svg.append('g').selectAll('path.map-country')
+      .data(countries).join('path')
+      .attr('class','map-country').attr('d', path);
+
+    // Interior borders (thin glowing)
+    var borders = topojson.mesh(world, world.objects.countries, function(a,b){ return a !== b; });
+    svg.append('path').attr('class','map-border').attr('d', path(borders));
+
+    // Druze location dots — draw largest first so small ones stay clickable on top
+    var data = LOCATIONS.slice().sort(function(a,b){ return b.count - a.count; });
+    var gDots = svg.append('g').attr('class','dots');
+
+    var dots = gDots.selectAll('g.dot').data(data).join('g')
+      .attr('class','dot')
+      .attr('transform', function(d){ var p = projection([d.lng, d.lat]); return 'translate(' + p[0] + ',' + p[1] + ')'; })
+      .attr('tabindex', 0)
+      .attr('role', 'button');
+
+    dots.append('circle').attr('class','glow')
+      .attr('r', function(d){ return rScale(d.count) * 2.1; })
+      .attr('fill', function(d,i){ return STAR[i % STAR.length]; })
+      .style('animation-delay', function(d,i){ return (i * 0.32).toFixed(2) + 's'; });
+
+    dots.append('circle').attr('class','core')
+      .attr('r', function(d){ return rScale(d.count); })
+      .attr('fill', function(d,i){ return STAR[i % STAR.length]; })
+      .style('animation-delay', function(d,i){ return (i * 0.32).toFixed(2) + 's'; });
+
+    function showTip(d){
+      var lang = currentLang();
+      tooltip.innerHTML =
+        '<span class="tt-name">' + (lang === 'ar' ? d.ar : d.en) + '</span>' +
+        '<span class="tt-count">' + fmtCount(d.count) + (lang === 'ar' ? ' درزي' : ' Druze') + '</span>';
+      tooltip.classList.add('show');
+    }
+    function hideTip(){ tooltip.classList.remove('show'); }
+
+    dots
+      .on('mouseenter', function(event, d){ showTip(d); })
+      .on('mousemove', function(event){
+        var ev = d3.pointer(event, wrap);
+        tooltip.style.left = ev[0] + 'px';
+        tooltip.style.top  = ev[1] + 'px';
+      })
+      .on('mouseleave', hideTip)
+      .on('focus', function(event, d){
+        showTip(d);
+        var p = projection([d.lng, d.lat]);
+        var rect = svg.node().getBoundingClientRect();
+        tooltip.style.left = (p[0] / WIDTH * rect.width) + 'px';
+        tooltip.style.top  = (p[1] / HEIGHT * rect.height) + 'px';
+      })
+      .on('blur', hideTip);
+  }).catch(function(){
+    if (loadingEl){ loadingEl.textContent = currentLang() === 'ar' ? 'تعذّر تحميل الخريطة' : 'Could not load the map'; }
+  });
+})();
+</script>
+
+<button id="accessibility-btn" onclick="document.getElementById('accessibility-menu').style.display = document.getElementById('accessibility-menu').style.display === 'none' ? 'block' : 'none'" aria-label="إعدادات الوصول" style="position:fixed;bottom:20px;left:20px;width:50px;height:50px;border-radius:50%;background:#2d6fa3;color:white;font-size:22px;border:none;cursor:pointer;z-index:9999;box-shadow:0 2px 10px rgba(0,0,0,0.3)">♿</button>
+
+<div id="accessibility-menu" style="display:none;position:fixed;bottom:80px;left:20px;background:white;border:1px solid #ddd;border-radius:10px;padding:15px;z-index:9999;box-shadow:0 2px 20px rgba(0,0,0,0.2);min-width:210px;direction:rtl;font-family:var(--font-body)">
+  <button style="display:block;width:100%;text-align:right;margin-bottom:8px;padding:6px 10px;border:none;background:none;cursor:pointer;font-size:14px;color:#222" onclick="document.documentElement.style.fontSize='120%'">تكبير الخط — A+</button>
+  <button style="display:block;width:100%;text-align:right;margin-bottom:8px;padding:6px 10px;border:none;background:none;cursor:pointer;font-size:14px;color:#222" onclick="document.documentElement.style.fontSize='80%'">تصغير الخط — A-</button>
+  <button style="display:block;width:100%;text-align:right;margin-bottom:8px;padding:6px 10px;border:none;background:none;cursor:pointer;font-size:14px;color:#222" onclick="document.body.style.filter='contrast(2) grayscale(1)'">تباين عالٍ — ◑</button>
+  <button style="display:block;width:100%;text-align:right;margin-bottom:8px;padding:6px 10px;border:none;background:none;cursor:pointer;font-size:14px;color:#222" onclick="(function(){var els=document.querySelectorAll('a');var on=els[0]&&els[0].style.outline;els.forEach(function(a){a.style.outline=on?'':'2px dashed';a.style.textDecoration=on?'':'underline';})})()">إبراز الروابط — 🔗</button>
+  <button style="display:block;width:100%;text-align:right;margin-bottom:8px;padding:6px 10px;border:none;background:none;cursor:pointer;font-size:14px;color:#222" onclick="(function(){var s=document.getElementById('a11y-s');if(s){s.parentNode.removeChild(s);}else{s=document.createElement('style');s.id='a11y-s';s.textContent='*,*::before,*::after{animation-duration:.001ms!important;transition-duration:.001ms!important}';document.head.appendChild(s);}})()">إيقاف الحركة — ⏸</button>
+  <hr style="border:none;border-top:1px solid #eee;margin:8px 0">
+  <button style="display:block;width:100%;text-align:right;padding:6px 10px;border:none;background:none;cursor:pointer;font-size:14px;color:#c0392b" onclick="document.documentElement.style.fontSize='';document.body.style.filter='';document.querySelectorAll('a').forEach(function(a){a.style.outline='';a.style.textDecoration=''});var s=document.getElementById('a11y-s');if(s)s.parentNode.removeChild(s);">إعادة الضبط — ↺</button>
+</div>
+</body>
+</html>
