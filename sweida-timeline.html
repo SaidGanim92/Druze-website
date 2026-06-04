@@ -1,0 +1,537 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<!-- Security Meta Tags -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://region1.google-analytics.com https://formspree.io; form-action 'self' https://formspree.io; base-uri 'self'; object-src 'none'; frame-src 'none'">
+<meta http-equiv="X-Content-Type-Options" content="nosniff">
+<meta http-equiv="X-Frame-Options" content="DENY">
+<meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-NYTTGCMX9L"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-NYTTGCMX9L');
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>السويداء — تسلسل الأحداث | Sweida — Timeline of Events</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800;900&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="style.css">
+<style>
+/* ════════════════════════════════════════════════════
+   SWEIDA TIMELINE — Cosmic dark theme (page-scoped)
+   ════════════════════════════════════════════════════ */
+body { background:#04050d; color:#e8ecf5; }
+
+/* ── Cosmic background layers ─────────────────────── */
+#cosmos{
+  position:fixed; inset:0; z-index:-3; pointer-events:none;
+  background:
+    radial-gradient(ellipse 55% 48% at 18% 14%, rgba(45,95,170,.22), transparent 60%),
+    radial-gradient(ellipse 48% 42% at 84% 26%, rgba(120,60,165,.18), transparent 60%),
+    radial-gradient(ellipse 70% 60% at 50% 104%, rgba(20,90,130,.20), transparent 62%),
+    linear-gradient(180deg, #04050d 0%, #070a1a 45%, #050712 78%, #04050d 100%);
+}
+#starfield{ position:fixed; inset:0; z-index:-2; display:block; pointer-events:none; }
+
+/* ── Nav — dark glass override for this page ──────── */
+nav{ background:rgba(8,11,24,.72) !important; border-bottom:1px solid rgba(255,255,255,.07); }
+nav.scrolled{ background:rgba(8,11,24,.92) !important; box-shadow:0 2px 22px rgba(0,0,0,.55); }
+.nav-links a{ color:#cdd5e6; }
+.nav-links a:hover{ color:#fff; }
+.nav-links a.active{ color:#9db8ff; }
+#lang-toggle{ color:#dbe2f2; border-color:rgba(255,255,255,.22); }
+#lang-toggle:hover{ background:rgba(255,255,255,.08); }
+.hamburger span{ background:#dbe2f2; }
+.mobile-menu{ background:rgba(8,11,24,.97); border-top:1px solid rgba(255,255,255,.07); }
+.mobile-menu a{ color:#cdd5e6; border-color:rgba(255,255,255,.06); }
+
+/* ── HERO ─────────────────────────────────────────── */
+.tl-hero{
+  min-height:100vh; display:flex; flex-direction:column;
+  align-items:center; justify-content:center; text-align:center;
+  padding:130px 1.5rem 90px; position:relative; overflow:hidden;
+}
+.tl-eyebrow{
+  display:inline-block; font-family:var(--font-head); font-weight:700;
+  font-size:.8rem; letter-spacing:.18em; color:#9db8ff;
+  padding:.4rem 1.1rem; border:1px solid rgba(157,184,255,.3);
+  border-radius:30px; background:rgba(90,140,255,.06); margin-bottom:1.6rem;
+}
+.tl-hero h1{
+  font-family:var(--font-head); font-weight:900;
+  font-size:clamp(3.4rem, 13vw, 7.5rem); line-height:1; margin:0;
+  background:linear-gradient(180deg, #ffffff 0%, #bcd0ff 70%, #7fa0ff 100%);
+  -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
+  filter:drop-shadow(0 0 34px rgba(120,165,255,.45));
+}
+.tl-hero h1 .ar2{ display:block; font-size:.5em; font-weight:800; margin-top:.2em;
+  background:linear-gradient(180deg,#dfe8ff,#9db8ff); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent; }
+.tl-hero .sub{
+  max-width:620px; margin:1.5rem auto 0; color:#aeb9d4;
+  font-size:clamp(.98rem, 2.4vw, 1.18rem); line-height:1.95;
+}
+.scroll-cue{
+  position:absolute; bottom:30px; left:50%; transform:translateX(-50%);
+  color:#7e8bb0; font-size:1.6rem; animation:cue 1.8s ease-in-out infinite;
+}
+@keyframes cue{ 0%,100%{ transform:translate(-50%,0); opacity:.5 } 50%{ transform:translate(-50%,10px); opacity:1 } }
+
+/* ── INTRO ────────────────────────────────────────── */
+.tl-intro{ padding:40px 1.5rem 10px; text-align:center; }
+.tl-intro-title{
+  font-family:var(--font-head); font-weight:800;
+  font-size:clamp(1.7rem,4.5vw,2.6rem); color:#fff; margin:.6rem 0 .7rem;
+}
+.tl-intro-title span{ color:#9db8ff; }
+.tl-intro-sub{ max-width:640px; margin:0 auto; color:#9aa5c0; font-size:1rem; line-height:1.9; }
+
+/* ── TIMELINE (comet spine) ───────────────────────── */
+.timeline{ position:relative; max-width:980px; margin:50px auto 0; padding:20px 0 40px; direction:ltr; }
+.timeline::before{
+  content:''; position:absolute; top:0; bottom:0; left:50%; width:3px;
+  transform:translateX(-50%);
+  background:linear-gradient(180deg, transparent 0%, rgba(125,160,255,.55) 8%, rgba(125,160,255,.55) 92%, transparent 100%);
+  box-shadow:0 0 18px rgba(95,140,255,.55), 0 0 4px rgba(180,205,255,.8);
+}
+.tl-item{
+  position:relative; width:50%; padding:14px 42px; box-sizing:border-box;
+  opacity:0; transition:opacity .7s var(--ease-out, ease), transform .7s var(--ease-out, ease);
+}
+.tl-item:nth-child(odd){ left:0; transform:translateX(-44px); }
+.tl-item:nth-child(even){ left:50%; transform:translateX(44px); }
+.tl-item.in{ opacity:1; transform:translateX(0); }
+
+/* glowing station dot — Druze star palette cycle */
+.tl-dot{
+  position:absolute; top:24px; width:18px; height:18px; border-radius:50%;
+  background:var(--c,#fff); z-index:2;
+  box-shadow:0 0 0 4px rgba(255,255,255,.06), 0 0 16px var(--c,#fff), 0 0 30px var(--c,#fff);
+}
+.tl-item:nth-child(odd) .tl-dot{ right:-9px; }
+.tl-item:nth-child(even) .tl-dot{ left:-9px; }
+.tl-item:nth-child(5n+1){ --c:#2db84d; } /* green  */
+.tl-item:nth-child(5n+2){ --c:#e8344a; } /* red    */
+.tl-item:nth-child(5n+3){ --c:#f5c518; } /* yellow */
+.tl-item:nth-child(5n+4){ --c:#3b82f6; } /* blue   */
+.tl-item:nth-child(5n+5){ --c:#ffffff; } /* white  */
+
+.tl-card{
+  position:relative; overflow:hidden;
+  background:rgba(17,21,40,.66); backdrop-filter:blur(7px); -webkit-backdrop-filter:blur(7px);
+  border:1px solid rgba(255,255,255,.09); border-radius:14px;
+  padding:1.2rem 1.35rem; box-shadow:0 10px 34px rgba(0,0,0,.46);
+}
+.tl-card::before{
+  content:''; position:absolute; top:0; left:0; right:0; height:2px;
+  background:linear-gradient(90deg, transparent, var(--c,#fff), transparent); opacity:.85;
+}
+.tl-item:nth-child(odd) .tl-card{ text-align:right; }
+.tl-item:nth-child(even) .tl-card{ text-align:left; }
+.tl-card[dir]{ } /* placeholder */
+
+.tl-date{
+  display:inline-block; font-family:var(--font-head); font-weight:700;
+  font-size:.82rem; letter-spacing:.02em; color:var(--c,#fff); margin-bottom:.4rem;
+  filter:brightness(1.15);
+}
+.tl-title{ font-family:var(--font-head); font-weight:800; font-size:1.16rem; color:#fff; line-height:1.3; margin-bottom:.5rem; }
+.tl-desc{ font-size:.93rem; line-height:1.85; color:#c2cadb; unicode-bidi:plaintext; }
+
+/* inner stagger reveal */
+.tl-card .tl-date, .tl-card .tl-title, .tl-card .tl-desc{
+  opacity:0; transform:translateY(9px);
+  transition:opacity .55s ease, transform .55s ease;
+}
+.tl-item.in .tl-date{ transition-delay:.10s; }
+.tl-item.in .tl-title{ transition-delay:.20s; }
+.tl-item.in .tl-desc{ transition-delay:.30s; }
+.tl-item.in .tl-date, .tl-item.in .tl-title, .tl-item.in .tl-desc{ opacity:1; transform:none; }
+
+/* ── DRAMATIC ENDING ──────────────────────────────── */
+.tl-end{
+  min-height:78vh; display:flex; flex-direction:column;
+  align-items:center; justify-content:center; text-align:center;
+  padding:100px 1.5rem; position:relative;
+}
+.tl-end-mark{ font-size:2.4rem; margin-bottom:1.2rem; filter:drop-shadow(0 0 14px rgba(255,50,70,.6)); }
+.tl-end h2{
+  font-family:var(--font-head); font-weight:900;
+  font-size:clamp(2rem, 7vw, 4.3rem); line-height:1.18; margin:0;
+  color:#ff2d3f;
+  text-shadow:0 0 20px rgba(255,45,70,.6), 0 0 54px rgba(255,30,60,.42);
+  animation:siege-pulse 2.8s ease-in-out infinite;
+}
+.tl-end h2 .ar2{ display:block; font-size:.62em; margin-top:.25em; color:#ff5563; }
+@keyframes siege-pulse{
+  0%,100%{ text-shadow:0 0 18px rgba(255,45,70,.5), 0 0 44px rgba(255,30,60,.32); opacity:.93; }
+  50%    { text-shadow:0 0 28px rgba(255,70,95,.9), 0 0 74px rgba(255,40,70,.6);  opacity:1; }
+}
+.tl-end .sub{ margin-top:1.4rem; max-width:560px; color:#e3a6ad; font-size:1rem; line-height:1.9; }
+
+/* ── SOURCES ──────────────────────────────────────── */
+.tl-sources{
+  max-width:760px; margin:0 auto; padding:0 1.5rem 80px;
+  text-align:center; color:#8a94ad; font-size:.85rem; line-height:1.95;
+}
+.tl-sources strong{ color:#aeb9d4; font-weight:700; }
+.tl-sources .sep{ display:block; height:1px; max-width:120px; margin:0 auto 1.4rem;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.25),transparent); }
+
+/* ── RESPONSIVE — single side spine on mobile ─────── */
+@media (max-width:720px){
+  .timeline{ margin-top:30px; }
+  .timeline::before{ left:20px; }
+  .tl-item{ width:100%; left:0 !important; padding:12px 0 12px 50px; transform:translateX(28px); }
+  .tl-dot{ left:11px !important; right:auto !important; top:22px; }
+  .tl-item:nth-child(odd) .tl-card,
+  .tl-item:nth-child(even) .tl-card{ text-align:start; }
+}
+
+/* ── Reduced motion ───────────────────────────────── */
+@media (prefers-reduced-motion: reduce){
+  .tl-item, .tl-card .tl-date, .tl-card .tl-title, .tl-card .tl-desc{ transition:none; }
+  .tl-item{ opacity:1; transform:none; }
+  .tl-card .tl-date, .tl-card .tl-title, .tl-card .tl-desc{ opacity:1; transform:none; }
+  .tl-end h2{ animation:none; }
+  .scroll-cue{ animation:none; }
+}
+</style>
+</head>
+<body>
+<a href="#main-content" class="skip-link">تخطى إلى المحتوى الرئيسي</a>
+
+<div id="cosmos"></div>
+<canvas id="starfield" aria-hidden="true"></canvas>
+
+<!-- NAV -->
+<nav role="navigation" aria-label="التنقل الرئيسي">
+  <a href="index.html" class="nav-logo"><img src="logo_druze_spirit.png" alt="Druze Spirit" class="nav-logo-img" loading="eager" decoding="async"><img src="logo_voice_of_druze.png" alt="Voice of Druze" class="nav-logo-img" loading="eager" decoding="async"></a>
+  <ul class="nav-links">
+    <li><a href="index.html" data-ar="الرئيسية" data-en="Home">الرئيسية</a></li>
+    <li><a href="druze-spirit.html">Druze Spirit</a></li>
+    <li><a href="voice-of-druze.html" data-ar="الصوت الدرزي" data-en="Druze Voice">الصوت الدرزي</a></li>
+    <li><a href="activities.html" data-ar="نشاطاتنا" data-en="Our Activities">نشاطاتنا</a></li>
+    <li><a href="follow-us.html" data-ar="تابعونا" data-en="Follow Us">تابعونا</a></li>
+    <li><a href="contact.html" data-ar="تواصل معنا" data-en="Contact Us">تواصل معنا</a></li>
+    <li><a href="sweida-timeline.html" class="active" aria-current="page" data-ar="السويداء — تسلسل الأحداث" data-en="Sweida — Timeline of Events">السويداء — تسلسل الأحداث</a></li>
+    <li><a href="contact.html" class="cta" data-ar="ادعم المبادرات" data-en="Support Our Mission">ادعم المبادرات</a></li>
+  </ul>
+  <div class="nav-right">
+    <button id="lang-toggle" aria-label="Switch language">EN</button>
+    <button class="hamburger" id="ham" aria-label="القائمة" aria-expanded="false" aria-controls="mob"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+<div class="mobile-menu" id="mob" role="navigation" aria-label="القائمة المتنقلة" aria-hidden="true">
+  <a href="index.html" data-ar="الرئيسية" data-en="Home">الرئيسية</a>
+  <a href="druze-spirit.html">Druze Spirit</a>
+  <a href="voice-of-druze.html" data-ar="فريق الصوت الدرزي" data-en="Voice of Druze Team">فريق الصوت الدرزي</a>
+  <a href="activities.html" data-ar="نشاطاتنا" data-en="Our Activities">نشاطاتنا</a>
+  <a href="follow-us.html" data-ar="تابعونا" data-en="Follow Us">تابعونا</a>
+  <a href="contact.html" data-ar="تواصل معنا" data-en="Contact Us">تواصل معنا</a>
+  <a href="sweida-timeline.html" class="active" aria-current="page" data-ar="السويداء — تسلسل الأحداث" data-en="Sweida — Timeline of Events">السويداء — تسلسل الأحداث</a>
+  <a href="contact.html" data-ar="ادعم المبادرات" data-en="Support Our Mission">ادعم المبادرات</a>
+</div>
+
+<main id="main-content" tabindex="-1">
+
+<!-- HERO -->
+<header class="tl-hero">
+  <span class="tl-eyebrow stag" data-ar="تسلسل زمني موثّق" data-en="A Documented Timeline">تسلسل زمني موثّق</span>
+  <h1 class="stag d1"><span data-ar="السويداء" data-en="Sweida">السويداء</span><span class="ar2" data-ar="Sweida" data-en="السويداء">Sweida</span></h1>
+  <p class="sub stag d2" data-ar="رحلة بصرية عبر أحداث السويداء — من نقطة التحوّل إلى الحصار المستمر." data-en="A visual journey through the events in Sweida — from the turning point to the ongoing siege.">رحلة بصرية عبر أحداث السويداء — من نقطة التحوّل إلى الحصار المستمر.</p>
+  <div class="scroll-cue" aria-hidden="true">↓</div>
+</header>
+
+<!-- INTRO -->
+<section class="tl-intro">
+  <div class="container">
+    <h2 class="tl-intro-title stag" data-ar="كيف &lt;span&gt;تطوّرت&lt;/span&gt; الأحداث" data-en="How the Events &lt;span&gt;Unfolded&lt;/span&gt;">كيف <span>تطوّرت</span> الأحداث</h2>
+    <p class="tl-intro-sub stag d1" data-ar="تسلسل عوامل ومحطات أساسية في السويداء، مرتّبة زمنياً ومستندة إلى تقارير حقوقية وأممية." data-en="A chronological sequence of the key moments in Sweida, drawn from human-rights and United Nations reporting.">تسلسل عوامل ومحطات أساسية في السويداء، مرتّبة زمنياً ومستندة إلى تقارير حقوقية وأممية.</p>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<div class="timeline">
+
+  <div class="tl-item">
+    <span class="tl-dot" aria-hidden="true"></span>
+    <div class="tl-card">
+      <span class="tl-date" data-ar="ديسمبر 2024" data-en="December 2024">ديسمبر 2024</span>
+      <p class="tl-desc" data-ar="سقوط نظام الأسد. السويداء، قلب المجتمع الدرزي في جنوب سوريا، تحافظ على استقلالية هشّة." data-en="The fall of the Assad regime. Sweida, the heartland of Syria's Druze community in the south, holds on to a fragile autonomy.">سقوط نظام الأسد. السويداء، قلب المجتمع الدرزي في جنوب سوريا، تحافظ على استقلالية هشّة.</p>
+    </div>
+  </div>
+
+  <div class="tl-item">
+    <span class="tl-dot" aria-hidden="true"></span>
+    <div class="tl-card">
+      <span class="tl-date" data-ar="11 يوليو 2025" data-en="11 July 2025">11 يوليو 2025</span>
+      <p class="tl-desc" data-ar="يُختطف تاجر درزي ويُضرب ويُسلب عند حاجز على طريق دمشق–السويداء، ويتعرّض لإهانات طائفية وتهديدات بالقتل. الشرارة." data-en="A Druze merchant is abducted, beaten and robbed at a checkpoint on the Damascus–Sweida highway, subjected to sectarian insults and death threats. The spark.">يُختطف تاجر درزي ويُضرب ويُسلب عند حاجز على طريق دمشق–السويداء، ويتعرّض لإهانات طائفية وتهديدات بالقتل. الشرارة.</p>
+    </div>
+  </div>
+
+  <div class="tl-item">
+    <span class="tl-dot" aria-hidden="true"></span>
+    <div class="tl-card">
+      <span class="tl-date" data-ar="13 إلى 14 يوليو 2025" data-en="13 to 14 July 2025">13 إلى 14 يوليو 2025</span>
+      <p class="tl-desc" data-ar="تندلع المعارك. وخلال يومين يُقتل نحو 89 شخصاً." data-en="Fighting erupts. Within two days, nearly 89 people are killed.">تندلع المعارك. وخلال يومين يُقتل نحو 89 شخصاً.</p>
+    </div>
+  </div>
+
+  <div class="tl-item">
+    <span class="tl-dot" aria-hidden="true"></span>
+    <div class="tl-card">
+      <span class="tl-date" data-ar="14 إلى 16 يوليو 2025" data-en="14 to 16 July 2025">14 إلى 16 يوليو 2025</span>
+      <p class="tl-desc" data-ar="الموجة الأكثر دموية. تنفّذ القوات الحكومية، يرافقها مقاتلون عشائريون، انتهاكات واسعة بحق المدنيين الدروز — إعدامات وتعذيب واعتقالات تعسّفية ونهب — في غرب السويداء ومدينتها. فُصل رجال عُرّفوا كدروز وأُعدموا، وأُطلق النار على آخرين في الشوارع أو قُتلوا في منازلهم مع عائلاتهم. وثّقت منظمة العفو الدولية مقتل 46 درزياً (44 رجلاً وامرأتين) يومَي 15 إلى 16 يوليو." data-en="The deadliest wave. Government forces, joined by tribal fighters, carry out widespread atrocities against Druze civilians — executions, torture, arbitrary detention and looting — in western Sweida and Sweida city. Men identified as Druze were separated and executed; others were shot in the streets or killed in their homes alongside their families. Amnesty International documented the killing of 46 Druze (44 men and two women) on 15 to 16 July.">الموجة الأكثر دموية. تنفّذ القوات الحكومية، يرافقها مقاتلون عشائريون، انتهاكات واسعة بحق المدنيين الدروز — إعدامات وتعذيب واعتقالات تعسّفية ونهب — في غرب السويداء ومدينتها. فُصل رجال عُرّفوا كدروز وأُعدموا، وأُطلق النار على آخرين في الشوارع أو قُتلوا في منازلهم مع عائلاتهم. وثّقت منظمة العفو الدولية مقتل 46 درزياً (44 رجلاً وامرأتين) يومَي 15 إلى 16 يوليو.</p>
+    </div>
+  </div>
+
+  <div class="tl-item">
+    <span class="tl-dot" aria-hidden="true"></span>
+    <div class="tl-card">
+      <span class="tl-date" data-ar="15 يوليو 2025" data-en="15 July 2025">15 يوليو 2025</span>
+      <p class="tl-desc" data-ar="تنفّذ إسرائيل غارات جوية ضد قوات الحكومة السورية، معلِنةً أنّ ذلك لحماية الدروز." data-en="Israel carries out airstrikes against Syrian government forces, citing the protection of the Druze.">تنفّذ إسرائيل غارات جوية ضد قوات الحكومة السورية، معلِنةً أنّ ذلك لحماية الدروز.</p>
+    </div>
+  </div>
+
+  <div class="tl-item">
+    <span class="tl-dot" aria-hidden="true"></span>
+    <div class="tl-card">
+      <span class="tl-date" data-ar="16 يوليو 2025" data-en="16 July 2025">16 يوليو 2025</span>
+      <p class="tl-desc" data-ar="تنسحب القوات الحكومية ليلاً." data-en="Government forces withdraw overnight.">تنسحب القوات الحكومية ليلاً.</p>
+    </div>
+  </div>
+
+  <div class="tl-item">
+    <span class="tl-dot" aria-hidden="true"></span>
+    <div class="tl-card">
+      <span class="tl-date" data-ar="17 إلى 19 يوليو 2025" data-en="17 to 19 July 2025">17 إلى 19 يوليو 2025</span>
+      <p class="tl-desc" data-ar="يحتشد مقاتلون عشائريون من مختلف أنحاء سوريا ويستهدفون المدنيين الدروز انتقاماً. يُهاجَم كل منزل تقريباً في 35 قرية مختلطة وذات أغلبية درزية، مع حرق ونهب ممنهجين." data-en="Tribal fighters mobilize from across Syria and target Druze civilians in revenge. Almost every home in 35 mixed and Druze-majority villages is attacked, with systematic burning and looting.">يحتشد مقاتلون عشائريون من مختلف أنحاء سوريا ويستهدفون المدنيين الدروز انتقاماً. يُهاجَم كل منزل تقريباً في 35 قرية مختلطة وذات أغلبية درزية، مع حرق ونهب ممنهجين.</p>
+    </div>
+  </div>
+
+  <div class="tl-item">
+    <span class="tl-dot" aria-hidden="true"></span>
+    <div class="tl-card">
+      <span class="tl-date" data-ar="19 يوليو 2025" data-en="19 July 2025">19 يوليو 2025</span>
+      <p class="tl-desc" data-ar="يُعلَن عن وقف هشّ لإطلاق النار." data-en="A fragile ceasefire is announced.">يُعلَن عن وقف هشّ لإطلاق النار.</p>
+    </div>
+  </div>
+
+  <div class="tl-item">
+    <span class="tl-dot" aria-hidden="true"></span>
+    <div class="tl-card">
+      <span class="tl-date" data-ar="أغسطس 2025 وما بعده" data-en="August 2025 onward">أغسطس 2025 وما بعده</span>
+      <p class="tl-desc" data-ar="كارثة إنسانية. يُهجَّر نحو 200,000 شخص، وتتعرّض شبكات الكهرباء ومنشآت المياه والمؤسسات العامة للدمار. ويُفرَض على المحافظة الدرزية حصار خانق." data-en="A humanitarian catastrophe. Nearly 200,000 people are displaced; electricity networks, water facilities and key public institutions are devastated. The Druze province is placed under a suffocating siege.">كارثة إنسانية. يُهجَّر نحو 200,000 شخص، وتتعرّض شبكات الكهرباء ومنشآت المياه والمؤسسات العامة للدمار. ويُفرَض على المحافظة الدرزية حصار خانق.</p>
+    </div>
+  </div>
+
+  <div class="tl-item">
+    <span class="tl-dot" aria-hidden="true"></span>
+    <div class="tl-card">
+      <span class="tl-date" data-ar="نوفمبر 2025" data-en="November 2025">نوفمبر 2025</span>
+      <p class="tl-desc" data-ar="تُفيد الأمم المتحدة بأنّ نحو 105 من النساء والفتيات الدرزيات اختُطفن، وأنّ 560 شخصاً فُقدوا." data-en="The UN reports that around 105 Druze women and girls were abducted, and 560 people went missing.">تُفيد الأمم المتحدة بأنّ نحو 105 من النساء والفتيات الدرزيات اختُطفن، وأنّ 560 شخصاً فُقدوا.</p>
+    </div>
+  </div>
+
+  <div class="tl-item">
+    <span class="tl-dot" aria-hidden="true"></span>
+    <div class="tl-card">
+      <span class="tl-date" data-ar="فبراير 2026" data-en="February 2026">فبراير 2026</span>
+      <p class="tl-desc" data-ar="تجري عمليات تبادل للأسرى، ويُفرَج عن أسرى دروز." data-en="Prisoner exchanges take place; Druze captives are released.">تجري عمليات تبادل للأسرى، ويُفرَج عن أسرى دروز.</p>
+    </div>
+  </div>
+
+  <div class="tl-item">
+    <span class="tl-dot" aria-hidden="true"></span>
+    <div class="tl-card">
+      <span class="tl-date" data-ar="مارس 2026" data-en="March 2026">مارس 2026</span>
+      <p class="tl-desc" data-ar="تُفيد لجنة التحقيق الأممية بمقتل ما لا يقل عن 1,707 أشخاص — غالبيتهم العظمى من المدنيين الدروز — وتهجير نحو 200,000 شخص، بينهم نحو 200 امرأة وطفل. وتخلص إلى انتهاكات قد ترقى إلى جرائم حرب وجرائم ضد الإنسانية، وتؤكّد أنّ السكان الدروز تعرّضوا لعنف طائفي شديد أدّى إلى تهجير جماعي يُتوقّع أن يستمرّ طويلاً." data-en="The UN Commission of Inquiry reports at least 1,707 killed — the vast majority Druze civilians — and nearly 200,000 displaced, with almost 200 women and children among the dead. It finds violations that may amount to war crimes and crimes against humanity, and states that the Druze population was subjected to severe sectarian violence leading to mass displacement expected to persist for a long time.">تُفيد لجنة التحقيق الأممية بمقتل ما لا يقل عن 1,707 أشخاص — غالبيتهم العظمى من المدنيين الدروز — وتهجير نحو 200,000 شخص، بينهم نحو 200 امرأة وطفل. وتخلص إلى انتهاكات قد ترقى إلى جرائم حرب وجرائم ضد الإنسانية، وتؤكّد أنّ السكان الدروز تعرّضوا لعنف طائفي شديد أدّى إلى تهجير جماعي يُتوقّع أن يستمرّ طويلاً.</p>
+    </div>
+  </div>
+
+  <div class="tl-item">
+    <span class="tl-dot" aria-hidden="true"></span>
+    <div class="tl-card">
+      <span class="tl-date" data-ar="اليوم (2026)" data-en="Today (2026)">اليوم (2026)</span>
+      <p class="tl-desc" data-ar="السويداء ما زالت تحت الحصار. لا يزال نقص الغذاء والدواء والخدمات الأساسية مستمراً." data-en="Sweida is still under siege. Shortages of food, medicine and basic services persist.">السويداء ما زالت تحت الحصار. لا يزال نقص الغذاء والدواء والخدمات الأساسية مستمراً.</p>
+    </div>
+  </div>
+
+</div>
+
+<!-- DRAMATIC ENDING -->
+<section class="tl-end">
+  <div class="tl-end-mark" aria-hidden="true">🖤</div>
+  <h2 class="stag">
+    <span data-ar="السويداء ما زالت تحت الحصار" data-en="Sweida is still under siege">السويداء ما زالت تحت الحصار</span>
+    <span class="ar2" data-ar="Sweida is still under siege" data-en="السويداء ما زالت تحت الحصار">Sweida is still under siege</span>
+  </h2>
+  <p class="sub stag d1" data-ar="الأحداث مستمرة، والحاجة إلى الصوت واليد لا تتوقف." data-en="The story is not over, and the need for a voice and a helping hand has not stopped.">الأحداث مستمرة، والحاجة إلى الصوت واليد لا تتوقف.</p>
+</section>
+
+<!-- SOURCES -->
+<div class="tl-sources">
+  <span class="sep" aria-hidden="true"></span>
+  <p data-ar="المصادر: لجنة التحقيق الدولية المستقلة الأممية بشأن سوريا، منظمة العفو الدولية، هيومن رايتس ووتش." data-en="Sources: UN Independent International Commission of Inquiry on Syria, Amnesty International, Human Rights Watch."><strong>المصادر:</strong> لجنة التحقيق الدولية المستقلة الأممية بشأن سوريا، منظمة العفو الدولية، هيومن رايتس ووتش.</p>
+</div>
+
+</main>
+
+<!-- FOOTER -->
+<footer role="contentinfo">
+  <a href="index.html" class="ft-logo"><img src="logo_druze_spirit.png" alt="Druze Spirit" class="ft-logo-img" loading="lazy" decoding="async"><img src="logo_voice_of_druze.png" alt="Voice of Druze" class="ft-logo-img" loading="lazy" decoding="async"></a>
+  <p class="ft-desc" data-ar="صوت إعلامي ويد إنسانية من أجل السويداء وأبناء الطائفة الدرزية في كل مكان." data-en="A media voice and a helping hand for Sweida and Druze communities everywhere.">صوت إعلامي ويد إنسانية من أجل السويداء وأبناء الطائفة الدرزية في كل مكان.</p>
+  <div class="ft-stars" aria-hidden="true"><span style="color:#1B8A3C">★</span><span style="color:#D42B2B">★</span><span style="color:#F5B800">★</span><span style="color:#1B4FA0">★</span><span style="color:#fff">★</span></div>
+  <div class="ft-links">
+    <a href="index.html" data-ar="الرئيسية" data-en="Home">الرئيسية</a>
+    <a href="druze-spirit.html">Druze Spirit</a>
+    <a href="voice-of-druze.html">Voice Of Druze</a>
+    <a href="activities.html" data-ar="نشاطاتنا" data-en="Our Activities">نشاطاتنا</a>
+    <a href="follow-us.html" data-ar="تابعونا" data-en="Follow Us">تابعونا</a>
+    <a href="contact.html" data-ar="تواصل معنا" data-en="Contact Us">تواصل معنا</a>
+    <a href="mailto:druzespiritintl@gmail.com">druzespiritintl@gmail.com</a>
+  </div>
+  <div class="ft-copy" data-ar="© جميع الحقوق محفوظة — Druze Spirit &amp;amp; فريق الصوت الدرزي · Voice Of Druze" data-en="© All rights reserved — Druze Spirit &amp;amp; Voice Of Druze">© جميع الحقوق محفوظة — Druze Spirit &amp; فريق الصوت الدرزي · Voice Of Druze</div>
+</footer>
+
+<script src="shared.js"></script>
+<script>
+/* ── Mobile menu + nav scroll state + .stag reveal (shared with site) ── */
+const ham = document.getElementById('ham'), mob = document.getElementById('mob');
+ham.addEventListener('click', () => {
+  const open = ham.classList.toggle('open');
+  mob.classList.toggle('open', open);
+  ham.setAttribute('aria-expanded', open);
+  mob.setAttribute('aria-hidden', !open);
+});
+document.addEventListener('click', e => { if (!ham.contains(e.target) && !mob.contains(e.target) && e.target.id !== 'lang-toggle') { ham.classList.remove('open'); mob.classList.remove('open'); ham.setAttribute('aria-expanded','false'); mob.setAttribute('aria-hidden','true'); } });
+const navEl = document.querySelector('nav');
+window.addEventListener('scroll', () => { navEl.classList.toggle('scrolled', window.scrollY > 20); }, { passive: true });
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('vis'); io.unobserve(e.target); } });
+}, { threshold: 0.1, rootMargin: '0px 0px -48px 0px' });
+document.querySelectorAll('.stag').forEach(el => io.observe(el));
+
+/* ── Timeline reveal (fade + slide + inner stagger) ── */
+(function(){
+  var items = document.querySelectorAll('.tl-item');
+  if (!('IntersectionObserver' in window)) { items.forEach(function(el){ el.classList.add('in'); }); return; }
+  var tio = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if (e.isIntersecting){ e.target.classList.add('in'); tio.unobserve(e.target); } });
+  }, { threshold: 0.22, rootMargin: '0px 0px -60px 0px' });
+  items.forEach(function(el){ tio.observe(el); });
+})();
+
+/* ── Cosmic starfield (canvas) — twinkle, scroll parallax, gentle shooting stars ── */
+(function(){
+  var c = document.getElementById('starfield');
+  if (!c || !c.getContext) return;
+  var ctx = c.getContext('2d');
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var W, H, DPR, stars = [], shoots = [], scrollY = window.scrollY, t = 0;
+
+  function rand(a,b){ return a + Math.random()*(b-a); }
+  var palette = ['rgba(255,255,255,', 'rgba(184,210,255,', 'rgba(255,242,205,'];
+
+  function build(){
+    DPR = Math.min(window.devicePixelRatio || 1, 2);
+    W = c.width  = Math.floor(window.innerWidth  * DPR);
+    H = c.height = Math.floor(window.innerHeight * DPR);
+    c.style.width  = window.innerWidth  + 'px';
+    c.style.height = window.innerHeight + 'px';
+    var mobile = window.innerWidth < 720;
+    var count = Math.min(mobile ? 80 : 170,
+                Math.round((window.innerWidth * window.innerHeight) / (mobile ? 9500 : 6200)));
+    stars = [];
+    for (var i=0;i<count;i++){
+      stars.push({
+        x: Math.random()*W,
+        y: Math.random()*H*1.8,
+        r: rand(0.4,1.7)*DPR,
+        z: rand(0.15,1),
+        tw: rand(0,Math.PI*2),
+        ts: rand(0.5,2.0),
+        col: palette[Math.floor(Math.random()*palette.length)]
+      });
+    }
+  }
+
+  function spawnShoot(){
+    shoots.push({
+      x: rand(W*0.15, W*0.95), y: rand(0, H*0.32),
+      vx: rand(-6,-3.2)*DPR, vy: rand(2.6,5.2)*DPR,
+      life: 0, max: Math.round(rand(38,64))
+    });
+  }
+
+  function drawStatic(){
+    ctx.clearRect(0,0,W,H);
+    for (var i=0;i<stars.length;i++){
+      var s = stars[i];
+      ctx.beginPath();
+      ctx.fillStyle = s.col + (s.z*0.85).toFixed(3) + ')';
+      ctx.arc(s.x, s.y % H, s.r, 0, Math.PI*2);
+      ctx.fill();
+    }
+  }
+
+  function frame(){
+    t++;
+    ctx.clearRect(0,0,W,H);
+    var sy = scrollY * DPR;
+    for (var i=0;i<stars.length;i++){
+      var s = stars[i];
+      var span = H*1.8;
+      var y = s.y - sy * s.z * 0.22;
+      y = ((y % span) + span) % span;
+      var a = (0.32 + 0.46*Math.sin(t*0.018*s.ts + s.tw)) * s.z + 0.18;
+      if (a < 0) a = 0;
+      ctx.beginPath();
+      ctx.fillStyle = s.col + a.toFixed(3) + ')';
+      ctx.arc(s.x, y, s.r, 0, Math.PI*2);
+      ctx.fill();
+    }
+    for (var j=shoots.length-1;j>=0;j--){
+      var sh = shoots[j]; sh.life++;
+      sh.x += sh.vx; sh.y += sh.vy;
+      var tx = sh.x - sh.vx*9, ty = sh.y - sh.vy*9;
+      var g = ctx.createLinearGradient(sh.x, sh.y, tx, ty);
+      var fade = 1 - sh.life/sh.max;
+      g.addColorStop(0, 'rgba(255,255,255,' + (0.9*fade).toFixed(3) + ')');
+      g.addColorStop(1, 'rgba(255,255,255,0)');
+      ctx.strokeStyle = g; ctx.lineWidth = 1.5*DPR; ctx.lineCap = 'round';
+      ctx.beginPath(); ctx.moveTo(sh.x, sh.y); ctx.lineTo(tx, ty); ctx.stroke();
+      if (sh.life > sh.max) shoots.splice(j,1);
+    }
+    if (Math.random() < 0.004 && shoots.length < 2) spawnShoot();
+    requestAnimationFrame(frame);
+  }
+
+  window.addEventListener('resize', function(){ build(); if (reduce) drawStatic(); });
+  window.addEventListener('scroll', function(){ scrollY = window.scrollY; }, { passive: true });
+
+  build();
+  if (reduce) drawStatic();
+  else requestAnimationFrame(frame);
+})();
+</script>
+
+<button id="accessibility-btn" onclick="document.getElementById('accessibility-menu').style.display = document.getElementById('accessibility-menu').style.display === 'none' ? 'block' : 'none'" aria-label="إعدادات الوصول" style="position:fixed;bottom:20px;left:20px;width:50px;height:50px;border-radius:50%;background:#2d6fa3;color:white;font-size:22px;border:none;cursor:pointer;z-index:9999;box-shadow:0 2px 10px rgba(0,0,0,0.3)">♿</button>
+
+<div id="accessibility-menu" style="display:none;position:fixed;bottom:80px;left:20px;background:white;border:1px solid #ddd;border-radius:10px;padding:15px;z-index:9999;box-shadow:0 2px 20px rgba(0,0,0,0.2);min-width:210px;direction:rtl;font-family:var(--font-body)">
+  <button style="display:block;width:100%;text-align:right;margin-bottom:8px;padding:6px 10px;border:none;background:none;cursor:pointer;font-size:14px;color:#222" onclick="document.documentElement.style.fontSize='120%'">تكبير الخط — A+</button>
+  <button style="display:block;width:100%;text-align:right;margin-bottom:8px;padding:6px 10px;border:none;background:none;cursor:pointer;font-size:14px;color:#222" onclick="document.documentElement.style.fontSize='80%'">تصغير الخط — A-</button>
+  <button style="display:block;width:100%;text-align:right;margin-bottom:8px;padding:6px 10px;border:none;background:none;cursor:pointer;font-size:14px;color:#222" onclick="document.body.style.filter='contrast(2) grayscale(1)'">تباين عالٍ — ◑</button>
+  <button style="display:block;width:100%;text-align:right;margin-bottom:8px;padding:6px 10px;border:none;background:none;cursor:pointer;font-size:14px;color:#222" onclick="(function(){var els=document.querySelectorAll('a');var on=els[0]&&els[0].style.outline;els.forEach(function(a){a.style.outline=on?'':'2px dashed';a.style.textDecoration=on?'':'underline';})})()">إبراز الروابط — 🔗</button>
+  <button style="display:block;width:100%;text-align:right;margin-bottom:8px;padding:6px 10px;border:none;background:none;cursor:pointer;font-size:14px;color:#222" onclick="(function(){var s=document.getElementById('a11y-s');if(s){s.parentNode.removeChild(s);}else{s=document.createElement('style');s.id='a11y-s';s.textContent='*,*::before,*::after{animation-duration:.001ms!important;transition-duration:.001ms!important}';document.head.appendChild(s);}})()">إيقاف الحركة — ⏸</button>
+  <hr style="border:none;border-top:1px solid #eee;margin:8px 0">
+  <button style="display:block;width:100%;text-align:right;padding:6px 10px;border:none;background:none;cursor:pointer;font-size:14px;color:#c0392b" onclick="document.documentElement.style.fontSize='';document.body.style.filter='';document.querySelectorAll('a').forEach(function(a){a.style.outline='';a.style.textDecoration=''});var s=document.getElementById('a11y-s');if(s)s.parentNode.removeChild(s);">إعادة الضبط — ↺</button>
+</div>
+</body>
+</html>
