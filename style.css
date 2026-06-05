@@ -2,7 +2,7 @@
    Cairo (headings) + IBM Plex Sans Arabic (body) */
 
 /* ══════════════════════════════════════════════════
-   DESIGN TOKENS — Light European Humanitarian Theme
+   DESIGN TOKENS, Light European Humanitarian Theme
    ══════════════════════════════════════════════════ */
 :root {
   /* Colors */
@@ -556,7 +556,7 @@ section { padding: 80px 1.5rem; }
 .grid4 { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 1.4rem; }
 
 /* ══════════════════════════════════════════════════
-   CARDS — clean white with subtle shadow
+   CARDS, clean white with subtle shadow
    ══════════════════════════════════════════════════ */
 .card {
   background: #ffffff;
@@ -613,7 +613,7 @@ section { padding: 80px 1.5rem; }
 .arm-desc  { font-size: .93rem; color: var(--muted); line-height: 1.75; }
 
 /* ══════════════════════════════════════════════════
-   DRUZE SPIRIT — FEATURE CARDS
+   DRUZE SPIRIT, FEATURE CARDS
    ══════════════════════════════════════════════════ */
 .ds-dot {
   width: 10px; height: 10px;
@@ -653,7 +653,7 @@ section { padding: 80px 1.5rem; }
 .feat-desc  { font-size: .86rem; color: var(--muted); line-height: 1.7; }
 
 /* ══════════════════════════════════════════════════
-   VOICE OF DRUZE — VOD CARDS
+   VOICE OF DRUZE, VOD CARDS
    ══════════════════════════════════════════════════ */
 .vod-dots { display: flex; gap: 4px; align-items: center; }
 .vd { width: 8px; height: 8px; border-radius: 50%; }
@@ -1064,7 +1064,7 @@ section { padding: 80px 1.5rem; }
 .notice a { font-weight: 700; text-decoration: none; }
 
 /* ══════════════════════════════════════════════════
-   FOOTER — dark for contrast
+   FOOTER, dark for contrast
    ══════════════════════════════════════════════════ */
 footer {
   background: #1a1a1a;
@@ -1296,7 +1296,7 @@ html[dir='ltr'] .fg textarea { direction: ltr; text-align: left; }
 }
 
 /* ══════════════════════════════════════════════════
-   ACCESSIBILITY — WCAG 2.1 AA
+   ACCESSIBILITY, WCAG 2.1 AA
    ══════════════════════════════════════════════════ */
 
 /* Skip to main content */

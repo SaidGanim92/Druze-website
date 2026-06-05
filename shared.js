@@ -96,8 +96,8 @@
     els.forEach(function (el) { obs.observe(el); });
   }
 
-  /* ── ACCESSIBILITY WIDGET (inline HTML version — see each .html file) ── */
-  function initA11yWidget() { /* removed — replaced by inline HTML widget */ return;
+  /* ── ACCESSIBILITY WIDGET (inline HTML version, see each .html file) ── */
+  function initA11yWidget() { /* removed, replaced by inline HTML widget */ return;
     var KEY  = 'a11y-prefs';
     var html = document.documentElement;
 
