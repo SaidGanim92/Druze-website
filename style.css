@@ -163,6 +163,8 @@ nav.scrolled {
   display: block;
   margin: 0 auto 1.2rem;
 }
+/* <picture> wrappers stay transparent so img keeps its original layout/sizing */
+picture { display: contents; }
 .nav-logo {
   display: flex;
   align-items: center;
