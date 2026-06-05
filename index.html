@@ -528,7 +528,7 @@ document.addEventListener('click', e => { if (!ham.contains(e.target) && !mob.co
   function updateCounter(){
     const today = new Date();
     today.setHours(0, 0, 0, 0);
-    const days = Math.floor((today - start) / (1000 * 60 * 60 * 24));
+    const days = Math.floor((today - start) / (1000 * 60 * 60 * 24)) + 1;  // 13 Jul = day 1 (inclusive)
     el.textContent = days;                          // language-neutral; shows in both AR & EN
   }
 
