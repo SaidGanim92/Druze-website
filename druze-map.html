@@ -128,6 +128,34 @@ nav.scrolled{ background:rgba(8,11,24,.92) !important; box-shadow:0 2px 22px rgb
 }
 .map-loading.hide{ display:none; }
 
+/* ── Zoom & tour controls ─────────────────────────── */
+#world-map{ cursor:grab; touch-action:none; }
+#world-map.dragging{ cursor:grabbing; }
+.map-ctrl-btn{
+  display:flex; align-items:center; justify-content:center;
+  background:rgba(10,14,30,.78); border:1px solid rgba(125,165,255,.3);
+  color:#dbe6ff; cursor:pointer; -webkit-backdrop-filter:blur(6px); backdrop-filter:blur(6px);
+  box-shadow:0 6px 20px rgba(0,0,0,.4);
+  transition:background .2s, transform .2s, border-color .2s, opacity .2s;
+}
+.map-ctrl-btn:hover{ background:rgba(45,70,135,.9); border-color:rgba(160,190,255,.65); transform:translateY(-1px); }
+.map-zoom{ position:absolute; inset-inline-end:14px; bottom:16px; display:flex; flex-direction:column; gap:7px; z-index:5; }
+.map-zoom button{ width:38px; height:38px; border-radius:11px; font-size:1.4rem; font-weight:700; line-height:1; }
+.map-play{
+  position:absolute; inset-inline-start:14px; top:14px; z-index:5; gap:.4rem;
+  border-radius:30px; padding:.5rem 1.05rem;
+  font-family:var(--font-head); font-weight:800; font-size:.84rem; letter-spacing:.01em;
+}
+.map-play.playing{ opacity:.5; pointer-events:none; }
+
+/* Intense pulse for the Middle-East dots during the cinematic stop */
+@keyframes druze-pulse-strong{
+  0%,100%{ transform:scale(1);   opacity:.6; }
+  50%    { transform:scale(2.0); opacity:1;  }
+}
+.dot.intense .glow{ animation:druze-pulse-strong 1.1s ease-in-out infinite; }
+.dot.intense .core{ filter:brightness(1.35) drop-shadow(0 0 4px currentColor); }
+
 /* ── STATS BAR ────────────────────────────────────── */
 .map-stats{ padding:18px 1.5rem 64px; text-align:center; }
 .map-stats__bar{
@@ -146,7 +174,7 @@ nav.scrolled{ background:rgba(8,11,24,.92) !important; box-shadow:0 2px 22px rgb
   .map-tooltip{ font-size:.85rem; }
 }
 @media (prefers-reduced-motion: reduce){
-  .dot .glow, .dot .core{ animation:none; }
+  .dot .glow, .dot .core, .dot.intense .glow{ animation:none; }
 }
 </style>
 </head>
@@ -202,6 +230,11 @@ nav.scrolled{ background:rgba(8,11,24,.92) !important; box-shadow:0 2px 22px rgb
     <svg id="world-map" viewBox="0 0 960 500" preserveAspectRatio="xMidYMid meet" role="img" aria-label="خريطة العالم تُظهر تجمعات الدروز · World map showing Druze communities"></svg>
     <div class="map-tooltip" id="map-tooltip" role="status" aria-live="polite"></div>
     <div class="map-loading" id="map-loading" data-ar="جارٍ تحميل الخريطة…" data-en="Loading map…">جارٍ تحميل الخريطة…</div>
+    <button class="map-ctrl-btn map-play" id="map-play" type="button" data-ar="جولة ▶" data-en="Play Tour ▶">جولة ▶</button>
+    <div class="map-zoom" role="group" aria-label="التحكّم بالتكبير · Zoom controls">
+      <button class="map-ctrl-btn" id="map-zoom-in" type="button" aria-label="تكبير · Zoom in">+</button>
+      <button class="map-ctrl-btn" id="map-zoom-out" type="button" aria-label="تصغير · Zoom out">−</button>
+    </div>
   </div>
 </section>
 
@@ -346,26 +379,30 @@ document.querySelectorAll('.stag').forEach(el => io.observe(el));
 
     projection.fitExtent([[10,10],[WIDTH-10, HEIGHT-10]], { type:'Sphere' });
 
+    // Everything that should pan/zoom together lives inside this group
+    var g = svg.append('g').attr('class','map-root');
+
     // Sphere outline + graticule
-    svg.append('path').attr('class','map-sphere').attr('d', path({ type:'Sphere' }));
-    svg.append('path').attr('class','map-graticule').attr('d', path(d3.geoGraticule10()));
+    g.append('path').attr('class','map-sphere').attr('d', path({ type:'Sphere' }));
+    g.append('path').attr('class','map-graticule').attr('d', path(d3.geoGraticule10()));
 
     // Country land
     var countries = topojson.feature(world, world.objects.countries).features;
-    svg.append('g').selectAll('path.map-country')
+    g.append('g').selectAll('path.map-country')
       .data(countries).join('path')
       .attr('class','map-country').attr('d', path);
 
     // Interior borders (thin glowing)
     var borders = topojson.mesh(world, world.objects.countries, function(a,b){ return a !== b; });
-    svg.append('path').attr('class','map-border').attr('d', path(borders));
+    g.append('path').attr('class','map-border').attr('d', path(borders));
 
     // Druze location dots — draw largest first so small ones stay clickable on top
     var data = LOCATIONS.slice().sort(function(a,b){ return b.count - a.count; });
-    var gDots = svg.append('g').attr('class','dots');
+    var gDots = g.append('g').attr('class','dots');
 
     var dots = gDots.selectAll('g.dot').data(data).join('g')
       .attr('class','dot')
+      .classed('me', function(d){ return ['Syria','Lebanon','Israel','Jordan'].indexOf(d.en) !== -1; })
       .attr('transform', function(d){ var p = projection([d.lng, d.lat]); return 'translate(' + p[0] + ',' + p[1] + ')'; })
       .attr('tabindex', 0)
       .attr('role', 'button');
@@ -405,6 +442,86 @@ document.querySelectorAll('.stag').forEach(el => io.observe(el));
         tooltip.style.top  = (p[1] / HEIGHT * rect.height) + 'px';
       })
       .on('blur', hideTip);
+
+    /* ── LAYER 1 · Manual zoom (wheel / pinch / drag) ────────── */
+    var svgNode = svg.node();
+    var zoom = d3.zoom()
+      .scaleExtent([1, 8])
+      .extent([[0, 0], [WIDTH, HEIGHT]])
+      .translateExtent([[0, 0], [WIDTH, HEIGHT]])
+      .on('zoom', function(event){
+        var k = event.transform.k;
+        g.attr('transform', event.transform);
+        // Counter-scale the dots so their glow stays a constant on-screen size
+        // (otherwise they swell to fill the viewport when zoomed in).
+        gDots.selectAll('g.dot').attr('transform', function(d){
+          var p = projection([d.lng, d.lat]);
+          return 'translate(' + p[0] + ',' + p[1] + ') scale(' + (1 / k).toFixed(4) + ')';
+        });
+      })
+      .on('start', function(event){
+        if (event.sourceEvent) cancelTour();      // a real user gesture ends the tour
+        svgNode.classList.add('dragging');
+      })
+      .on('end', function(){ svgNode.classList.remove('dragging'); });
+    svg.call(zoom);
+
+    function worldTransform(){ return d3.zoomIdentity; }
+    function focusTransform(lng, lat, scale){
+      var p = projection([lng, lat]);
+      return d3.zoomIdentity.translate(WIDTH / 2, HEIGHT / 2).scale(scale).translate(-p[0], -p[1]);
+    }
+    function zoomTo(transform, dur){
+      return svg.transition('tour').duration(dur).ease(d3.easeCubicInOut)
+                .call(zoom.transform, transform).end();
+    }
+
+    /* ── LAYER 2 · Cinematic auto-tour ───────────────────────── */
+    var playBtn = document.getElementById('map-play');
+    var tourToken = 0;
+    function wait(ms){ return new Promise(function(res){ setTimeout(res, ms); }); }
+    function cancelTour(){
+      tourToken++;                                 // invalidate any running tour
+      svg.interrupt('tour');
+      if (playBtn) playBtn.classList.remove('playing');
+      g.selectAll('g.dot.me').classed('intense', false);
+    }
+
+    function runTour(){
+      var my = ++tourToken;
+      svg.interrupt('tour');
+      if (playBtn) playBtn.classList.add('playing');
+      function alive(){ if (my !== tourToken) throw 'cancelled'; }
+      Promise.resolve()
+        .then(function(){ return zoomTo(worldTransform(), 1100); })            // full world
+        .then(function(){ alive(); return wait(450); })
+        .then(function(){ alive(); return zoomTo(focusTransform(36, 32.5, 4.2), 2600); }) // → Middle East
+        .then(function(){ alive(); g.selectAll('g.dot.me').classed('intense', true); return wait(1600); })
+        .then(function(){ g.selectAll('g.dot.me').classed('intense', false); alive(); return zoomTo(worldTransform(), 2400); })
+        .then(function(){ alive(); return wait(350); })
+        .then(function(){ alive(); return zoomTo(focusTransform(-66, 8, 3.6), 2600); })   // → Latin America
+        .then(function(){ alive(); return wait(1300); })
+        .then(function(){ alive(); return zoomTo(worldTransform(), 2400); })   // back to full world
+        .then(function(){ if (my === tourToken && playBtn) playBtn.classList.remove('playing'); })
+        .catch(function(){
+          g.selectAll('g.dot.me').classed('intense', false);
+          if (my === tourToken && playBtn) playBtn.classList.remove('playing');
+        });
+    }
+
+    // +/- buttons (cancel any running tour first, then a quick eased zoom)
+    function buttonZoom(factor){
+      cancelTour();
+      svg.transition().duration(380).ease(d3.easeCubicOut).call(zoom.scaleBy, factor);
+    }
+    d3.select('#map-zoom-in').on('click', function(){ buttonZoom(1.6); });
+    d3.select('#map-zoom-out').on('click', function(){ buttonZoom(1 / 1.6); });
+    if (playBtn) playBtn.addEventListener('click', runTour);
+
+    // Auto-play once on load unless the user prefers reduced motion
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+      setTimeout(runTour, 900);
+    }
   }).catch(function(){
     if (loadingEl){ loadingEl.textContent = currentLang() === 'ar' ? 'تعذّر تحميل الخريطة' : 'Could not load the map'; }
   });
