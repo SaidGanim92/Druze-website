@@ -1163,6 +1163,36 @@ footer {
 }
 #back-to-top:active { transform: scale(0.91) !important; }
 
+/* Accessibility button — mirror twin of #back-to-top, pinned bottom-left */
+#accessibility-btn {
+  position: fixed;
+  bottom: 2rem;
+  left: 2rem;
+  z-index: 950;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--ds-blue);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(45,111,163,0.28);
+  transition: transform 300ms var(--ease-out),
+              box-shadow 200ms var(--ease-out);
+  -webkit-tap-highlight-color: transparent;
+}
+#accessibility-btn svg { display: block; }
+@media (hover: hover) and (pointer: fine) {
+  #accessibility-btn:hover {
+    box-shadow: 0 6px 24px rgba(45,111,163,0.4);
+    transform: translateY(-3px) scale(1.07);
+  }
+}
+#accessibility-btn:active { transform: scale(0.91); }
+
 /* ══════════════════════════════════════════════════
    LANGUAGE TOGGLE BUTTON
    ══════════════════════════════════════════════════ */
