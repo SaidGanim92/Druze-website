@@ -22,6 +22,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800;900&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap">
 <link rel="stylesheet" href="style.css">
+<script src="theme.js"></script>
   <!-- SEO & social meta -->
   <meta name="description" content="Druze Spirit &amp; Voice of Druze, Two initiatives, one spirit, one mission. A voice that reaches, a hand that extends.">
   <meta name="author" content="Druze Spirit">
@@ -79,12 +80,12 @@
 <!-- MEMORIAL STRIP -->
 <style>
   /* margin-top clears the 68px position:fixed nav so the strip isn't hidden behind it */
-  .siege-strip{display:flex;align-items:center;gap:1rem;max-width:880px;min-height:64px;margin:calc(68px + 1.1rem) auto 0;padding:.7rem 1.3rem;background:#fff;border:1px solid var(--border);border-right:4px solid #c0392b;border-radius:10px;box-shadow:var(--shadow-sm)}
-  .siege-strip__day{display:inline-flex;align-items:center;gap:.4rem;flex-shrink:0;font-size:1.05rem;font-weight:800;color:#c0392b;line-height:1}
+  .siege-strip{display:flex;align-items:center;gap:1rem;max-width:880px;min-height:64px;margin:calc(68px + 1.1rem) auto 0;padding:.7rem 1.3rem;background:#fff;border:1px solid var(--border);border-inline-start:4px solid var(--star-red);border-radius:10px;box-shadow:var(--shadow-sm)}
+  .siege-strip__day{display:inline-flex;align-items:center;gap:.4rem;flex-shrink:0;font-size:1.05rem;font-weight:800;color:var(--star-red);line-height:1}
   .siege-strip__day .heart{font-size:.95rem}
   .siege-strip__day .label{font-size:.7rem;font-weight:700;letter-spacing:0;color:var(--muted)}
   .siege-strip__text{flex:1;text-align:center;font-size:.92rem;font-weight:800;color:#E60023;direction:rtl;unicode-bidi:plaintext}
-  .siege-strip__tag{flex-shrink:0;font-size:.78rem;font-weight:700;color:#c0392b;direction:ltr;unicode-bidi:plaintext}
+  .siege-strip__tag{flex-shrink:0;font-size:.78rem;font-weight:700;color:var(--star-red);direction:ltr;unicode-bidi:plaintext}
   @media(max-width:560px){
     .siege-strip{flex-wrap:wrap;justify-content:center;gap:.4rem .9rem;margin:calc(68px + .7rem) 1rem 0;min-height:0;padding:.8rem 1rem}
     .siege-strip__text{flex:1 1 100%;order:3;font-size:.85rem}
@@ -187,15 +188,15 @@
     <p class="section-desc stag d2" data-ar="نحن مجموعة من أبناء الطائفة الدرزية، نعمل من منطلق إنساني، أخلاقي ومجتمعي، بهدف دعم أهلنا في السويداء، ورفع صوتهم، وتوثيق معاناتهم، وإيصال رسالتهم إلى العالم." data-en="We are a group of members of the Druze community, working from a humanitarian, ethical, and communal standpoint, aiming to support our people in Sweida, amplify their voice, document their suffering, and deliver their message to the world.">نحن مجموعة من أبناء الطائفة الدرزية، نعمل من منطلق إنساني، أخلاقي ومجتمعي، بهدف دعم أهلنا في السويداء، ورفع صوتهم، وتوثيق معاناتهم، وإيصال رسالتهم إلى العالم.</p>
     <div class="grid2">
       <div class="arm-card blue stag d1">
-        <span class="arm-icon" style="color:var(--ds-blue)">🔵</span>
-        <div class="arm-title" style="color:var(--ds-blue)" data-ar="Druze Spirit, الذراع الإعلامية" data-en="Druze Spirit, Media Arm">Druze Spirit, الذراع الإعلامية</div>
+        <span class="arm-icon" aria-hidden="true">★</span>
+        <div class="arm-title" style="color:var(--star-blue)" data-ar="Druze Spirit, الذراع الإعلامية" data-en="Druze Spirit, Media Arm">Druze Spirit, الذراع الإعلامية</div>
         <div class="arm-sub" data-ar="صوت إلى العالم" data-en="A Voice to the World">صوت إلى العالم</div>
         <p class="arm-desc" data-ar="منصة إعلامية وتوعوية تهدف إلى نقل الحقيقة، رفع الوعي، وإيصال صوت أبناء الطائفة الدرزية إلى العالم بكل شفافية ومهنية." data-en="A media and awareness platform aiming to convey truth, raise awareness, and bring the voice of the Druze community to the world with full transparency and professionalism.">منصة إعلامية وتوعوية تهدف إلى نقل الحقيقة، رفع الوعي، وإيصال صوت أبناء الطائفة الدرزية إلى العالم بكل شفافية ومهنية.</p>
         <a href="druze-spirit.html" class="btn btn-p" style="margin-top:1.2rem;display:inline-block;font-size:.82rem;padding:.5rem 1.2rem" data-ar="اكتشف أكثر ←" data-en="Discover More →">اكتشف أكثر ←</a>
       </div>
       <div class="arm-card green stag d2">
-        <span class="arm-icon" style="color:var(--vod-green)">🟢</span>
-        <div class="arm-title" style="color:var(--vod-green)" data-ar="فريق الصوت الدرزي, الذراع الميدانية" data-en="Voice Of Druze, Field Arm">فريق الصوت الدرزي, الذراع الميدانية</div>
+        <span class="arm-icon" aria-hidden="true">★</span>
+        <div class="arm-title" style="color:var(--star-green)" data-ar="فريق الصوت الدرزي, الذراع الميدانية" data-en="Voice Of Druze, Field Arm">فريق الصوت الدرزي, الذراع الميدانية</div>
         <div class="arm-sub" data-ar="يد على الأرض" data-en="A Hand on the Ground">يد على الأرض</div>
         <p class="arm-desc" data-ar="فريق تطوعي إنساني يعمل على الأرض مباشرة لخدمة أهلنا في السويداء من خلال المساعدات الإنسانية والأنشطة المجتمعية." data-en="A volunteer humanitarian team working directly on the ground to serve our people in Sweida through humanitarian aid and community activities.">فريق تطوعي إنساني يعمل على الأرض مباشرة لخدمة أهلنا في السويداء من خلال المساعدات الإنسانية والأنشطة المجتمعية.</p>
         <a href="voice-of-druze.html" class="btn btn-g" style="margin-top:1.2rem;display:inline-block;font-size:.82rem;padding:.5rem 1.2rem" data-ar="اكتشف أكثر ←" data-en="Discover More →">اكتشف أكثر ←</a>
@@ -383,80 +384,6 @@
 /* Keep the wide text blocks readable even though hero-content is now wider. */
 .hero-sub, .hero-btns, .tagline { max-width: 700px; margin-left: auto; margin-right: auto; }
 
-/* Two initiative cards: equal-height image cards with a gradient overlay. */
-.hero-cards {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: clamp(1rem, 2.4vw, 1.5rem);
-  margin-top: 1.5rem;
-}
-.init-card {
-  position: relative;
-  display: block;
-  aspect-ratio: 16 / 10;          /* identical proportions + height for both */
-  border-radius: 18px;
-  overflow: hidden;               /* clip the hover zoom */
-  text-decoration: none;
-  box-shadow: 0 10px 30px rgba(0,0,0,.16), 0 2px 6px rgba(0,0,0,.08);
-  transition: transform .4s cubic-bezier(.22,.61,.36,1), box-shadow .4s ease;
-  z-index: 4;
-}
-.init-card img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-  transition: transform .45s cubic-bezier(.22,.61,.36,1);
-}
-.init-card__overlay {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: flex-start;
-  text-align: start;
-  gap: .35rem;
-  padding: clamp(.9rem, 2.2vw, 1.3rem);
-  background: linear-gradient(to top, rgba(10,16,38,.82) 0%, rgba(10,16,38,.42) 40%, rgba(10,16,38,0) 72%);
-}
-.init-card__title {
-  margin: 0;
-  color: #fff;
-  font-family: var(--font-head);
-  font-weight: 800;
-  font-size: clamp(.95rem, 1.9vw, 1.18rem);
-  line-height: 1.3;
-  text-shadow: 0 1px 6px rgba(0,0,0,.45);
-}
-.init-card__cta {
-  display: inline-flex;
-  align-items: center;
-  color: #fff;
-  font-family: var(--font-body);
-  font-weight: 700;
-  font-size: .82rem;
-  opacity: .92;
-  text-shadow: 0 1px 5px rgba(0,0,0,.4);
-  transition: opacity .25s ease;
-}
-.init-card:hover, .init-card:focus-visible {
-  transform: translateY(-6px);
-  box-shadow: 0 18px 44px rgba(27,79,160,.28), 0 4px 12px rgba(0,0,0,.14);
-}
-.init-card:hover img, .init-card:focus-visible img { transform: scale(1.05); }
-.init-card:hover .init-card__cta, .init-card:focus-visible .init-card__cta { opacity: 1; }
-
-@media (max-width: 700px) {
-  .hero-cards { grid-template-columns: 1fr; }   /* stack one below the other */
-}
-@media (prefers-reduced-motion: reduce) {
-  .init-card, .init-card img { transition: none; }
-  .init-card:hover img, .init-card:focus-visible img { transform: none; }
-}
-
 .gallery-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -517,7 +444,7 @@ ham.addEventListener('click', () => {
   ham.setAttribute('aria-expanded', open);
   mob.setAttribute('aria-hidden', !open);
 });
-document.addEventListener('click', e => { if (!ham.contains(e.target) && !mob.contains(e.target) && e.target.id !== 'lang-toggle') { ham.classList.remove('open'); mob.classList.remove('open'); ham.setAttribute('aria-expanded','false'); mob.setAttribute('aria-hidden','true'); } });
+document.addEventListener('click', e => { if (!ham.contains(e.target) && !mob.contains(e.target) && e.target.id !== 'lang-toggle' && e.target.id !== 'theme-toggle' && !e.target.closest('#theme-toggle')) { ham.classList.remove('open'); mob.classList.remove('open'); ham.setAttribute('aria-expanded','false'); mob.setAttribute('aria-hidden','true'); } });
 
 // Siege day counter, computed from 13 Jul 2025, auto-updates at midnight
 (function(){

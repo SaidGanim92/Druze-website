@@ -22,6 +22,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;700;800;900&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap">
 <link rel="stylesheet" href="style.css">
+<script src="theme.js"></script>
 <style>
 .page-hero.vod-hero { background: var(--bg3); }
 .page-hero.vod-hero .bg-glow { background: radial-gradient(ellipse 70% 60% at 50% 0%, rgba(27,138,60,.12) 0, transparent 70%); }
@@ -219,7 +220,7 @@ ham.addEventListener('click', () => {
   ham.setAttribute('aria-expanded', open);
   mob.setAttribute('aria-hidden', !open);
 });
-document.addEventListener('click', e => { if (!ham.contains(e.target) && !mob.contains(e.target) && e.target.id !== 'lang-toggle') { ham.classList.remove('open'); mob.classList.remove('open'); ham.setAttribute('aria-expanded','false'); mob.setAttribute('aria-hidden','true'); } });
+document.addEventListener('click', e => { if (!ham.contains(e.target) && !mob.contains(e.target) && e.target.id !== 'lang-toggle' && e.target.id !== 'theme-toggle' && !e.target.closest('#theme-toggle')) { ham.classList.remove('open'); mob.classList.remove('open'); ham.setAttribute('aria-expanded','false'); mob.setAttribute('aria-hidden','true'); } });
 const navEl = document.querySelector('nav');
 window.addEventListener('scroll', () => { navEl.classList.toggle('scrolled', window.scrollY > 20); }, { passive: true });
 const io = new IntersectionObserver(entries => {
